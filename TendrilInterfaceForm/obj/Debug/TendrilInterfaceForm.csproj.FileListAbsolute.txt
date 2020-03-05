@@ -1,0 +1,77 @@
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.TendrilInterface.resources
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.Properties.Resources.resources
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.GenerateResource.Cache
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.pdb
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojResolveAssemblyReference.cache
+C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CoreCompileInputs.cache
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.pdb
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\OpenGL.dll
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.FreeGlut.dll
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tulpep.NotificationWindow.dll
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojResolveAssemblyReference.cache
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.TendrilInterface.resources
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.Properties.Resources.resources
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.GenerateResource.Cache
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.dll
+D:\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.xml
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.pdb
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.dll
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\OpenGL.dll
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.FreeGlut.dll
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tulpep.NotificationWindow.dll
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.xml
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojResolveAssemblyReference.cache
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.TendrilInterface.resources
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.Properties.Resources.resources
+G:\My Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.GenerateResource.Cache
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.pdb
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.dll
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.xml
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.TendrilInterface.resources
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.Properties.Resources.resources
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.GenerateResource.Cache
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
+C:\Users\Michael\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojResolveAssemblyReference.cache
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.pdb
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.dll
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\OpenGL.dll
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.FreeGlut.dll
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.xml
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.TendrilInterface.resources
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.Properties.Resources.resources
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.GenerateResource.Cache
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\OpenGL.dll.config
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.FreeGlut.dll.config
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll.config
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojAssemblyReference.cache
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CoreCompileInputs.cache
+C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CopyComplete
+G:\My Drive\SchoolFiles\Research\Tendril\Software\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
+G:\My Drive\SchoolFiles\Research\Tendril\Software\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
+G:\My Drive\SchoolFiles\Research\Tendril\Software\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
