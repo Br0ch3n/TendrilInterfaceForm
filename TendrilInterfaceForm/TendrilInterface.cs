@@ -35,6 +35,7 @@ namespace TendrilInterfaceForm
         private OpenGLSim glSimDisplay;
         private KalmanFilter[] KFTensions;
         private System.Timers.Timer time;
+        private Color prevColor;
 
         public TendrilInterface()
         {
@@ -60,7 +61,6 @@ namespace TendrilInterfaceForm
             KFTensions = new KalmanFilter[9];
             encValues = new float[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             time = new System.Timers.Timer();
-
             time.Interval = 10000;
             time.Elapsed += OnTimeElapsed;
             flgTimer = false;
@@ -224,9 +224,22 @@ namespace TendrilInterfaceForm
 
         private void manualControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Width = Width + pnlMnlControl.Width;
-            pnlMnlControl.Enabled = true;
-            pnlMnlControl.Visible = true;
+            if (!pnlMnlControl.Enabled)
+            {
+                prevColor = manualControlToolStripMenuItem.BackColor;
+                manualControlToolStripMenuItem.BackColor = Color.Moccasin;
+                Width = Width + pnlMnlControl.Width;
+                pnlMnlControl.Enabled = true;
+                pnlMnlControl.Visible = true;
+            } else
+            {
+                manualControlToolStripMenuItem.BackColor = prevColor;
+                manualControlToolStripMenuItem.Checked = false;
+                Width = Width - pnlMnlControl.Width;
+                pnlMnlControl.Enabled = false;
+                pnlMnlControl.Visible = false;
+            }
+                
         }
 
 
@@ -322,6 +335,7 @@ namespace TendrilInterfaceForm
             }
             catch(Exception e)
             {
+                Console.WriteLine("Exception thrown: (StackTrace)");
                 Console.WriteLine(e.StackTrace);
                 return false;
             }
@@ -364,6 +378,7 @@ namespace TendrilInterfaceForm
             cntsSim = simCurrTxLabel.Text.Split(',');
 
             TendrilUtils.SetProgressBars(this, tensFeedback);
+            TendrilUtils.SetValueLabels(this, tensFeedback);
             if (!(evenOut == ""))
             {
                 evenOutput = TendrilUtils.EvenOutSection(evenOut, cntsFeedback, tensFeedback, btSerialPort);

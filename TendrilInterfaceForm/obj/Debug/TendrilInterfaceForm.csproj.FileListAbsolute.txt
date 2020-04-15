@@ -75,3 +75,20 @@ C:\Users\mbwoo\Desktop\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\Tendr
 G:\My Drive\SchoolFiles\Research\Tendril\Software\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
 G:\My Drive\SchoolFiles\Research\Tendril\Software\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
 G:\My Drive\SchoolFiles\Research\Tendril\Software\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe.config
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.exe
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\TendrilInterfaceForm.pdb
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.dll
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.xml
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\OpenGL.dll.config
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\Tao.FreeGlut.dll.config
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll.config
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojAssemblyReference.cache
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.TendrilInterface.resources
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.Properties.Resources.resources
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.GenerateResource.cache
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CopyComplete
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb

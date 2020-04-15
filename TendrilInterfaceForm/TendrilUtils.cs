@@ -34,7 +34,14 @@ namespace TendrilInterfaceForm
 
         public static String GetTimesstamp(this DateTime value)
         {
-            return value.ToString("HH:mm:ss:fff yyyy.MM.dd");
+            return value.ToString("yyyy:MM:dd:HH:mm:ss:fff");
+        }
+
+        public static void SetValueLabels(TendrilInterface t, String[] s)
+        {
+            t.labValueMotor0.Text = s[0]; t.labValueMotor1.Text = s[1]; t.labValueMotor2.Text = s[2];
+            t.labValueMotor3.Text = s[3]; t.labValueMotor4.Text = s[4]; t.labValueMotor5.Text = s[5];
+            t.labValueMotor6.Text = s[6]; t.labValueMotor7.Text = s[7]; t.labValueMotor8.Text = s[8];
         }
 
        
@@ -104,7 +111,7 @@ namespace TendrilInterfaceForm
             }
             else
             {
-                System.Console.WriteLine("Something is wrong with section choice.");
+                System.Console.WriteLine("Error with section choice.");
             }
             serialPort.WriteLine("Read," + cnts);
             return cnts;

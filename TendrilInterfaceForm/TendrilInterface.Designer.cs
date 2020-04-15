@@ -106,6 +106,15 @@
             this.btnCSVWriterEnd = new System.Windows.Forms.Button();
             this.btnCSVWriterBegin = new System.Windows.Forms.Button();
             this.lblCSVWriter = new System.Windows.Forms.Label();
+            this.labValueMotor0 = new System.Windows.Forms.Label();
+            this.labValueMotor1 = new System.Windows.Forms.Label();
+            this.labValueMotor2 = new System.Windows.Forms.Label();
+            this.labValueMotor3 = new System.Windows.Forms.Label();
+            this.labValueMotor4 = new System.Windows.Forms.Label();
+            this.labValueMotor5 = new System.Windows.Forms.Label();
+            this.labValueMotor6 = new System.Windows.Forms.Label();
+            this.labValueMotor7 = new System.Windows.Forms.Label();
+            this.labValueMotor8 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -114,7 +123,7 @@
             // btnConnect
             // 
             this.btnConnect.Location = new System.Drawing.Point(342, 24);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 0;
@@ -145,7 +154,7 @@
             // tbComPort
             // 
             this.tbComPort.Location = new System.Drawing.Point(179, 24);
-            this.tbComPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbComPort.Margin = new System.Windows.Forms.Padding(2);
             this.tbComPort.Name = "tbComPort";
             this.tbComPort.Size = new System.Drawing.Size(76, 20);
             this.tbComPort.TabIndex = 3;
@@ -191,6 +200,7 @@
             // 
             // manualControlToolStripMenuItem
             // 
+            this.manualControlToolStripMenuItem.CheckOnClick = true;
             this.manualControlToolStripMenuItem.Name = "manualControlToolStripMenuItem";
             this.manualControlToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
             this.manualControlToolStripMenuItem.Text = "Manual Control";
@@ -347,7 +357,7 @@
             // 
             this.btnRun.Enabled = false;
             this.btnRun.Location = new System.Drawing.Point(249, 297);
-            this.btnRun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRun.Margin = new System.Windows.Forms.Padding(2);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(74, 23);
             this.btnRun.TabIndex = 16;
@@ -359,7 +369,7 @@
             // 
             this.btnPause.Enabled = false;
             this.btnPause.Location = new System.Drawing.Point(328, 297);
-            this.btnPause.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(2);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(71, 23);
             this.btnPause.TabIndex = 17;
@@ -371,7 +381,7 @@
             // 
             this.btnPrev.Enabled = false;
             this.btnPrev.Location = new System.Drawing.Point(14, 297);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(69, 23);
             this.btnPrev.TabIndex = 18;
@@ -383,7 +393,7 @@
             // 
             this.btnReset.Enabled = false;
             this.btnReset.Location = new System.Drawing.Point(404, 297);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(73, 23);
             this.btnReset.TabIndex = 19;
@@ -393,33 +403,33 @@
             // 
             // tenProgressBar7
             // 
-            this.tenProgressBar7.Location = new System.Drawing.Point(175, 215);
-            this.tenProgressBar7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar7.Location = new System.Drawing.Point(179, 214);
+            this.tenProgressBar7.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar7.Maximum = 2000;
             this.tenProgressBar7.Name = "tenProgressBar7";
-            this.tenProgressBar7.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar7.Size = new System.Drawing.Size(160, 19);
             this.tenProgressBar7.Step = 1;
             this.tenProgressBar7.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar7.TabIndex = 20;
             // 
             // tenProgressBar1
             // 
-            this.tenProgressBar1.Location = new System.Drawing.Point(175, 141);
-            this.tenProgressBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar1.Location = new System.Drawing.Point(179, 141);
+            this.tenProgressBar1.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar1.Maximum = 10000;
             this.tenProgressBar1.Name = "tenProgressBar1";
-            this.tenProgressBar1.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar1.Size = new System.Drawing.Size(160, 19);
             this.tenProgressBar1.Step = 1;
             this.tenProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar1.TabIndex = 21;
             // 
             // tenProgressBar2
             // 
-            this.tenProgressBar2.Location = new System.Drawing.Point(328, 141);
-            this.tenProgressBar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar2.Location = new System.Drawing.Point(347, 140);
+            this.tenProgressBar2.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar2.Maximum = 10000;
             this.tenProgressBar2.Name = "tenProgressBar2";
-            this.tenProgressBar2.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar2.Size = new System.Drawing.Size(150, 19);
             this.tenProgressBar2.Step = 1;
             this.tenProgressBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar2.TabIndex = 22;
@@ -427,32 +437,32 @@
             // tenProgressBar3
             // 
             this.tenProgressBar3.Location = new System.Drawing.Point(14, 178);
-            this.tenProgressBar3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar3.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar3.Maximum = 10000;
             this.tenProgressBar3.Name = "tenProgressBar3";
-            this.tenProgressBar3.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar3.Size = new System.Drawing.Size(157, 19);
             this.tenProgressBar3.Step = 1;
             this.tenProgressBar3.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar3.TabIndex = 23;
             // 
             // tenProgressBar4
             // 
-            this.tenProgressBar4.Location = new System.Drawing.Point(175, 178);
-            this.tenProgressBar4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar4.Location = new System.Drawing.Point(179, 177);
+            this.tenProgressBar4.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar4.Maximum = 10000;
             this.tenProgressBar4.Name = "tenProgressBar4";
-            this.tenProgressBar4.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar4.Size = new System.Drawing.Size(160, 19);
             this.tenProgressBar4.Step = 1;
             this.tenProgressBar4.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar4.TabIndex = 24;
             // 
             // tenProgressBar5
             // 
-            this.tenProgressBar5.Location = new System.Drawing.Point(328, 178);
-            this.tenProgressBar5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar5.Location = new System.Drawing.Point(347, 177);
+            this.tenProgressBar5.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar5.Maximum = 10000;
             this.tenProgressBar5.Name = "tenProgressBar5";
-            this.tenProgressBar5.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar5.Size = new System.Drawing.Size(150, 19);
             this.tenProgressBar5.Step = 1;
             this.tenProgressBar5.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar5.TabIndex = 25;
@@ -460,10 +470,10 @@
             // tenProgressBar6
             // 
             this.tenProgressBar6.Location = new System.Drawing.Point(14, 215);
-            this.tenProgressBar6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar6.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar6.Maximum = 2000;
             this.tenProgressBar6.Name = "tenProgressBar6";
-            this.tenProgressBar6.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar6.Size = new System.Drawing.Size(157, 19);
             this.tenProgressBar6.Step = 1;
             this.tenProgressBar6.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar6.TabIndex = 26;
@@ -471,21 +481,21 @@
             // tenProgressBar0
             // 
             this.tenProgressBar0.Location = new System.Drawing.Point(14, 141);
-            this.tenProgressBar0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar0.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar0.Maximum = 10000;
             this.tenProgressBar0.Name = "tenProgressBar0";
-            this.tenProgressBar0.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar0.Size = new System.Drawing.Size(157, 19);
             this.tenProgressBar0.Step = 1;
             this.tenProgressBar0.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar0.TabIndex = 27;
             // 
             // tenProgressBar8
             // 
-            this.tenProgressBar8.Location = new System.Drawing.Point(328, 215);
-            this.tenProgressBar8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tenProgressBar8.Location = new System.Drawing.Point(347, 214);
+            this.tenProgressBar8.Margin = new System.Windows.Forms.Padding(2);
             this.tenProgressBar8.Maximum = 2000;
             this.tenProgressBar8.Name = "tenProgressBar8";
-            this.tenProgressBar8.Size = new System.Drawing.Size(130, 19);
+            this.tenProgressBar8.Size = new System.Drawing.Size(150, 19);
             this.tenProgressBar8.Step = 1;
             this.tenProgressBar8.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.tenProgressBar8.TabIndex = 28;
@@ -493,7 +503,7 @@
             // labTenMot0
             // 
             this.labTenMot0.AutoSize = true;
-            this.labTenMot0.Location = new System.Drawing.Point(38, 124);
+            this.labTenMot0.Location = new System.Drawing.Point(11, 124);
             this.labTenMot0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot0.Name = "labTenMot0";
             this.labTenMot0.Size = new System.Drawing.Size(87, 13);
@@ -503,7 +513,7 @@
             // labTenMot3
             // 
             this.labTenMot3.AutoSize = true;
-            this.labTenMot3.Location = new System.Drawing.Point(38, 162);
+            this.labTenMot3.Location = new System.Drawing.Point(11, 163);
             this.labTenMot3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot3.Name = "labTenMot3";
             this.labTenMot3.Size = new System.Drawing.Size(84, 13);
@@ -513,7 +523,7 @@
             // labTenMot4
             // 
             this.labTenMot4.AutoSize = true;
-            this.labTenMot4.Location = new System.Drawing.Point(199, 162);
+            this.labTenMot4.Location = new System.Drawing.Point(176, 163);
             this.labTenMot4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot4.Name = "labTenMot4";
             this.labTenMot4.Size = new System.Drawing.Size(87, 13);
@@ -523,7 +533,7 @@
             // labTenMot1
             // 
             this.labTenMot1.AutoSize = true;
-            this.labTenMot1.Location = new System.Drawing.Point(199, 124);
+            this.labTenMot1.Location = new System.Drawing.Point(176, 124);
             this.labTenMot1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot1.Name = "labTenMot1";
             this.labTenMot1.Size = new System.Drawing.Size(87, 13);
@@ -533,7 +543,7 @@
             // labTenMot2
             // 
             this.labTenMot2.AutoSize = true;
-            this.labTenMot2.Location = new System.Drawing.Point(352, 124);
+            this.labTenMot2.Location = new System.Drawing.Point(344, 124);
             this.labTenMot2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot2.Name = "labTenMot2";
             this.labTenMot2.Size = new System.Drawing.Size(87, 13);
@@ -543,7 +553,7 @@
             // labTenMot5
             // 
             this.labTenMot5.AutoSize = true;
-            this.labTenMot5.Location = new System.Drawing.Point(352, 162);
+            this.labTenMot5.Location = new System.Drawing.Point(344, 161);
             this.labTenMot5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot5.Name = "labTenMot5";
             this.labTenMot5.Size = new System.Drawing.Size(87, 13);
@@ -553,7 +563,7 @@
             // labTenMot6
             // 
             this.labTenMot6.AutoSize = true;
-            this.labTenMot6.Location = new System.Drawing.Point(38, 199);
+            this.labTenMot6.Location = new System.Drawing.Point(11, 199);
             this.labTenMot6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot6.Name = "labTenMot6";
             this.labTenMot6.Size = new System.Drawing.Size(87, 13);
@@ -563,7 +573,7 @@
             // labTenMot7
             // 
             this.labTenMot7.AutoSize = true;
-            this.labTenMot7.Location = new System.Drawing.Point(199, 199);
+            this.labTenMot7.Location = new System.Drawing.Point(176, 199);
             this.labTenMot7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot7.Name = "labTenMot7";
             this.labTenMot7.Size = new System.Drawing.Size(87, 13);
@@ -573,7 +583,7 @@
             // labTenMot8
             // 
             this.labTenMot8.AutoSize = true;
-            this.labTenMot8.Location = new System.Drawing.Point(352, 199);
+            this.labTenMot8.Location = new System.Drawing.Point(344, 199);
             this.labTenMot8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTenMot8.Name = "labTenMot8";
             this.labTenMot8.Size = new System.Drawing.Size(87, 13);
@@ -606,7 +616,7 @@
             this.pnlMnlControl.Controls.Add(this.lblMnl);
             this.pnlMnlControl.Controls.Add(this.tbMnlMot0);
             this.pnlMnlControl.Location = new System.Drawing.Point(520, 35);
-            this.pnlMnlControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlMnlControl.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMnlControl.Name = "pnlMnlControl";
             this.pnlMnlControl.Size = new System.Drawing.Size(284, 286);
             this.pnlMnlControl.TabIndex = 38;
@@ -614,7 +624,7 @@
             // btnMnlClose
             // 
             this.btnMnlClose.Location = new System.Drawing.Point(194, 246);
-            this.btnMnlClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMnlClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnMnlClose.Name = "btnMnlClose";
             this.btnMnlClose.Size = new System.Drawing.Size(57, 27);
             this.btnMnlClose.TabIndex = 43;
@@ -625,7 +635,7 @@
             // btMnlSend
             // 
             this.btMnlSend.Location = new System.Drawing.Point(125, 246);
-            this.btMnlSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btMnlSend.Margin = new System.Windows.Forms.Padding(2);
             this.btMnlSend.Name = "btMnlSend";
             this.btMnlSend.Size = new System.Drawing.Size(54, 27);
             this.btMnlSend.TabIndex = 42;
@@ -640,7 +650,7 @@
             "Encoder Counts",
             "Tension Values"});
             this.ddmMnlCntrlSelect.Location = new System.Drawing.Point(104, 7);
-            this.ddmMnlCntrlSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ddmMnlCntrlSelect.Margin = new System.Windows.Forms.Padding(2);
             this.ddmMnlCntrlSelect.Name = "ddmMnlCntrlSelect";
             this.ddmMnlCntrlSelect.Size = new System.Drawing.Size(114, 21);
             this.ddmMnlCntrlSelect.TabIndex = 41;
@@ -649,7 +659,7 @@
             // tbMnlMot8
             // 
             this.tbMnlMot8.Location = new System.Drawing.Point(184, 208);
-            this.tbMnlMot8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot8.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot8.Name = "tbMnlMot8";
             this.tbMnlMot8.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot8.TabIndex = 18;
@@ -657,7 +667,7 @@
             // tbMnlMot7
             // 
             this.tbMnlMot7.Location = new System.Drawing.Point(104, 208);
-            this.tbMnlMot7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot7.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot7.Name = "tbMnlMot7";
             this.tbMnlMot7.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot7.TabIndex = 17;
@@ -665,7 +675,7 @@
             // tbMnlMot6
             // 
             this.tbMnlMot6.Location = new System.Drawing.Point(25, 208);
-            this.tbMnlMot6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot6.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot6.Name = "tbMnlMot6";
             this.tbMnlMot6.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot6.TabIndex = 16;
@@ -673,7 +683,7 @@
             // tbMnlMot5
             // 
             this.tbMnlMot5.Location = new System.Drawing.Point(184, 142);
-            this.tbMnlMot5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot5.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot5.Name = "tbMnlMot5";
             this.tbMnlMot5.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot5.TabIndex = 15;
@@ -681,7 +691,7 @@
             // tbMnlMot4
             // 
             this.tbMnlMot4.Location = new System.Drawing.Point(104, 142);
-            this.tbMnlMot4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot4.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot4.Name = "tbMnlMot4";
             this.tbMnlMot4.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot4.TabIndex = 14;
@@ -689,7 +699,7 @@
             // tbMnlMot3
             // 
             this.tbMnlMot3.Location = new System.Drawing.Point(25, 142);
-            this.tbMnlMot3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot3.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot3.Name = "tbMnlMot3";
             this.tbMnlMot3.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot3.TabIndex = 13;
@@ -697,7 +707,7 @@
             // tbMnlMot2
             // 
             this.tbMnlMot2.Location = new System.Drawing.Point(184, 72);
-            this.tbMnlMot2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot2.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot2.Name = "tbMnlMot2";
             this.tbMnlMot2.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot2.TabIndex = 12;
@@ -705,7 +715,7 @@
             // tbMnlMot1
             // 
             this.tbMnlMot1.Location = new System.Drawing.Point(104, 72);
-            this.tbMnlMot1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot1.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot1.Name = "tbMnlMot1";
             this.tbMnlMot1.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot1.TabIndex = 11;
@@ -813,7 +823,7 @@
             // tbMnlMot0
             // 
             this.tbMnlMot0.Location = new System.Drawing.Point(25, 72);
-            this.tbMnlMot0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMnlMot0.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot0.Name = "tbMnlMot0";
             this.tbMnlMot0.Size = new System.Drawing.Size(76, 20);
             this.tbMnlMot0.TabIndex = 0;
@@ -824,8 +834,8 @@
             this.ddmSectionSelect.Items.AddRange(new object[] {
             "Tip Section",
             "Middle Section"});
-            this.ddmSectionSelect.Location = new System.Drawing.Point(329, 60);
-            this.ddmSectionSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ddmSectionSelect.Location = new System.Drawing.Point(347, 60);
+            this.ddmSectionSelect.Margin = new System.Windows.Forms.Padding(2);
             this.ddmSectionSelect.Name = "ddmSectionSelect";
             this.ddmSectionSelect.Size = new System.Drawing.Size(92, 21);
             this.ddmSectionSelect.TabIndex = 1;
@@ -833,8 +843,8 @@
             // 
             // btnEvenTension
             // 
-            this.btnEvenTension.Location = new System.Drawing.Point(328, 85);
-            this.btnEvenTension.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEvenTension.Location = new System.Drawing.Point(347, 85);
+            this.btnEvenTension.Margin = new System.Windows.Forms.Padding(2);
             this.btnEvenTension.Name = "btnEvenTension";
             this.btnEvenTension.Size = new System.Drawing.Size(92, 28);
             this.btnEvenTension.TabIndex = 39;
@@ -844,10 +854,10 @@
             // 
             // btnStopEven
             // 
-            this.btnStopEven.Location = new System.Drawing.Point(424, 85);
-            this.btnStopEven.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStopEven.Location = new System.Drawing.Point(443, 85);
+            this.btnStopEven.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopEven.Name = "btnStopEven";
-            this.btnStopEven.Size = new System.Drawing.Size(73, 28);
+            this.btnStopEven.Size = new System.Drawing.Size(38, 28);
             this.btnStopEven.TabIndex = 40;
             this.btnStopEven.Text = "Stop";
             this.btnStopEven.UseVisualStyleBackColor = true;
@@ -859,7 +869,7 @@
             this.pnlCSVWriter.Controls.Add(this.btnCSVWriterBegin);
             this.pnlCSVWriter.Controls.Add(this.lblCSVWriter);
             this.pnlCSVWriter.Location = new System.Drawing.Point(14, 338);
-            this.pnlCSVWriter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCSVWriter.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCSVWriter.Name = "pnlCSVWriter";
             this.pnlCSVWriter.Size = new System.Drawing.Size(463, 46);
             this.pnlCSVWriter.TabIndex = 41;
@@ -868,7 +878,7 @@
             // 
             this.btnCSVWriterEnd.Enabled = false;
             this.btnCSVWriterEnd.Location = new System.Drawing.Point(408, 6);
-            this.btnCSVWriterEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCSVWriterEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnCSVWriterEnd.Name = "btnCSVWriterEnd";
             this.btnCSVWriterEnd.Size = new System.Drawing.Size(50, 29);
             this.btnCSVWriterEnd.TabIndex = 2;
@@ -879,7 +889,7 @@
             // btnCSVWriterBegin
             // 
             this.btnCSVWriterBegin.Location = new System.Drawing.Point(356, 6);
-            this.btnCSVWriterBegin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCSVWriterBegin.Margin = new System.Windows.Forms.Padding(2);
             this.btnCSVWriterBegin.Name = "btnCSVWriterBegin";
             this.btnCSVWriterBegin.Size = new System.Drawing.Size(50, 29);
             this.btnCSVWriterBegin.TabIndex = 1;
@@ -896,11 +906,101 @@
             this.lblCSVWriter.Size = new System.Drawing.Size(0, 13);
             this.lblCSVWriter.TabIndex = 0;
             // 
+            // labValueMotor0
+            // 
+            this.labValueMotor0.AutoSize = true;
+            this.labValueMotor0.Location = new System.Drawing.Point(103, 125);
+            this.labValueMotor0.Name = "labValueMotor0";
+            this.labValueMotor0.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor0.TabIndex = 42;
+            this.labValueMotor0.Text = "0";
+            // 
+            // labValueMotor1
+            // 
+            this.labValueMotor1.AutoSize = true;
+            this.labValueMotor1.Location = new System.Drawing.Point(268, 124);
+            this.labValueMotor1.Name = "labValueMotor1";
+            this.labValueMotor1.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor1.TabIndex = 43;
+            this.labValueMotor1.Text = "0";
+            // 
+            // labValueMotor2
+            // 
+            this.labValueMotor2.AutoSize = true;
+            this.labValueMotor2.Location = new System.Drawing.Point(436, 125);
+            this.labValueMotor2.Name = "labValueMotor2";
+            this.labValueMotor2.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor2.TabIndex = 44;
+            this.labValueMotor2.Text = "0";
+            // 
+            // labValueMotor3
+            // 
+            this.labValueMotor3.AutoSize = true;
+            this.labValueMotor3.Location = new System.Drawing.Point(103, 163);
+            this.labValueMotor3.Name = "labValueMotor3";
+            this.labValueMotor3.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor3.TabIndex = 45;
+            this.labValueMotor3.Text = "0";
+            // 
+            // labValueMotor4
+            // 
+            this.labValueMotor4.AutoSize = true;
+            this.labValueMotor4.Location = new System.Drawing.Point(268, 162);
+            this.labValueMotor4.Name = "labValueMotor4";
+            this.labValueMotor4.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor4.TabIndex = 46;
+            this.labValueMotor4.Text = "0";
+            // 
+            // labValueMotor5
+            // 
+            this.labValueMotor5.AutoSize = true;
+            this.labValueMotor5.Location = new System.Drawing.Point(436, 163);
+            this.labValueMotor5.Name = "labValueMotor5";
+            this.labValueMotor5.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor5.TabIndex = 47;
+            this.labValueMotor5.Text = "0";
+            // 
+            // labValueMotor6
+            // 
+            this.labValueMotor6.AutoSize = true;
+            this.labValueMotor6.Location = new System.Drawing.Point(103, 200);
+            this.labValueMotor6.Name = "labValueMotor6";
+            this.labValueMotor6.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor6.TabIndex = 48;
+            this.labValueMotor6.Text = "0";
+            // 
+            // labValueMotor7
+            // 
+            this.labValueMotor7.AutoSize = true;
+            this.labValueMotor7.Location = new System.Drawing.Point(268, 199);
+            this.labValueMotor7.Name = "labValueMotor7";
+            this.labValueMotor7.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor7.TabIndex = 49;
+            this.labValueMotor7.Text = "0";
+            // 
+            // labValueMotor8
+            // 
+            this.labValueMotor8.AutoSize = true;
+            this.labValueMotor8.Location = new System.Drawing.Point(436, 200);
+            this.labValueMotor8.Name = "labValueMotor8";
+            this.labValueMotor8.Size = new System.Drawing.Size(13, 13);
+            this.labValueMotor8.TabIndex = 50;
+            this.labValueMotor8.Text = "0";
+            // 
             // TendrilInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 393);
+            this.Controls.Add(this.labValueMotor8);
+            this.Controls.Add(this.labValueMotor7);
+            this.Controls.Add(this.labValueMotor6);
+            this.Controls.Add(this.labValueMotor5);
+            this.Controls.Add(this.labValueMotor4);
+            this.Controls.Add(this.labValueMotor3);
+            this.Controls.Add(this.labValueMotor2);
+            this.Controls.Add(this.labValueMotor1);
+            this.Controls.Add(this.labValueMotor0);
             this.Controls.Add(this.pnlCSVWriter);
             this.Controls.Add(this.btnStopEven);
             this.Controls.Add(this.btnEvenTension);
@@ -944,7 +1044,7 @@
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TendrilInterface";
             this.Text = "Tendril Interface";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TendrilInterface_KeyDown);
@@ -1038,6 +1138,15 @@
         private System.Windows.Forms.ToolStripMenuItem simulationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kalmanFilterToolStripMenuItem;
+        public System.Windows.Forms.Label labValueMotor0;
+        public System.Windows.Forms.Label labValueMotor1;
+        public System.Windows.Forms.Label labValueMotor2;
+        public System.Windows.Forms.Label labValueMotor3;
+        public System.Windows.Forms.Label labValueMotor4;
+        public System.Windows.Forms.Label labValueMotor5;
+        public System.Windows.Forms.Label labValueMotor6;
+        public System.Windows.Forms.Label labValueMotor7;
+        public System.Windows.Forms.Label labValueMotor8;
     }
 }
 
