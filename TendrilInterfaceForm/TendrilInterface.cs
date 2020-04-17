@@ -242,6 +242,185 @@ namespace TendrilInterfaceForm
                 
         }
 
+        private void btnMnlMot0_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot0_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot0_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot0_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot1_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot1_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot1_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot1_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot2_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot2_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot2_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot2_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot3_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot3_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot3_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot3_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot4_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot4_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot4_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot4_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot5_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot5_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot5_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot5_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot6_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot6_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot6_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot6_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot7_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot7_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot7_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot7_PP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot8_MM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot8_M_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot8_P_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMnlMot8_PP_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void btMnlSend_Click(object sender, EventArgs e)
         {
@@ -476,6 +655,8 @@ namespace TendrilInterfaceForm
         {
             kalmanFilterToolStripMenuItem.Checked = !kalmanFilterToolStripMenuItem.Checked;
         }
+
+        
 
         void ProcessTendrilInput(String[] input)
         {

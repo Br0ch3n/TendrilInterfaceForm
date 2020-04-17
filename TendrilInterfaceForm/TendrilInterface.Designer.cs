@@ -158,10 +158,10 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(342, 24);
+            this.btnConnect.Location = new System.Drawing.Point(347, 22);
             this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.Size = new System.Drawing.Size(70, 23);
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -356,7 +356,7 @@
             // btnDisconnect
             // 
             this.btnDisconnect.Enabled = false;
-            this.btnDisconnect.Location = new System.Drawing.Point(422, 24);
+            this.btnDisconnect.Location = new System.Drawing.Point(422, 22);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
             this.btnDisconnect.TabIndex = 13;
@@ -701,6 +701,7 @@
             this.btnMnlMot6_MM.TabIndex = 83;
             this.btnMnlMot6_MM.Text = "<<";
             this.btnMnlMot6_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot6_MM.Click += new System.EventHandler(this.btnMnlMot6_MM_Click);
             // 
             // btnMnlMot6_M
             // 
@@ -710,6 +711,7 @@
             this.btnMnlMot6_M.TabIndex = 82;
             this.btnMnlMot6_M.Text = "<";
             this.btnMnlMot6_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot6_M.Click += new System.EventHandler(this.btnMnlMot6_M_Click);
             // 
             // btnMnlMot6_PP
             // 
@@ -719,6 +721,7 @@
             this.btnMnlMot6_PP.TabIndex = 81;
             this.btnMnlMot6_PP.Text = ">>";
             this.btnMnlMot6_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot6_PP.Click += new System.EventHandler(this.btnMnlMot6_PP_Click);
             // 
             // btnMnlMot6_P
             // 
@@ -728,6 +731,7 @@
             this.btnMnlMot6_P.TabIndex = 80;
             this.btnMnlMot6_P.Text = ">";
             this.btnMnlMot6_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot6_P.Click += new System.EventHandler(this.btnMnlMot6_P_Click);
             // 
             // btnMnlMot7_MM
             // 
@@ -737,6 +741,7 @@
             this.btnMnlMot7_MM.TabIndex = 79;
             this.btnMnlMot7_MM.Text = "<<";
             this.btnMnlMot7_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot7_MM.Click += new System.EventHandler(this.btnMnlMot7_MM_Click);
             // 
             // btnMnlMot7_M
             // 
@@ -746,6 +751,7 @@
             this.btnMnlMot7_M.TabIndex = 78;
             this.btnMnlMot7_M.Text = "<";
             this.btnMnlMot7_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot7_M.Click += new System.EventHandler(this.btnMnlMot7_M_Click);
             // 
             // btnMnlMot7_PP
             // 
@@ -755,6 +761,7 @@
             this.btnMnlMot7_PP.TabIndex = 77;
             this.btnMnlMot7_PP.Text = ">>";
             this.btnMnlMot7_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot7_PP.Click += new System.EventHandler(this.btnMnlMot7_PP_Click);
             // 
             // btnMnlMot7_P
             // 
@@ -764,6 +771,7 @@
             this.btnMnlMot7_P.TabIndex = 76;
             this.btnMnlMot7_P.Text = ">";
             this.btnMnlMot7_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot7_P.Click += new System.EventHandler(this.btnMnlMot7_P_Click);
             // 
             // btnMnlMot8_MM
             // 
@@ -773,6 +781,7 @@
             this.btnMnlMot8_MM.TabIndex = 75;
             this.btnMnlMot8_MM.Text = "<<";
             this.btnMnlMot8_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot8_MM.Click += new System.EventHandler(this.btnMnlMot8_MM_Click);
             // 
             // btnMnlMot8_M
             // 
@@ -782,6 +791,7 @@
             this.btnMnlMot8_M.TabIndex = 74;
             this.btnMnlMot8_M.Text = "<";
             this.btnMnlMot8_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot8_M.Click += new System.EventHandler(this.btnMnlMot8_M_Click);
             // 
             // btnMnlMot8_PP
             // 
@@ -791,6 +801,7 @@
             this.btnMnlMot8_PP.TabIndex = 73;
             this.btnMnlMot8_PP.Text = ">>";
             this.btnMnlMot8_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot8_PP.Click += new System.EventHandler(this.btnMnlMot8_PP_Click);
             // 
             // btnMnlMot8_P
             // 
@@ -800,6 +811,7 @@
             this.btnMnlMot8_P.TabIndex = 72;
             this.btnMnlMot8_P.Text = ">";
             this.btnMnlMot8_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot8_P.Click += new System.EventHandler(this.btnMnlMot8_P_Click);
             // 
             // btnMnlMot3_MM
             // 
@@ -809,6 +821,7 @@
             this.btnMnlMot3_MM.TabIndex = 71;
             this.btnMnlMot3_MM.Text = "<<";
             this.btnMnlMot3_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot3_MM.Click += new System.EventHandler(this.btnMnlMot3_MM_Click);
             // 
             // btnMnlMot3_M
             // 
@@ -818,6 +831,7 @@
             this.btnMnlMot3_M.TabIndex = 70;
             this.btnMnlMot3_M.Text = "<";
             this.btnMnlMot3_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot3_M.Click += new System.EventHandler(this.btnMnlMot3_M_Click);
             // 
             // btnMnlMot3_PP
             // 
@@ -827,6 +841,7 @@
             this.btnMnlMot3_PP.TabIndex = 69;
             this.btnMnlMot3_PP.Text = ">>";
             this.btnMnlMot3_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot3_PP.Click += new System.EventHandler(this.btnMnlMot3_PP_Click);
             // 
             // btnMnlMot3_P
             // 
@@ -836,6 +851,7 @@
             this.btnMnlMot3_P.TabIndex = 68;
             this.btnMnlMot3_P.Text = ">";
             this.btnMnlMot3_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot3_P.Click += new System.EventHandler(this.btnMnlMot3_P_Click);
             // 
             // btnMnlMot4_MM
             // 
@@ -845,6 +861,7 @@
             this.btnMnlMot4_MM.TabIndex = 67;
             this.btnMnlMot4_MM.Text = "<<";
             this.btnMnlMot4_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot4_MM.Click += new System.EventHandler(this.btnMnlMot4_MM_Click);
             // 
             // btnMnlMot4_M
             // 
@@ -854,6 +871,7 @@
             this.btnMnlMot4_M.TabIndex = 66;
             this.btnMnlMot4_M.Text = "<";
             this.btnMnlMot4_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot4_M.Click += new System.EventHandler(this.btnMnlMot4_M_Click);
             // 
             // btnMnlMot4_PP
             // 
@@ -863,6 +881,7 @@
             this.btnMnlMot4_PP.TabIndex = 65;
             this.btnMnlMot4_PP.Text = ">>";
             this.btnMnlMot4_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot4_PP.Click += new System.EventHandler(this.btnMnlMot4_PP_Click);
             // 
             // btnMnlMot4_P
             // 
@@ -872,6 +891,7 @@
             this.btnMnlMot4_P.TabIndex = 64;
             this.btnMnlMot4_P.Text = ">";
             this.btnMnlMot4_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot4_P.Click += new System.EventHandler(this.btnMnlMot4_P_Click);
             // 
             // btnMnlMot5_MM
             // 
@@ -881,6 +901,7 @@
             this.btnMnlMot5_MM.TabIndex = 63;
             this.btnMnlMot5_MM.Text = "<<";
             this.btnMnlMot5_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot5_MM.Click += new System.EventHandler(this.btnMnlMot5_MM_Click);
             // 
             // btnMnlMot5_M
             // 
@@ -890,6 +911,7 @@
             this.btnMnlMot5_M.TabIndex = 62;
             this.btnMnlMot5_M.Text = "<";
             this.btnMnlMot5_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot5_M.Click += new System.EventHandler(this.btnMnlMot5_M_Click);
             // 
             // btnMnlMot5_PP
             // 
@@ -899,6 +921,7 @@
             this.btnMnlMot5_PP.TabIndex = 61;
             this.btnMnlMot5_PP.Text = ">>";
             this.btnMnlMot5_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot5_PP.Click += new System.EventHandler(this.btnMnlMot5_PP_Click);
             // 
             // btnMnlMot5_P
             // 
@@ -908,6 +931,7 @@
             this.btnMnlMot5_P.TabIndex = 60;
             this.btnMnlMot5_P.Text = ">";
             this.btnMnlMot5_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot5_P.Click += new System.EventHandler(this.btnMnlMot5_P_Click);
             // 
             // btnMnlMot2_MM
             // 
@@ -917,6 +941,7 @@
             this.btnMnlMot2_MM.TabIndex = 59;
             this.btnMnlMot2_MM.Text = "<<";
             this.btnMnlMot2_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot2_MM.Click += new System.EventHandler(this.btnMnlMot2_MM_Click);
             // 
             // btnMnlMot2_M
             // 
@@ -926,6 +951,7 @@
             this.btnMnlMot2_M.TabIndex = 58;
             this.btnMnlMot2_M.Text = "<";
             this.btnMnlMot2_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot2_M.Click += new System.EventHandler(this.btnMnlMot2_M_Click);
             // 
             // btnMnlMot2_PP
             // 
@@ -935,6 +961,7 @@
             this.btnMnlMot2_PP.TabIndex = 57;
             this.btnMnlMot2_PP.Text = ">>";
             this.btnMnlMot2_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot2_PP.Click += new System.EventHandler(this.btnMnlMot2_PP_Click);
             // 
             // btnMnlMot2_P
             // 
@@ -944,6 +971,7 @@
             this.btnMnlMot2_P.TabIndex = 56;
             this.btnMnlMot2_P.Text = ">";
             this.btnMnlMot2_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot2_P.Click += new System.EventHandler(this.btnMnlMot2_P_Click);
             // 
             // btnMnlMot0_MM
             // 
@@ -953,6 +981,7 @@
             this.btnMnlMot0_MM.TabIndex = 55;
             this.btnMnlMot0_MM.Text = "<<";
             this.btnMnlMot0_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot0_MM.Click += new System.EventHandler(this.btnMnlMot0_MM_Click);
             // 
             // btnMnlMot0_M
             // 
@@ -962,6 +991,7 @@
             this.btnMnlMot0_M.TabIndex = 54;
             this.btnMnlMot0_M.Text = "<";
             this.btnMnlMot0_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot0_M.Click += new System.EventHandler(this.btnMnlMot0_M_Click);
             // 
             // btnMnlMot0_PP
             // 
@@ -971,6 +1001,7 @@
             this.btnMnlMot0_PP.TabIndex = 53;
             this.btnMnlMot0_PP.Text = ">>";
             this.btnMnlMot0_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot0_PP.Click += new System.EventHandler(this.btnMnlMot0_PP_Click);
             // 
             // btnMnlMot0_P
             // 
@@ -980,6 +1011,7 @@
             this.btnMnlMot0_P.TabIndex = 52;
             this.btnMnlMot0_P.Text = ">";
             this.btnMnlMot0_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot0_P.Click += new System.EventHandler(this.btnMnlMot0_P_Click);
             // 
             // btnMnlMot1_MM
             // 
@@ -989,6 +1021,7 @@
             this.btnMnlMot1_MM.TabIndex = 51;
             this.btnMnlMot1_MM.Text = "<<";
             this.btnMnlMot1_MM.UseVisualStyleBackColor = true;
+            this.btnMnlMot1_MM.Click += new System.EventHandler(this.btnMnlMot1_MM_Click);
             // 
             // btnMnlMot1_M
             // 
@@ -998,6 +1031,7 @@
             this.btnMnlMot1_M.TabIndex = 50;
             this.btnMnlMot1_M.Text = "<";
             this.btnMnlMot1_M.UseVisualStyleBackColor = true;
+            this.btnMnlMot1_M.Click += new System.EventHandler(this.btnMnlMot1_M_Click);
             // 
             // btnMnlMot1_PP
             // 
@@ -1007,6 +1041,7 @@
             this.btnMnlMot1_PP.TabIndex = 49;
             this.btnMnlMot1_PP.Text = ">>";
             this.btnMnlMot1_PP.UseVisualStyleBackColor = true;
+            this.btnMnlMot1_PP.Click += new System.EventHandler(this.btnMnlMot1_PP_Click);
             // 
             // btnMnlMot1_P
             // 
@@ -1016,6 +1051,7 @@
             this.btnMnlMot1_P.TabIndex = 48;
             this.btnMnlMot1_P.Text = ">";
             this.btnMnlMot1_P.UseVisualStyleBackColor = true;
+            this.btnMnlMot1_P.Click += new System.EventHandler(this.btnMnlMot1_P_Click);
             // 
             // btnMnlClose
             // 
@@ -1045,7 +1081,7 @@
             this.ddmMnlCntrlSelect.Items.AddRange(new object[] {
             "Encoder Counts",
             "Tension Values"});
-            this.ddmMnlCntrlSelect.Location = new System.Drawing.Point(146, 5);
+            this.ddmMnlCntrlSelect.Location = new System.Drawing.Point(87, 5);
             this.ddmMnlCntrlSelect.Margin = new System.Windows.Forms.Padding(2);
             this.ddmMnlCntrlSelect.Name = "ddmMnlCntrlSelect";
             this.ddmMnlCntrlSelect.Size = new System.Drawing.Size(114, 21);
@@ -1209,7 +1245,7 @@
             // lblMnl
             // 
             this.lblMnl.AutoSize = true;
-            this.lblMnl.Location = new System.Drawing.Point(67, 8);
+            this.lblMnl.Location = new System.Drawing.Point(8, 8);
             this.lblMnl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnl.Name = "lblMnl";
             this.lblMnl.Size = new System.Drawing.Size(84, 13);
@@ -1253,7 +1289,7 @@
             this.btnStopEven.Location = new System.Drawing.Point(443, 85);
             this.btnStopEven.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopEven.Name = "btnStopEven";
-            this.btnStopEven.Size = new System.Drawing.Size(38, 28);
+            this.btnStopEven.Size = new System.Drawing.Size(54, 28);
             this.btnStopEven.TabIndex = 40;
             this.btnStopEven.Text = "Stop";
             this.btnStopEven.UseVisualStyleBackColor = true;
