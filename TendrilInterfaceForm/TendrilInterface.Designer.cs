@@ -151,6 +151,8 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -629,6 +631,8 @@
             // pnlMnlControl
             // 
             this.pnlMnlControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMnlControl.Controls.Add(this.panel1);
+            this.pnlMnlControl.Controls.Add(this.button1);
             this.pnlMnlControl.Controls.Add(this.btnMnlMot6_MM);
             this.pnlMnlControl.Controls.Add(this.btnMnlMot6_M);
             this.pnlMnlControl.Controls.Add(this.btnMnlMot6_PP);
@@ -690,12 +694,12 @@
             this.pnlMnlControl.Location = new System.Drawing.Point(520, 35);
             this.pnlMnlControl.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMnlControl.Name = "pnlMnlControl";
-            this.pnlMnlControl.Size = new System.Drawing.Size(362, 308);
+            this.pnlMnlControl.Size = new System.Drawing.Size(362, 349);
             this.pnlMnlControl.TabIndex = 38;
             // 
             // btnMnlMot6_MM
             // 
-            this.btnMnlMot6_MM.Location = new System.Drawing.Point(7, 199);
+            this.btnMnlMot6_MM.Location = new System.Drawing.Point(11, 217);
             this.btnMnlMot6_MM.Name = "btnMnlMot6_MM";
             this.btnMnlMot6_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot6_MM.TabIndex = 83;
@@ -705,7 +709,7 @@
             // 
             // btnMnlMot6_M
             // 
-            this.btnMnlMot6_M.Location = new System.Drawing.Point(37, 199);
+            this.btnMnlMot6_M.Location = new System.Drawing.Point(41, 217);
             this.btnMnlMot6_M.Name = "btnMnlMot6_M";
             this.btnMnlMot6_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot6_M.TabIndex = 82;
@@ -715,7 +719,7 @@
             // 
             // btnMnlMot6_PP
             // 
-            this.btnMnlMot6_PP.Location = new System.Drawing.Point(78, 199);
+            this.btnMnlMot6_PP.Location = new System.Drawing.Point(82, 217);
             this.btnMnlMot6_PP.Name = "btnMnlMot6_PP";
             this.btnMnlMot6_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot6_PP.TabIndex = 81;
@@ -725,7 +729,7 @@
             // 
             // btnMnlMot6_P
             // 
-            this.btnMnlMot6_P.Location = new System.Drawing.Point(58, 199);
+            this.btnMnlMot6_P.Location = new System.Drawing.Point(62, 217);
             this.btnMnlMot6_P.Name = "btnMnlMot6_P";
             this.btnMnlMot6_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot6_P.TabIndex = 80;
@@ -735,7 +739,7 @@
             // 
             // btnMnlMot7_MM
             // 
-            this.btnMnlMot7_MM.Location = new System.Drawing.Point(133, 199);
+            this.btnMnlMot7_MM.Location = new System.Drawing.Point(137, 217);
             this.btnMnlMot7_MM.Name = "btnMnlMot7_MM";
             this.btnMnlMot7_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot7_MM.TabIndex = 79;
@@ -745,7 +749,7 @@
             // 
             // btnMnlMot7_M
             // 
-            this.btnMnlMot7_M.Location = new System.Drawing.Point(163, 199);
+            this.btnMnlMot7_M.Location = new System.Drawing.Point(167, 217);
             this.btnMnlMot7_M.Name = "btnMnlMot7_M";
             this.btnMnlMot7_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot7_M.TabIndex = 78;
@@ -755,7 +759,7 @@
             // 
             // btnMnlMot7_PP
             // 
-            this.btnMnlMot7_PP.Location = new System.Drawing.Point(204, 199);
+            this.btnMnlMot7_PP.Location = new System.Drawing.Point(208, 217);
             this.btnMnlMot7_PP.Name = "btnMnlMot7_PP";
             this.btnMnlMot7_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot7_PP.TabIndex = 77;
@@ -765,7 +769,7 @@
             // 
             // btnMnlMot7_P
             // 
-            this.btnMnlMot7_P.Location = new System.Drawing.Point(184, 199);
+            this.btnMnlMot7_P.Location = new System.Drawing.Point(188, 217);
             this.btnMnlMot7_P.Name = "btnMnlMot7_P";
             this.btnMnlMot7_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot7_P.TabIndex = 76;
@@ -775,7 +779,7 @@
             // 
             // btnMnlMot8_MM
             // 
-            this.btnMnlMot8_MM.Location = new System.Drawing.Point(252, 199);
+            this.btnMnlMot8_MM.Location = new System.Drawing.Point(256, 217);
             this.btnMnlMot8_MM.Name = "btnMnlMot8_MM";
             this.btnMnlMot8_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot8_MM.TabIndex = 75;
@@ -785,7 +789,7 @@
             // 
             // btnMnlMot8_M
             // 
-            this.btnMnlMot8_M.Location = new System.Drawing.Point(281, 199);
+            this.btnMnlMot8_M.Location = new System.Drawing.Point(285, 217);
             this.btnMnlMot8_M.Name = "btnMnlMot8_M";
             this.btnMnlMot8_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot8_M.TabIndex = 74;
@@ -795,7 +799,7 @@
             // 
             // btnMnlMot8_PP
             // 
-            this.btnMnlMot8_PP.Location = new System.Drawing.Point(319, 199);
+            this.btnMnlMot8_PP.Location = new System.Drawing.Point(323, 217);
             this.btnMnlMot8_PP.Name = "btnMnlMot8_PP";
             this.btnMnlMot8_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot8_PP.TabIndex = 73;
@@ -805,7 +809,7 @@
             // 
             // btnMnlMot8_P
             // 
-            this.btnMnlMot8_P.Location = new System.Drawing.Point(300, 199);
+            this.btnMnlMot8_P.Location = new System.Drawing.Point(304, 217);
             this.btnMnlMot8_P.Name = "btnMnlMot8_P";
             this.btnMnlMot8_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot8_P.TabIndex = 72;
@@ -815,7 +819,7 @@
             // 
             // btnMnlMot3_MM
             // 
-            this.btnMnlMot3_MM.Location = new System.Drawing.Point(7, 128);
+            this.btnMnlMot3_MM.Location = new System.Drawing.Point(11, 146);
             this.btnMnlMot3_MM.Name = "btnMnlMot3_MM";
             this.btnMnlMot3_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot3_MM.TabIndex = 71;
@@ -825,7 +829,7 @@
             // 
             // btnMnlMot3_M
             // 
-            this.btnMnlMot3_M.Location = new System.Drawing.Point(37, 128);
+            this.btnMnlMot3_M.Location = new System.Drawing.Point(41, 146);
             this.btnMnlMot3_M.Name = "btnMnlMot3_M";
             this.btnMnlMot3_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot3_M.TabIndex = 70;
@@ -835,7 +839,7 @@
             // 
             // btnMnlMot3_PP
             // 
-            this.btnMnlMot3_PP.Location = new System.Drawing.Point(78, 128);
+            this.btnMnlMot3_PP.Location = new System.Drawing.Point(82, 146);
             this.btnMnlMot3_PP.Name = "btnMnlMot3_PP";
             this.btnMnlMot3_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot3_PP.TabIndex = 69;
@@ -845,7 +849,7 @@
             // 
             // btnMnlMot3_P
             // 
-            this.btnMnlMot3_P.Location = new System.Drawing.Point(58, 128);
+            this.btnMnlMot3_P.Location = new System.Drawing.Point(62, 146);
             this.btnMnlMot3_P.Name = "btnMnlMot3_P";
             this.btnMnlMot3_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot3_P.TabIndex = 68;
@@ -855,7 +859,7 @@
             // 
             // btnMnlMot4_MM
             // 
-            this.btnMnlMot4_MM.Location = new System.Drawing.Point(133, 128);
+            this.btnMnlMot4_MM.Location = new System.Drawing.Point(137, 146);
             this.btnMnlMot4_MM.Name = "btnMnlMot4_MM";
             this.btnMnlMot4_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot4_MM.TabIndex = 67;
@@ -865,7 +869,7 @@
             // 
             // btnMnlMot4_M
             // 
-            this.btnMnlMot4_M.Location = new System.Drawing.Point(164, 128);
+            this.btnMnlMot4_M.Location = new System.Drawing.Point(168, 146);
             this.btnMnlMot4_M.Name = "btnMnlMot4_M";
             this.btnMnlMot4_M.Size = new System.Drawing.Size(17, 23);
             this.btnMnlMot4_M.TabIndex = 66;
@@ -875,7 +879,7 @@
             // 
             // btnMnlMot4_PP
             // 
-            this.btnMnlMot4_PP.Location = new System.Drawing.Point(204, 128);
+            this.btnMnlMot4_PP.Location = new System.Drawing.Point(208, 146);
             this.btnMnlMot4_PP.Name = "btnMnlMot4_PP";
             this.btnMnlMot4_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot4_PP.TabIndex = 65;
@@ -885,7 +889,7 @@
             // 
             // btnMnlMot4_P
             // 
-            this.btnMnlMot4_P.Location = new System.Drawing.Point(184, 128);
+            this.btnMnlMot4_P.Location = new System.Drawing.Point(188, 146);
             this.btnMnlMot4_P.Name = "btnMnlMot4_P";
             this.btnMnlMot4_P.Size = new System.Drawing.Size(17, 23);
             this.btnMnlMot4_P.TabIndex = 64;
@@ -895,7 +899,7 @@
             // 
             // btnMnlMot5_MM
             // 
-            this.btnMnlMot5_MM.Location = new System.Drawing.Point(252, 128);
+            this.btnMnlMot5_MM.Location = new System.Drawing.Point(256, 146);
             this.btnMnlMot5_MM.Name = "btnMnlMot5_MM";
             this.btnMnlMot5_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot5_MM.TabIndex = 63;
@@ -905,7 +909,7 @@
             // 
             // btnMnlMot5_M
             // 
-            this.btnMnlMot5_M.Location = new System.Drawing.Point(281, 128);
+            this.btnMnlMot5_M.Location = new System.Drawing.Point(285, 146);
             this.btnMnlMot5_M.Name = "btnMnlMot5_M";
             this.btnMnlMot5_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot5_M.TabIndex = 62;
@@ -915,7 +919,7 @@
             // 
             // btnMnlMot5_PP
             // 
-            this.btnMnlMot5_PP.Location = new System.Drawing.Point(319, 128);
+            this.btnMnlMot5_PP.Location = new System.Drawing.Point(323, 146);
             this.btnMnlMot5_PP.Name = "btnMnlMot5_PP";
             this.btnMnlMot5_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot5_PP.TabIndex = 61;
@@ -925,7 +929,7 @@
             // 
             // btnMnlMot5_P
             // 
-            this.btnMnlMot5_P.Location = new System.Drawing.Point(300, 128);
+            this.btnMnlMot5_P.Location = new System.Drawing.Point(304, 146);
             this.btnMnlMot5_P.Name = "btnMnlMot5_P";
             this.btnMnlMot5_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot5_P.TabIndex = 60;
@@ -935,7 +939,7 @@
             // 
             // btnMnlMot2_MM
             // 
-            this.btnMnlMot2_MM.Location = new System.Drawing.Point(252, 54);
+            this.btnMnlMot2_MM.Location = new System.Drawing.Point(256, 72);
             this.btnMnlMot2_MM.Name = "btnMnlMot2_MM";
             this.btnMnlMot2_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot2_MM.TabIndex = 59;
@@ -945,7 +949,7 @@
             // 
             // btnMnlMot2_M
             // 
-            this.btnMnlMot2_M.Location = new System.Drawing.Point(281, 54);
+            this.btnMnlMot2_M.Location = new System.Drawing.Point(285, 72);
             this.btnMnlMot2_M.Name = "btnMnlMot2_M";
             this.btnMnlMot2_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot2_M.TabIndex = 58;
@@ -955,7 +959,7 @@
             // 
             // btnMnlMot2_PP
             // 
-            this.btnMnlMot2_PP.Location = new System.Drawing.Point(319, 54);
+            this.btnMnlMot2_PP.Location = new System.Drawing.Point(323, 72);
             this.btnMnlMot2_PP.Name = "btnMnlMot2_PP";
             this.btnMnlMot2_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot2_PP.TabIndex = 57;
@@ -965,7 +969,7 @@
             // 
             // btnMnlMot2_P
             // 
-            this.btnMnlMot2_P.Location = new System.Drawing.Point(300, 54);
+            this.btnMnlMot2_P.Location = new System.Drawing.Point(304, 72);
             this.btnMnlMot2_P.Name = "btnMnlMot2_P";
             this.btnMnlMot2_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot2_P.TabIndex = 56;
@@ -975,7 +979,7 @@
             // 
             // btnMnlMot0_MM
             // 
-            this.btnMnlMot0_MM.Location = new System.Drawing.Point(7, 55);
+            this.btnMnlMot0_MM.Location = new System.Drawing.Point(11, 73);
             this.btnMnlMot0_MM.Name = "btnMnlMot0_MM";
             this.btnMnlMot0_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot0_MM.TabIndex = 55;
@@ -985,7 +989,7 @@
             // 
             // btnMnlMot0_M
             // 
-            this.btnMnlMot0_M.Location = new System.Drawing.Point(37, 55);
+            this.btnMnlMot0_M.Location = new System.Drawing.Point(41, 73);
             this.btnMnlMot0_M.Name = "btnMnlMot0_M";
             this.btnMnlMot0_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot0_M.TabIndex = 54;
@@ -995,7 +999,7 @@
             // 
             // btnMnlMot0_PP
             // 
-            this.btnMnlMot0_PP.Location = new System.Drawing.Point(78, 55);
+            this.btnMnlMot0_PP.Location = new System.Drawing.Point(82, 73);
             this.btnMnlMot0_PP.Name = "btnMnlMot0_PP";
             this.btnMnlMot0_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot0_PP.TabIndex = 53;
@@ -1005,7 +1009,7 @@
             // 
             // btnMnlMot0_P
             // 
-            this.btnMnlMot0_P.Location = new System.Drawing.Point(58, 55);
+            this.btnMnlMot0_P.Location = new System.Drawing.Point(62, 73);
             this.btnMnlMot0_P.Name = "btnMnlMot0_P";
             this.btnMnlMot0_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot0_P.TabIndex = 52;
@@ -1015,7 +1019,7 @@
             // 
             // btnMnlMot1_MM
             // 
-            this.btnMnlMot1_MM.Location = new System.Drawing.Point(133, 55);
+            this.btnMnlMot1_MM.Location = new System.Drawing.Point(137, 73);
             this.btnMnlMot1_MM.Name = "btnMnlMot1_MM";
             this.btnMnlMot1_MM.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot1_MM.TabIndex = 51;
@@ -1025,7 +1029,7 @@
             // 
             // btnMnlMot1_M
             // 
-            this.btnMnlMot1_M.Location = new System.Drawing.Point(163, 55);
+            this.btnMnlMot1_M.Location = new System.Drawing.Point(167, 73);
             this.btnMnlMot1_M.Name = "btnMnlMot1_M";
             this.btnMnlMot1_M.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot1_M.TabIndex = 50;
@@ -1035,7 +1039,7 @@
             // 
             // btnMnlMot1_PP
             // 
-            this.btnMnlMot1_PP.Location = new System.Drawing.Point(204, 55);
+            this.btnMnlMot1_PP.Location = new System.Drawing.Point(208, 73);
             this.btnMnlMot1_PP.Name = "btnMnlMot1_PP";
             this.btnMnlMot1_PP.Size = new System.Drawing.Size(27, 23);
             this.btnMnlMot1_PP.TabIndex = 49;
@@ -1045,7 +1049,7 @@
             // 
             // btnMnlMot1_P
             // 
-            this.btnMnlMot1_P.Location = new System.Drawing.Point(184, 55);
+            this.btnMnlMot1_P.Location = new System.Drawing.Point(188, 73);
             this.btnMnlMot1_P.Name = "btnMnlMot1_P";
             this.btnMnlMot1_P.Size = new System.Drawing.Size(18, 23);
             this.btnMnlMot1_P.TabIndex = 48;
@@ -1055,7 +1059,7 @@
             // 
             // btnMnlClose
             // 
-            this.btnMnlClose.Location = new System.Drawing.Point(289, 261);
+            this.btnMnlClose.Location = new System.Drawing.Point(293, 279);
             this.btnMnlClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnMnlClose.Name = "btnMnlClose";
             this.btnMnlClose.Size = new System.Drawing.Size(57, 27);
@@ -1066,7 +1070,7 @@
             // 
             // btMnlSend
             // 
-            this.btMnlSend.Location = new System.Drawing.Point(231, 261);
+            this.btMnlSend.Location = new System.Drawing.Point(235, 279);
             this.btMnlSend.Margin = new System.Windows.Forms.Padding(2);
             this.btMnlSend.Name = "btMnlSend";
             this.btMnlSend.Size = new System.Drawing.Size(54, 27);
@@ -1081,7 +1085,7 @@
             this.ddmMnlCntrlSelect.Items.AddRange(new object[] {
             "Encoder Counts",
             "Tension Values"});
-            this.ddmMnlCntrlSelect.Location = new System.Drawing.Point(87, 5);
+            this.ddmMnlCntrlSelect.Location = new System.Drawing.Point(87, 21);
             this.ddmMnlCntrlSelect.Margin = new System.Windows.Forms.Padding(2);
             this.ddmMnlCntrlSelect.Name = "ddmMnlCntrlSelect";
             this.ddmMnlCntrlSelect.Size = new System.Drawing.Size(114, 21);
@@ -1090,7 +1094,7 @@
             // 
             // tbMnlMot8
             // 
-            this.tbMnlMot8.Location = new System.Drawing.Point(252, 227);
+            this.tbMnlMot8.Location = new System.Drawing.Point(256, 245);
             this.tbMnlMot8.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot8.Name = "tbMnlMot8";
             this.tbMnlMot8.Size = new System.Drawing.Size(94, 20);
@@ -1098,7 +1102,7 @@
             // 
             // tbMnlMot7
             // 
-            this.tbMnlMot7.Location = new System.Drawing.Point(134, 227);
+            this.tbMnlMot7.Location = new System.Drawing.Point(138, 245);
             this.tbMnlMot7.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot7.Name = "tbMnlMot7";
             this.tbMnlMot7.Size = new System.Drawing.Size(97, 20);
@@ -1106,7 +1110,7 @@
             // 
             // tbMnlMot6
             // 
-            this.tbMnlMot6.Location = new System.Drawing.Point(7, 227);
+            this.tbMnlMot6.Location = new System.Drawing.Point(11, 245);
             this.tbMnlMot6.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot6.Name = "tbMnlMot6";
             this.tbMnlMot6.Size = new System.Drawing.Size(98, 20);
@@ -1114,7 +1118,7 @@
             // 
             // tbMnlMot5
             // 
-            this.tbMnlMot5.Location = new System.Drawing.Point(252, 156);
+            this.tbMnlMot5.Location = new System.Drawing.Point(256, 174);
             this.tbMnlMot5.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot5.Name = "tbMnlMot5";
             this.tbMnlMot5.Size = new System.Drawing.Size(94, 20);
@@ -1122,7 +1126,7 @@
             // 
             // tbMnlMot4
             // 
-            this.tbMnlMot4.Location = new System.Drawing.Point(134, 156);
+            this.tbMnlMot4.Location = new System.Drawing.Point(138, 174);
             this.tbMnlMot4.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot4.Name = "tbMnlMot4";
             this.tbMnlMot4.Size = new System.Drawing.Size(97, 20);
@@ -1130,7 +1134,7 @@
             // 
             // tbMnlMot3
             // 
-            this.tbMnlMot3.Location = new System.Drawing.Point(7, 156);
+            this.tbMnlMot3.Location = new System.Drawing.Point(11, 174);
             this.tbMnlMot3.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot3.Name = "tbMnlMot3";
             this.tbMnlMot3.Size = new System.Drawing.Size(98, 20);
@@ -1138,7 +1142,7 @@
             // 
             // tbMnlMot2
             // 
-            this.tbMnlMot2.Location = new System.Drawing.Point(252, 83);
+            this.tbMnlMot2.Location = new System.Drawing.Point(256, 101);
             this.tbMnlMot2.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot2.Name = "tbMnlMot2";
             this.tbMnlMot2.Size = new System.Drawing.Size(94, 20);
@@ -1146,7 +1150,7 @@
             // 
             // tbMnlMot1
             // 
-            this.tbMnlMot1.Location = new System.Drawing.Point(133, 83);
+            this.tbMnlMot1.Location = new System.Drawing.Point(137, 101);
             this.tbMnlMot1.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot1.Name = "tbMnlMot1";
             this.tbMnlMot1.Size = new System.Drawing.Size(98, 20);
@@ -1155,7 +1159,7 @@
             // lblMnlMot8
             // 
             this.lblMnlMot8.AutoSize = true;
-            this.lblMnlMot8.Location = new System.Drawing.Point(278, 183);
+            this.lblMnlMot8.Location = new System.Drawing.Point(282, 201);
             this.lblMnlMot8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot8.Name = "lblMnlMot8";
             this.lblMnlMot8.Size = new System.Drawing.Size(46, 13);
@@ -1165,7 +1169,7 @@
             // lblMnlMot7
             // 
             this.lblMnlMot7.AutoSize = true;
-            this.lblMnlMot7.Location = new System.Drawing.Point(157, 183);
+            this.lblMnlMot7.Location = new System.Drawing.Point(161, 201);
             this.lblMnlMot7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot7.Name = "lblMnlMot7";
             this.lblMnlMot7.Size = new System.Drawing.Size(46, 13);
@@ -1175,7 +1179,7 @@
             // lblMnlMot6
             // 
             this.lblMnlMot6.AutoSize = true;
-            this.lblMnlMot6.Location = new System.Drawing.Point(30, 183);
+            this.lblMnlMot6.Location = new System.Drawing.Point(34, 201);
             this.lblMnlMot6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot6.Name = "lblMnlMot6";
             this.lblMnlMot6.Size = new System.Drawing.Size(46, 13);
@@ -1185,7 +1189,7 @@
             // lblMnlMot5
             // 
             this.lblMnlMot5.AutoSize = true;
-            this.lblMnlMot5.Location = new System.Drawing.Point(278, 112);
+            this.lblMnlMot5.Location = new System.Drawing.Point(282, 130);
             this.lblMnlMot5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot5.Name = "lblMnlMot5";
             this.lblMnlMot5.Size = new System.Drawing.Size(46, 13);
@@ -1195,7 +1199,7 @@
             // lblMnlMot4
             // 
             this.lblMnlMot4.AutoSize = true;
-            this.lblMnlMot4.Location = new System.Drawing.Point(156, 112);
+            this.lblMnlMot4.Location = new System.Drawing.Point(160, 130);
             this.lblMnlMot4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot4.Name = "lblMnlMot4";
             this.lblMnlMot4.Size = new System.Drawing.Size(46, 13);
@@ -1205,7 +1209,7 @@
             // lblMnlMot3
             // 
             this.lblMnlMot3.AutoSize = true;
-            this.lblMnlMot3.Location = new System.Drawing.Point(30, 112);
+            this.lblMnlMot3.Location = new System.Drawing.Point(34, 130);
             this.lblMnlMot3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot3.Name = "lblMnlMot3";
             this.lblMnlMot3.Size = new System.Drawing.Size(46, 13);
@@ -1215,7 +1219,7 @@
             // lblMnlMot2
             // 
             this.lblMnlMot2.AutoSize = true;
-            this.lblMnlMot2.Location = new System.Drawing.Point(278, 39);
+            this.lblMnlMot2.Location = new System.Drawing.Point(282, 57);
             this.lblMnlMot2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot2.Name = "lblMnlMot2";
             this.lblMnlMot2.Size = new System.Drawing.Size(46, 13);
@@ -1225,7 +1229,7 @@
             // lblMnlMot1
             // 
             this.lblMnlMot1.AutoSize = true;
-            this.lblMnlMot1.Location = new System.Drawing.Point(160, 39);
+            this.lblMnlMot1.Location = new System.Drawing.Point(164, 57);
             this.lblMnlMot1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot1.Name = "lblMnlMot1";
             this.lblMnlMot1.Size = new System.Drawing.Size(46, 13);
@@ -1235,7 +1239,7 @@
             // lblMnlMot0
             // 
             this.lblMnlMot0.AutoSize = true;
-            this.lblMnlMot0.Location = new System.Drawing.Point(30, 39);
+            this.lblMnlMot0.Location = new System.Drawing.Point(34, 57);
             this.lblMnlMot0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnlMot0.Name = "lblMnlMot0";
             this.lblMnlMot0.Size = new System.Drawing.Size(46, 13);
@@ -1245,7 +1249,7 @@
             // lblMnl
             // 
             this.lblMnl.AutoSize = true;
-            this.lblMnl.Location = new System.Drawing.Point(8, 8);
+            this.lblMnl.Location = new System.Drawing.Point(8, 24);
             this.lblMnl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMnl.Name = "lblMnl";
             this.lblMnl.Size = new System.Drawing.Size(84, 13);
@@ -1254,7 +1258,7 @@
             // 
             // tbMnlMot0
             // 
-            this.tbMnlMot0.Location = new System.Drawing.Point(7, 83);
+            this.tbMnlMot0.Location = new System.Drawing.Point(11, 101);
             this.tbMnlMot0.Margin = new System.Windows.Forms.Padding(2);
             this.tbMnlMot0.Name = "tbMnlMot0";
             this.tbMnlMot0.Size = new System.Drawing.Size(97, 20);
@@ -1418,6 +1422,23 @@
             this.labValueMotor8.Size = new System.Drawing.Size(13, 13);
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::TendrilInterfaceForm.Properties.Resources.settingsScaled;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button1.Location = new System.Drawing.Point(206, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 23);
+            this.button1.TabIndex = 84;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(238, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(112, 37);
+            this.panel1.TabIndex = 85;
             // 
             // TendrilInterface
             // 
@@ -1615,6 +1636,8 @@
         private System.Windows.Forms.Button btnMnlMot1_M;
         private System.Windows.Forms.Button btnMnlMot1_PP;
         private System.Windows.Forms.Button btnMnlMot1_P;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -18,7 +18,6 @@ namespace TendrilInterfaceForm
                 strmReader = new StreamReader(file);
                 scriptRows = strmReader.ReadToEnd().Split('\n');
                 Index = -1;
-            
         }
         public String CSV_ReadPrevLine()
         {
