@@ -73,6 +73,7 @@
     <Compile Include="Cylinder.cs" />
     <Compile Include="OpenGLSim.cs" />
     <Compile Include="RunningAverage.cs" />
+    <Compile Include="TendrilStateSingleton.cs" />
     <Compile Include="TendrilUtils.cs" />
     <Compile Include="CSVReader.cs" />
     <Compile Include="TendrilInterface.cs">
