@@ -244,7 +244,7 @@ namespace TendrilInterfaceForm
 
         private void btnMnlMot0_MM_Click(object sender, EventArgs e)
         {
-
+            tbMnlMot0.Text
         }
 
         private void btnMnlMot0_M_Click(object sender, EventArgs e)

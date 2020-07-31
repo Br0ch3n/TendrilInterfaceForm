@@ -14,6 +14,21 @@ namespace TendrilInterfaceForm
         private static TendrilStateSingleton instance = null;
 
         // Tendril parameters
+        private int[] SensorReadings;
+        private int[] Tension;
+        private int[] Encoder;
+        private float[] TendonLength;
+        private int FirstMotor;
+        private int LastMotor;
+
+
+        //Tracking parameters
+
+
+
+        // Control system parameters *Jones*
+
+
         
 
         /* ============= Methods ===============*/
