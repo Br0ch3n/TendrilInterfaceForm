@@ -77,6 +77,8 @@
             this.labTenMot7 = new System.Windows.Forms.Label();
             this.labTenMot8 = new System.Windows.Forms.Label();
             this.pnlMnlControl = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnMnlMot6_MM = new System.Windows.Forms.Button();
             this.btnMnlMot6_M = new System.Windows.Forms.Button();
             this.btnMnlMot6_PP = new System.Windows.Forms.Button();
@@ -139,6 +141,8 @@
             this.btnEvenTension = new System.Windows.Forms.Button();
             this.btnStopEven = new System.Windows.Forms.Button();
             this.pnlCSVWriter = new System.Windows.Forms.Panel();
+            this.cbCSVWriterSendAll = new System.Windows.Forms.CheckBox();
+            this.btnCSVWriterSend = new System.Windows.Forms.Button();
             this.btnCSVWriterEnd = new System.Windows.Forms.Button();
             this.btnCSVWriterBegin = new System.Windows.Forms.Button();
             this.lblCSVWriter = new System.Windows.Forms.Label();
@@ -151,8 +155,6 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -696,6 +698,23 @@
             this.pnlMnlControl.Name = "pnlMnlControl";
             this.pnlMnlControl.Size = new System.Drawing.Size(362, 349);
             this.pnlMnlControl.TabIndex = 38;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(238, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(112, 37);
+            this.panel1.TabIndex = 85;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::TendrilInterfaceForm.Properties.Resources.settingsScaled;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button1.Location = new System.Drawing.Point(206, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 23);
+            this.button1.TabIndex = 84;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnMnlMot6_MM
             // 
@@ -1301,6 +1320,8 @@
             // 
             // pnlCSVWriter
             // 
+            this.pnlCSVWriter.Controls.Add(this.cbCSVWriterSendAll);
+            this.pnlCSVWriter.Controls.Add(this.btnCSVWriterSend);
             this.pnlCSVWriter.Controls.Add(this.btnCSVWriterEnd);
             this.pnlCSVWriter.Controls.Add(this.btnCSVWriterBegin);
             this.pnlCSVWriter.Controls.Add(this.lblCSVWriter);
@@ -1310,13 +1331,33 @@
             this.pnlCSVWriter.Size = new System.Drawing.Size(463, 46);
             this.pnlCSVWriter.TabIndex = 41;
             // 
+            // cbCSVWriterSendAll
+            // 
+            this.cbCSVWriterSendAll.AutoSize = true;
+            this.cbCSVWriterSendAll.Location = new System.Drawing.Point(209, 6);
+            this.cbCSVWriterSendAll.Name = "cbCSVWriterSendAll";
+            this.cbCSVWriterSendAll.Size = new System.Drawing.Size(91, 17);
+            this.cbCSVWriterSendAll.TabIndex = 4;
+            this.cbCSVWriterSendAll.Text = "Send All Data";
+            this.cbCSVWriterSendAll.UseVisualStyleBackColor = true;
+            // 
+            // btnCSVWriterSend
+            // 
+            this.btnCSVWriterSend.Location = new System.Drawing.Point(306, 6);
+            this.btnCSVWriterSend.Name = "btnCSVWriterSend";
+            this.btnCSVWriterSend.Size = new System.Drawing.Size(43, 21);
+            this.btnCSVWriterSend.TabIndex = 3;
+            this.btnCSVWriterSend.Text = "Send";
+            this.btnCSVWriterSend.UseVisualStyleBackColor = true;
+            this.btnCSVWriterSend.Click += new System.EventHandler(this.btnCSVWriterSend_Click);
+            // 
             // btnCSVWriterEnd
             // 
             this.btnCSVWriterEnd.Enabled = false;
             this.btnCSVWriterEnd.Location = new System.Drawing.Point(408, 6);
             this.btnCSVWriterEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnCSVWriterEnd.Name = "btnCSVWriterEnd";
-            this.btnCSVWriterEnd.Size = new System.Drawing.Size(50, 29);
+            this.btnCSVWriterEnd.Size = new System.Drawing.Size(50, 21);
             this.btnCSVWriterEnd.TabIndex = 2;
             this.btnCSVWriterEnd.Text = "End";
             this.btnCSVWriterEnd.UseVisualStyleBackColor = true;
@@ -1324,10 +1365,10 @@
             // 
             // btnCSVWriterBegin
             // 
-            this.btnCSVWriterBegin.Location = new System.Drawing.Point(356, 6);
+            this.btnCSVWriterBegin.Location = new System.Drawing.Point(354, 6);
             this.btnCSVWriterBegin.Margin = new System.Windows.Forms.Padding(2);
             this.btnCSVWriterBegin.Name = "btnCSVWriterBegin";
-            this.btnCSVWriterBegin.Size = new System.Drawing.Size(50, 29);
+            this.btnCSVWriterBegin.Size = new System.Drawing.Size(50, 21);
             this.btnCSVWriterBegin.TabIndex = 1;
             this.btnCSVWriterBegin.Text = "Begin";
             this.btnCSVWriterBegin.UseVisualStyleBackColor = true;
@@ -1422,23 +1463,6 @@
             this.labValueMotor8.Size = new System.Drawing.Size(13, 13);
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
-            // 
-            // button1
-            // 
-            this.button1.Image = global::TendrilInterfaceForm.Properties.Resources.settingsScaled;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button1.Location = new System.Drawing.Point(206, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 23);
-            this.button1.TabIndex = 84;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(238, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(112, 37);
-            this.panel1.TabIndex = 85;
             // 
             // TendrilInterface
             // 
@@ -1638,6 +1662,8 @@
         private System.Windows.Forms.Button btnMnlMot1_P;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox cbCSVWriterSendAll;
+        private System.Windows.Forms.Button btnCSVWriterSend;
     }
 }
 

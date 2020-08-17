@@ -31,11 +31,12 @@ namespace TendrilInterfaceForm
         private bool simRunning;
         private String evenOut;
         private int ERR_THRESH;
-        private bool flgProcessing, flgWriting, flgTimer;
+        private bool flgProcessing, flgWriting, flgWriteAll, flgTimer;
         private OpenGLSim glSimDisplay;
         private KalmanFilter[] KFTensions;
         private System.Timers.Timer time;
         private Color prevColor;
+        private TendrilStateSingleton TendrilState;
 
         public TendrilInterface()
         {
@@ -56,6 +57,7 @@ namespace TendrilInterfaceForm
             simRunning = false;
             flgProcessing = false;
             flgWriting = false;
+            flgWriteAll = false;
             ERR_THRESH = 20;
             MnlTBArray = new TextBox[] { tbMnlMot0, tbMnlMot1, tbMnlMot2, tbMnlMot3, tbMnlMot4, tbMnlMot5, tbMnlMot6, tbMnlMot7, tbMnlMot8 };
             KFTensions = new KalmanFilter[9];
@@ -64,6 +66,7 @@ namespace TendrilInterfaceForm
             time.Interval = 10000;
             time.Elapsed += OnTimeElapsed;
             flgTimer = false;
+            TendrilState = TendrilStateSingleton.getInstance();
 
             for (int ndx = 0; ndx < 9; ndx++)
             {
@@ -196,11 +199,24 @@ namespace TendrilInterfaceForm
                 outputFile.CSV_WriteLine(s);
             }
         }
+
+        private void btnCSVWriterSend_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnCSVWriterBegin_Click(object sender, EventArgs e)
         {
             if (outputFile != null && outputFile.strmActive)
             {
                 flgWriting = true;
+                if (cbCSVWriterSendAll.Checked)
+                {
+                    flgWriteAll = true;
+                } else
+                {
+                    flgWriteAll = false;
+                }
                 btnCSVWriterBegin.Enabled = false;
                 btnCSVWriterEnd.Enabled = true;
                 //String s = TendrilUtils.GetTimesstamp(DateTime.Now) + ",E0,E1,E2,E3,E4,E5,E6,E7,E8,T0,T1,T2,T3,T4,T5,T6,T7,T8";
@@ -244,7 +260,7 @@ namespace TendrilInterfaceForm
 
         private void btnMnlMot0_MM_Click(object sender, EventArgs e)
         {
-            tbMnlMot0.Text
+            
         }
 
         private void btnMnlMot0_M_Click(object sender, EventArgs e)
@@ -616,7 +632,7 @@ namespace TendrilInterfaceForm
 
 
             }
-            if (flgWriting)
+            if (flgWriting && flgWriteAll)
             {
                 outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(cntsFeedback,tensFeedback));
             }
@@ -656,7 +672,7 @@ namespace TendrilInterfaceForm
             kalmanFilterToolStripMenuItem.Checked = !kalmanFilterToolStripMenuItem.Checked;
         }
 
-        
+
 
         void ProcessTendrilInput(String[] input)
         {
