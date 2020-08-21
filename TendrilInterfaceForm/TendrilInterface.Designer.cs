@@ -1340,6 +1340,7 @@
             this.cbCSVWriterSendAll.TabIndex = 4;
             this.cbCSVWriterSendAll.Text = "Send All Data";
             this.cbCSVWriterSendAll.UseVisualStyleBackColor = true;
+            this.cbCSVWriterSendAll.CheckedChanged += new System.EventHandler(this.cbCSVWriterSendAll_CheckedChanged);
             // 
             // btnCSVWriterSend
             // 

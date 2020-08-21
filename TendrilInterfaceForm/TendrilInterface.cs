@@ -200,6 +200,12 @@ namespace TendrilInterfaceForm
             }
         }
 
+        private void cbCSVWriterSendAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbCSVWriterSendAll.Checked) flgWriteAll = true;
+            else flgWriteAll = false;
+        }
+
         private void btnCSVWriterSend_Click(object sender, EventArgs e)
         {
 
@@ -228,6 +234,8 @@ namespace TendrilInterfaceForm
         {
             outputFile.CloseCSV();
             flgWriting = false;
+            cbCSVWriterSendAll.Checked = false;
+            flgWriteAll = false;
             btnCSVWriterBegin.Enabled = true;
             btnCSVWriterEnd.Enabled = false;
         }
@@ -666,6 +674,7 @@ namespace TendrilInterfaceForm
             //System.Diagnostics.Process.Start(@"OpenGLTutorial.exe");
 //, @"/k C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\OpenGLTutorial\OpenGLTutorial\bin\Release\");
         }
+
 
         private void kalmanFilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
