@@ -208,7 +208,11 @@ namespace TendrilInterfaceForm
 
         private void btnCSVWriterSend_Click(object sender, EventArgs e)
         {
-
+            if (outputFile != null)
+            {
+                //outputFile.CSV_WriteLine(s);
+                // get output from state singleton
+            }
         }
 
         private void btnCSVWriterBegin_Click(object sender, EventArgs e)
