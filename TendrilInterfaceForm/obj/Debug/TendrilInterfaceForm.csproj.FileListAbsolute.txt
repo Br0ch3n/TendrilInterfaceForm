@@ -92,3 +92,4 @@ C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInte
 C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CopyComplete
 C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.exe
 C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.pdb
+C:\Users\Michael\Source\Repos\Tendril\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CoreCompileInputs.cache

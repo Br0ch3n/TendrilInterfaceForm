@@ -13,12 +13,14 @@ namespace TendrilInterfaceForm
         private int Index { get; set; }
         private StreamWriter strmWriter;
         public bool strmActive;
+        public bool strmRunning;
 
         public CSVWriter(Stream file)
         {
             strmWriter = new StreamWriter(file);
             Index = 0;
             strmActive = true;
+            strmRunning = false;
         }
         
         public void CSV_WriteLine(String s)
