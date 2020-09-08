@@ -56,6 +56,10 @@ namespace TendrilInterfaceForm
 
             return instance;
         }
-             
+
+        public void SetTension(string s)
+        {
+
+        }
     }
 }
