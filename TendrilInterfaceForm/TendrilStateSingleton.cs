@@ -13,15 +13,22 @@ namespace TendrilInterfaceForm
         // Architecture members
         private static TendrilStateSingleton instance = null;
 
-        // Tendril parameters
-        private int[] SensorReadings;
+        // Tendril variables
+        private int[] SensorReading;
         private float[] Tension;
-        private float[] TensionTargets;
+        private float[] TensionTarget;
         private int[] Encoder;
-        private int[] EncoderTargets;
+        private int[] EncoderTarget;
         private float[] TendonLength;
         private int FirstMotor;
         private int LastMotor;
+
+        // Tendril physical parameters
+        private float BaseLength, MidLength, TipLength;
+        private float LrgMotShaftDiameter, SmlMotShaftDiameter;
+        private float[] CalibrationScale;
+        private float[] CalibrationOffset;
+
 
 
         //Tracking parameters
@@ -40,13 +47,25 @@ namespace TendrilInterfaceForm
 
         private TendrilStateSingleton()
         {
-            //setup and initialization
-            SensorReadings = new int[9];
+            // setup and initialization
+            SensorReading = new int[9];
             Tension = new float[9];
+            TensionTarget = new float[9];
             Encoder = new int[9];
+            EncoderTarget = new int[9];
             TendonLength = new float[9];
             FirstMotor = 0;
             LastMotor = 8;
+
+            //RetrieveConfigFile();
+            BaseLength = 0;
+            MidLength = 0;
+            TipLength = 0;
+            LrgMotShaftDiameter = 0;
+            SmlMotShaftDiameter = 0;
+            CalibrationOffset = new float[9];
+            CalibrationScale = new float[9];
+
         }
 
         public static TendrilStateSingleton getInstance()
@@ -63,19 +82,25 @@ namespace TendrilInterfaceForm
         {
             for (int i = 0; i < input.Length; i++)
             {
-                this.SensorReadings[i] =  int.Parse(input[i]);
+                this.SensorReading[i] =  int.Parse(input[i]);
             }
-                
+            ProcessTendrilInput();
         }
 
         public void SetEncoders(String[] input)
         {
-
+            for (int i = 0; i < input.Length; i++)
+            {
+                this.Encoder[i] = int.Parse(input[i]);
+            }
         }
 
-        public void ProcessTendrilInput(String[] input)
+        public void ProcessTendrilInput()
         {
-            
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                this.Tension[i] = CalibrationScale[i] * SensorReading[i] + CalibrationOffset[i];
+            }
         }
     }
 }

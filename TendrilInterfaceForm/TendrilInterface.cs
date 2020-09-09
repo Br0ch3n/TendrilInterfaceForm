@@ -592,8 +592,8 @@ namespace TendrilInterfaceForm
 
             if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
 
-            TendrilState.SetTension(tensFeedback);
-
+            TendrilState.SetTensions(tensFeedback);
+            TendrilState.SetEncoders(cntsFeedback);
 
             cntsSim = simCurrTxLabel.Text.Split(',');
 
