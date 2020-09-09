@@ -15,8 +15,10 @@ namespace TendrilInterfaceForm
 
         // Tendril parameters
         private int[] SensorReadings;
-        private int[] Tension;
+        private float[] Tension;
+        private float[] TensionTargets;
         private int[] Encoder;
+        private int[] EncoderTargets;
         private float[] TendonLength;
         private int FirstMotor;
         private int LastMotor;
@@ -40,7 +42,7 @@ namespace TendrilInterfaceForm
         {
             //setup and initialization
             SensorReadings = new int[9];
-            Tension = new int[9];
+            Tension = new float[9];
             Encoder = new int[9];
             TendonLength = new float[9];
             FirstMotor = 0;
@@ -57,9 +59,23 @@ namespace TendrilInterfaceForm
             return instance;
         }
 
-        public void SetTension(string s)
+        public void SetTensions(String[] input)
+        {
+            for (int i = 0; i < input.Length; i++)
+            {
+                this.SensorReadings[i] =  int.Parse(input[i]);
+            }
+                
+        }
+
+        public void SetEncoders(String[] input)
         {
 
+        }
+
+        public void ProcessTendrilInput(String[] input)
+        {
+            
         }
     }
 }

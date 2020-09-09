@@ -17,7 +17,7 @@ namespace TendrilInterfaceForm
 
         public float[] encValues;
 
-        private CSVReader simFile;
+        private CSVReader simFile, configFile;
         private CSVWriter outputFile;
         private String rxString;
         private String[] cntsFeedback;
@@ -571,17 +571,30 @@ namespace TendrilInterfaceForm
             }
         }
 
+        //
+        // Main event handler for handling new data
+        //
+
         private void NewData(object sender, EventArgs e)
         {
+            // Sanitizing inputs
             String[] lines = rxString.Split('\t');
             if (lines.Length != 2) return;
             String[] evenOutput;
             String tempString;
             bool targetMet = true;
 
-            ProcessTendrilInput(lines);
+            cntStatusLabel.Text = lines[1];
+            cntsFeedback = lines[1].Split(',');
+            ParseCounts(cntsFeedback);
+            tenStatusLabel.Text = lines[0];
+            tensFeedback = lines[0].Split(',');
 
             if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
+
+            TendrilState.SetTension(tensFeedback);
+
+
             cntsSim = simCurrTxLabel.Text.Split(',');
 
             TendrilUtils.SetProgressBars(this, tensFeedback);
@@ -652,6 +665,14 @@ namespace TendrilInterfaceForm
 
         }
 
+        public void ParseCounts(String[] cnts)
+        {
+            for (int ndx = 0; ndx < 9; ndx++)
+            {
+                encValues[ndx] = float.Parse(cnts[ndx]);
+            }
+        }
+
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)
         {
             flgTimer = true;
@@ -685,38 +706,7 @@ namespace TendrilInterfaceForm
             kalmanFilterToolStripMenuItem.Checked = !kalmanFilterToolStripMenuItem.Checked;
         }
 
-
-
-        void ProcessTendrilInput(String[] input)
-        {
-            //String[] tenTemp = input[0].Split(',');
-            //String temp = "";
-            
-            cntStatusLabel.Text = input[1];
-            cntsFeedback = input[1].Split(',');
-            //glSimDisplay.JModel.Update(GetCounts(cntsFeedback))
-            ParseCounts(cntsFeedback);
-            //glSimDisplay.SetCounts(encValues);
-            tenStatusLabel.Text = input[0];
-            tensFeedback = input[0].Split(',');
-            //for (int i  = 0; i < tenTemp.Length; i++) tenAvg[i].AddValue(Int32.Parse(tenTemp[i]));
-
-            //for (int i = 0; i < tenTemp.Length; i++)
-            //{
-            //    temp += tenAvg[i].avgI.ToString();
-            //    if (i < tenTemp.Length - 1) temp += ',';
-            //    tensFeedback[i] = tenAvg[i].avgI.ToString();
-            //}
-            //tenStatusLabel.Text = temp;
-        }
-
-        public void ParseCounts(String[] cnts)
-        {
-            for (int ndx = 0; ndx < 9; ndx++)
-            {
-                encValues[ndx] = float.Parse(cnts[ndx]);
-            }
-        }
+        
 
 
     }
