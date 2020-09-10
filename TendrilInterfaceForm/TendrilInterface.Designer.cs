@@ -116,7 +116,7 @@
             this.btnMnlMot1_PP = new System.Windows.Forms.Button();
             this.btnMnlMot1_P = new System.Windows.Forms.Button();
             this.btnMnlClose = new System.Windows.Forms.Button();
-            this.btMnlSend = new System.Windows.Forms.Button();
+            this.btnMnlSend = new System.Windows.Forms.Button();
             this.ddmMnlCntrlSelect = new System.Windows.Forms.ComboBox();
             this.tbMnlMot8 = new System.Windows.Forms.TextBox();
             this.tbMnlMot7 = new System.Windows.Forms.TextBox();
@@ -672,7 +672,7 @@
             this.pnlMnlControl.Controls.Add(this.btnMnlMot1_PP);
             this.pnlMnlControl.Controls.Add(this.btnMnlMot1_P);
             this.pnlMnlControl.Controls.Add(this.btnMnlClose);
-            this.pnlMnlControl.Controls.Add(this.btMnlSend);
+            this.pnlMnlControl.Controls.Add(this.btnMnlSend);
             this.pnlMnlControl.Controls.Add(this.ddmMnlCntrlSelect);
             this.pnlMnlControl.Controls.Add(this.tbMnlMot8);
             this.pnlMnlControl.Controls.Add(this.tbMnlMot7);
@@ -1087,16 +1087,16 @@
             this.btnMnlClose.UseVisualStyleBackColor = true;
             this.btnMnlClose.Click += new System.EventHandler(this.btnMnlClose_Click);
             // 
-            // btMnlSend
+            // btnMnlSend
             // 
-            this.btMnlSend.Location = new System.Drawing.Point(235, 279);
-            this.btMnlSend.Margin = new System.Windows.Forms.Padding(2);
-            this.btMnlSend.Name = "btMnlSend";
-            this.btMnlSend.Size = new System.Drawing.Size(54, 27);
-            this.btMnlSend.TabIndex = 42;
-            this.btMnlSend.Text = "Send";
-            this.btMnlSend.UseVisualStyleBackColor = true;
-            this.btMnlSend.Click += new System.EventHandler(this.btMnlSend_Click);
+            this.btnMnlSend.Location = new System.Drawing.Point(235, 279);
+            this.btnMnlSend.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMnlSend.Name = "btnMnlSend";
+            this.btnMnlSend.Size = new System.Drawing.Size(54, 27);
+            this.btnMnlSend.TabIndex = 42;
+            this.btnMnlSend.Text = "Send";
+            this.btnMnlSend.UseVisualStyleBackColor = true;
+            this.btnMnlSend.Click += new System.EventHandler(this.btMnlSend_Click);
             // 
             // ddmMnlCntrlSelect
             // 
@@ -1604,7 +1604,7 @@
         private System.Windows.Forms.Label lblMnlMot0;
         private System.Windows.Forms.Label lblMnl;
         private System.Windows.Forms.ComboBox ddmMnlCntrlSelect;
-        private System.Windows.Forms.Button btMnlSend;
+        private System.Windows.Forms.Button btnMnlSend;
         private System.Windows.Forms.Button btnMnlClose;
         private System.Windows.Forms.ToolStripMenuItem saveOutputToolStripMenuItem;
         private System.Windows.Forms.Panel pnlCSVWriter;

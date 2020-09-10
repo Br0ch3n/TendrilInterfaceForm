@@ -272,7 +272,8 @@ namespace TendrilInterfaceForm
 
         private void btnMnlMot0_MM_Click(object sender, EventArgs e)
         {
-            
+            MnlTBArray[0].Text = TendrilUtils.SubtractText(MnlTBArray[0].Text, TendrilState.GetLrgIncrement().ToString());
+            //btnMnlSend.MouseClick();
         }
 
         private void btnMnlMot0_M_Click(object sender, EventArgs e)

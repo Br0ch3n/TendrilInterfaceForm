@@ -22,6 +22,8 @@ namespace TendrilInterfaceForm
         private float[] TendonLength;
         private int FirstMotor;
         private int LastMotor;
+        private int EncSmlIncrement;
+        private int EncLrgIncrement;
 
         // Tendril physical parameters
         private float BaseLength, MidLength, TipLength;
@@ -56,6 +58,8 @@ namespace TendrilInterfaceForm
             TendonLength = new float[9];
             FirstMotor = 0;
             LastMotor = 8;
+            EncSmlIncrement = 50;
+            EncLrgIncrement = 200;
 
             //RetrieveConfigFile();
             BaseLength = 0;
@@ -101,6 +105,16 @@ namespace TendrilInterfaceForm
             {
                 this.Tension[i] = CalibrationScale[i] * SensorReading[i] + CalibrationOffset[i];
             }
+        }
+
+        public int GetSmallIncrement()
+        {
+            return EncSmlIncrement;
+        }
+
+        public int GetLrgIncrement()
+        {
+            return EncLrgIncrement;
         }
     }
 }

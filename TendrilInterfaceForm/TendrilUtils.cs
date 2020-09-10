@@ -44,7 +44,17 @@ namespace TendrilInterfaceForm
             t.labValueMotor6.Text = s[6]; t.labValueMotor7.Text = s[7]; t.labValueMotor8.Text = s[8];
         }
 
-       
+        public static String AddText(String s1, String s2)
+        {
+            int temp = int.Parse(s1) + int.Parse(s2);
+            return temp.ToString();
+        }
+
+        public static String SubtractText(String s1, String s2)
+        {
+            int temp = int.Parse(s1) - int.Parse(s2);
+            return temp.ToString();
+        }
 
         public static String[] EvenOutSection(String section, String[] cnts, String[] ten, SerialPort serialPort)
         {
