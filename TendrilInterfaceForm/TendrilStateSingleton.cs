@@ -17,19 +17,26 @@ namespace TendrilInterfaceForm
         private int[] SensorReading;
         private float[] Tension;
         private float[] TensionTarget;
+
         private int[] Encoder;
         private int[] EncoderTarget;
+
         private float[] TendonLength;
+
         private int FirstMotor;
         private int LastMotor;
+
         private int EncSmlIncrement;
         private int EncLrgIncrement;
 
         // Tendril physical parameters
         private float BaseLength, MidLength, TipLength;
         private float LrgMotShaftDiameter, SmlMotShaftDiameter;
+        private float BaseMass, MidMass, TipMass;
+        private float BaseStiff, MidStiff, TipStiff;
         private float[] CalibrationScale;
         private float[] CalibrationOffset;
+        private float SpacerHoleRadius, TendonDiameter;
 
 
 
@@ -37,10 +44,6 @@ namespace TendrilInterfaceForm
         private float[] SensorVelocity;
         private float[] TensionVelocity;
         private float[] EncoderVelocity; 
-
-
-        // Control system parameters
-
 
 
         

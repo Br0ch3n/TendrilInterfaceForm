@@ -461,6 +461,9 @@ namespace TendrilInterfaceForm
             }
             btSerialPort.WriteLine("Read," + s);
             Console.WriteLine(s);
+
+            // Update singleton encoder targets
+
         }
 
         private void btnMnlClose_Click(object sender, EventArgs e)
@@ -469,6 +472,9 @@ namespace TendrilInterfaceForm
             pnlMnlControl.Enabled = false;
             pnlMnlControl.Visible = false;
         }
+
+
+
         //////////////////////////////////////////////////////////////////////
         //////////////////////  Zeroing Tension Values  //////////////////////
         //////////////////////////////////////////////////////////////////////

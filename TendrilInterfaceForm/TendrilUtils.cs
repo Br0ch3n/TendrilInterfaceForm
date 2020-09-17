@@ -52,7 +52,7 @@ namespace TendrilInterfaceForm
 
         public static String SubtractText(String s1, String s2)
         {
-            int temp = int.Parse(s1) - int.Parse(s2);
+            int temp = Int32.Parse(s1) - Int32.Parse(s2);
             return temp.ToString();
         }
 
