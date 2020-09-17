@@ -273,182 +273,218 @@ namespace TendrilInterfaceForm
         private void btnMnlMot0_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[0].Text = TendrilUtils.SubtractText((MnlTBArray[0].Text == "" ? "0" : MnlTBArray[0].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot0_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[0].Text = TendrilUtils.SubtractText((MnlTBArray[0].Text == "" ? "0" : MnlTBArray[0].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot0_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[0].Text = TendrilUtils.AddText((MnlTBArray[0].Text == "" ? "0" : MnlTBArray[0].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot0_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[0].Text = TendrilUtils.AddText((MnlTBArray[0].Text == "" ? "0" : MnlTBArray[0].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot1_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[1].Text = TendrilUtils.SubtractText((MnlTBArray[1].Text == "" ? "0" : MnlTBArray[1].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot1_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[1].Text = TendrilUtils.SubtractText((MnlTBArray[1].Text == "" ? "0" : MnlTBArray[1].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot1_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[1].Text = TendrilUtils.AddText((MnlTBArray[1].Text == "" ? "0" : MnlTBArray[1].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot1_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[1].Text = TendrilUtils.AddText((MnlTBArray[1].Text == "" ? "0" : MnlTBArray[1].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot2_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[2].Text = TendrilUtils.SubtractText((MnlTBArray[2].Text == "" ? "0" : MnlTBArray[2].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
 
         }
 
         private void btnMnlMot2_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[2].Text = TendrilUtils.SubtractText((MnlTBArray[2].Text == "" ? "0" : MnlTBArray[2].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot2_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[2].Text = TendrilUtils.AddText((MnlTBArray[2].Text == "" ? "0" : MnlTBArray[2].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot2_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[2].Text = TendrilUtils.AddText((MnlTBArray[2].Text == "" ? "0" : MnlTBArray[2].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot3_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[3].Text = TendrilUtils.SubtractText((MnlTBArray[3].Text == "" ? "0" : MnlTBArray[3].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot3_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[3].Text = TendrilUtils.SubtractText((MnlTBArray[3].Text == "" ? "0" : MnlTBArray[3].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot3_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[3].Text = TendrilUtils.AddText((MnlTBArray[3].Text == "" ? "0" : MnlTBArray[3].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot3_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[3].Text = TendrilUtils.AddText((MnlTBArray[3].Text == "" ? "0" : MnlTBArray[3].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot4_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[4].Text = TendrilUtils.SubtractText((MnlTBArray[4].Text == "" ? "0" : MnlTBArray[4].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot4_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[4].Text = TendrilUtils.SubtractText((MnlTBArray[4].Text == "" ? "0" : MnlTBArray[4].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot4_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[4].Text = TendrilUtils.AddText((MnlTBArray[4].Text == "" ? "0" : MnlTBArray[4].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot4_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[4].Text = TendrilUtils.AddText((MnlTBArray[4].Text == "" ? "0" : MnlTBArray[4].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot5_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[5].Text = TendrilUtils.SubtractText((MnlTBArray[5].Text == "" ? "0" : MnlTBArray[5].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot5_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[5].Text = TendrilUtils.SubtractText((MnlTBArray[5].Text == "" ? "0" : MnlTBArray[5].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot5_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[5].Text = TendrilUtils.AddText((MnlTBArray[5].Text == "" ? "0" : MnlTBArray[5].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot5_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[5].Text = TendrilUtils.AddText((MnlTBArray[5].Text == "" ? "0" : MnlTBArray[5].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot6_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[6].Text = TendrilUtils.SubtractText((MnlTBArray[6].Text == "" ? "0" : MnlTBArray[6].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot6_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[6].Text = TendrilUtils.SubtractText((MnlTBArray[6].Text == "" ? "0" : MnlTBArray[6].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot6_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[6].Text = TendrilUtils.AddText((MnlTBArray[6].Text == "" ? "0" : MnlTBArray[6].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot6_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[6].Text = TendrilUtils.AddText((MnlTBArray[6].Text == "" ? "0" : MnlTBArray[6].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot7_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[7].Text = TendrilUtils.SubtractText((MnlTBArray[7].Text == "" ? "0" : MnlTBArray[7].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot7_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[7].Text = TendrilUtils.SubtractText((MnlTBArray[7].Text == "" ? "0" : MnlTBArray[7].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot7_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[7].Text = TendrilUtils.AddText((MnlTBArray[7].Text == "" ? "0" : MnlTBArray[7].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot7_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[7].Text = TendrilUtils.AddText((MnlTBArray[7].Text == "" ? "0" : MnlTBArray[7].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot8_MM_Click(object sender, EventArgs e)
         {
             MnlTBArray[8].Text = TendrilUtils.SubtractText((MnlTBArray[8].Text == "" ? "0" : MnlTBArray[8].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot8_M_Click(object sender, EventArgs e)
         {
             MnlTBArray[8].Text = TendrilUtils.SubtractText((MnlTBArray[8].Text == "" ? "0" : MnlTBArray[8].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot8_P_Click(object sender, EventArgs e)
         {
             MnlTBArray[8].Text = TendrilUtils.AddText((MnlTBArray[8].Text == "" ? "0" : MnlTBArray[8].Text), TendrilState.GetSmlIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btnMnlMot8_PP_Click(object sender, EventArgs e)
         {
             MnlTBArray[8].Text = TendrilUtils.AddText((MnlTBArray[8].Text == "" ? "0" : MnlTBArray[8].Text), TendrilState.GetLrgIncrement().ToString());
+            btnMnlSend.PerformClick();
         }
 
         private void btMnlSend_Click(object sender, EventArgs e)
@@ -463,6 +499,7 @@ namespace TendrilInterfaceForm
             Console.WriteLine(s);
 
             // Update singleton encoder targets
+            TendrilState.UpdateEncoderTargets(s);
 
         }
 

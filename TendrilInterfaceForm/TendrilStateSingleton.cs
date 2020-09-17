@@ -98,7 +98,7 @@ namespace TendrilInterfaceForm
         {
             for (int i = 0; i < input.Length; i++)
             {
-                this.Encoder[i] = int.Parse(input[i]);
+                this.Encoder[i] = Int32.Parse(input[i]);
             }
         }
 
@@ -118,6 +118,16 @@ namespace TendrilInterfaceForm
         public int GetLrgIncrement()
         {
             return EncLrgIncrement;
+        }
+
+        public void UpdateEncoderTargets(String input)
+        {
+            String[] temp;
+            temp = input.Split(',');
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                this.EncoderTarget[i] = Int32.Parse(temp[i]);
+            }
         }
     }
 }
