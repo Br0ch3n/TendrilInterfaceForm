@@ -110,7 +110,7 @@ namespace TendrilInterfaceForm
             }
         }
 
-        public int GetSmallIncrement()
+        public int GetSmlIncrement()
         {
             return EncSmlIncrement;
         }
