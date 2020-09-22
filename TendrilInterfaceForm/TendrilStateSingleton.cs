@@ -30,13 +30,13 @@ namespace TendrilInterfaceForm
         private int EncLrgIncrement;
 
         // Tendril physical parameters
-        private float BaseLength, MidLength, TipLength; // get section length
-        private float LrgMotShaftDiameter, SmlMotShaftDiameter; // get shaft diameter
-        private float BaseMass, MidMass, TipMass; // get section mass
-        private float BaseStiff, MidStiff, TipStiff; // get section stiffness
+        private float BaseLength, MidLength, TipLength;
+        private float LrgMotShaftDiameter, SmlMotShaftDiameter;
+        private float BaseMass, MidMass, TipMass; 
+        private float BaseModulus, MidModulus, TipModulus; 
         private float[] CalibrationScale;
         private float[] CalibrationOffset;
-        private float SpacerHoleRadius, TendonDiameter;
+        private float SpacerHoleDiameter, TendonDiameter;
 
 
 
@@ -130,6 +130,50 @@ namespace TendrilInterfaceForm
             }
         }
 
-        public 
+        public float GetSectionLength(int section)
+        {
+            if (section < TendrilUtils.BASE_SECTION && section > TendrilUtils.TIP_SECTION) return 0.0f;
+
+            if (section == TendrilUtils.BASE_SECTION) return BaseLength;
+            else if (section == TendrilUtils.MID_SECTION) return MidLength;
+            else return TipLength;
+
+        }
+
+        public float GetSectionStiffness(int section)
+        {
+            if (section < TendrilUtils.BASE_SECTION && section > TendrilUtils.TIP_SECTION) return 0.0f;
+
+            if (section == TendrilUtils.BASE_SECTION) return BaseModulus;
+            else if (section == TendrilUtils.MID_SECTION) return MidModulus;
+            else return TipModulus;
+        }
+        
+        public float GetSectionMass(int section)
+        {
+            if (section < TendrilUtils.BASE_SECTION && section > TendrilUtils.TIP_SECTION) return 0.0f;
+
+            if (section == TendrilUtils.BASE_SECTION) return BaseMass;
+            else if (section == TendrilUtils.MID_SECTION) return MidMass;
+            else return TipMass;
+        }
+
+        public float GetMotorSgaftDiameter(int motor)
+        {
+            if (motor < TendrilUtils.LRG_MOTOR && motor > TendrilUtils.SML_MOTOR) return 0.0f;
+
+            if (motor == TendrilUtils.LRG_MOTOR) return LrgMotShaftDiameter;
+            else return SmlMotShaftDiameter;
+        }
+
+        public float GetSpacerHoleDiamter()
+        {
+            return SpacerHoleDiameter;
+        }
+
+        public float GetTendonDiameter()
+        {
+            return TendonDiameter;
+        }
     }
 }
