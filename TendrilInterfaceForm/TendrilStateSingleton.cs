@@ -129,5 +129,7 @@ namespace TendrilInterfaceForm
                 this.EncoderTarget[i] = Int32.Parse(temp[i]);
             }
         }
+
+        public 
     }
 }

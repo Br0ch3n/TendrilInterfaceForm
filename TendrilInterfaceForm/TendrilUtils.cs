@@ -15,6 +15,8 @@ namespace TendrilInterfaceForm
         public static int BASE_SECTION = 0;
         public static int MID_SECTION = 1;
         public static int TIP_SECTION = 2;
+        public static int LRG_MOTOR = 3;
+        public static int SML_MOTOR = 4;
 
         public static void SetProgressBars(TendrilInterface t, String[] s)
         {
