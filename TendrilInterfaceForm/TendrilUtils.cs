@@ -11,7 +11,10 @@ namespace TendrilInterfaceForm
     public static class TendrilUtils
     {
         public static float[] tenValues = new float[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        
+
+        public static int BASE_SECTION = 0;
+        public static int MID_SECTION = 1;
+        public static int TIP_SECTION = 2;
 
         public static void SetProgressBars(TendrilInterface t, String[] s)
         {

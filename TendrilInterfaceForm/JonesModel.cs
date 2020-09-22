@@ -84,7 +84,7 @@ namespace TendrilInterfaceForm
             for (int i = 0; i < 3; i++)
             {
                 base_s[i] = enc[i]/(-(countPerRotB / lengthPerRotB)) + ten_bs;
-                mid_s[i] = enc[i + 3] / (-(countPerRot / lengthPerRot)) + ten_ms;
+                mid_s[i] = enc[i + 3] / (-(countPerRot / lengthPerRot)) + ten_ms; // move to singleton
                 tip_s[i] = enc[i + 6] / (-(countPerRot / lengthPerRot)) + ten_ts;
             }
 

@@ -30,10 +30,10 @@ namespace TendrilInterfaceForm
         private int EncLrgIncrement;
 
         // Tendril physical parameters
-        private float BaseLength, MidLength, TipLength;
-        private float LrgMotShaftDiameter, SmlMotShaftDiameter;
-        private float BaseMass, MidMass, TipMass;
-        private float BaseStiff, MidStiff, TipStiff;
+        private float BaseLength, MidLength, TipLength; // get section length
+        private float LrgMotShaftDiameter, SmlMotShaftDiameter; // get shaft diameter
+        private float BaseMass, MidMass, TipMass; // get section mass
+        private float BaseStiff, MidStiff, TipStiff; // get section stiffness
         private float[] CalibrationScale;
         private float[] CalibrationOffset;
         private float SpacerHoleRadius, TendonDiameter;
