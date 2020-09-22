@@ -41,9 +41,9 @@ namespace TendrilInterfaceForm
 
 
         //Tracking parameters
-        private float[] SensorVelocity;
-        private float[] TensionVelocity;
-        private float[] EncoderVelocity; 
+        private KalmanFilter[] TrackedSensor;
+        private KalmanFilter[] TrackedTension;
+        private KalmanFilter[] TrackedEncoder; 
 
 
         
