@@ -85,7 +85,7 @@ namespace TendrilInterfaceForm
             return instance;
         }
 
-        public void SetTensions(String[] input)
+        public void UpdateTensions(String[] input)
         {
             for (int i = 0; i < input.Length; i++)
             {
@@ -94,7 +94,7 @@ namespace TendrilInterfaceForm
             ProcessTendrilInput();
         }
 
-        public void SetEncoders(String[] input)
+        public void UpdateEncoders(String[] input)
         {
             for (int i = 0; i < input.Length; i++)
             {
@@ -158,7 +158,7 @@ namespace TendrilInterfaceForm
             else return TipMass;
         }
 
-        public float GetMotorSgaftDiameter(int motor)
+        public float GetMotorShaftDiameter(int motor)
         {
             if (motor < TendrilUtils.LRG_MOTOR && motor > TendrilUtils.SML_MOTOR) return 0.0f;
 
@@ -174,6 +174,30 @@ namespace TendrilInterfaceForm
         public float GetTendonDiameter()
         {
             return TendonDiameter;
+        }
+
+        public String[] GetTensions()
+        {
+            String[] s = new String[9];
+
+            for (int i = FirstMotor; i < LastMotor; i++)
+            {
+                s[i] = Tension[i].ToString();
+            }
+
+            return s;
+        }
+
+        public String[] GetEncoders()
+        {
+            String[] s = new String[9];
+
+            for (int i = FirstMotor; i < LastMotor; i++)
+            {
+                s[i] = Encoder[i].ToString();
+            }
+
+            return s;
         }
     }
 }

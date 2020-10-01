@@ -210,8 +210,7 @@ namespace TendrilInterfaceForm
         {
             if (outputFile != null)
             {
-                //outputFile.CSV_WriteLine(s);
-                // get output from state singleton
+                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions()));
             }
         }
 
@@ -636,8 +635,8 @@ namespace TendrilInterfaceForm
 
             if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
 
-            TendrilState.SetTensions(tensFeedback);
-            TendrilState.SetEncoders(cntsFeedback);
+            TendrilState.UpdateTensions(tensFeedback);
+            TendrilState.UpdateEncoders(cntsFeedback);
 
             cntsSim = simCurrTxLabel.Text.Split(',');
 
@@ -703,7 +702,7 @@ namespace TendrilInterfaceForm
             }
             if (flgWriting && flgWriteAll)
             {
-                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(cntsFeedback,tensFeedback));
+                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(),TendrilState.GetTensions()));
             }
             flgProcessing = false;
 
