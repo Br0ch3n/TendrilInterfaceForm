@@ -32,18 +32,19 @@ namespace TendrilInterfaceForm
         // Tendril physical parameters
         private float BaseLength, MidLength, TipLength;
         private float LrgMotShaftDiameter, SmlMotShaftDiameter;
-        private float BaseMass, MidMass, TipMass; 
-        private float BaseModulus, MidModulus, TipModulus; 
+        private float BaseMass, MidMass, TipMass;
+        private float BaseModulus, MidModulus, TipModulus;
         private float[] CalibrationScale;
         private float[] CalibrationOffset;
         private float SpacerHoleDiameter, TendonDiameter;
+        private int CountsPerRotationSmall, CountsPerRotationLarge;
 
 
-
-        //Tracking parameters
+        //Tracking variables
         private KalmanFilter[] TrackedSensor;
         private KalmanFilter[] TrackedTension;
-        private KalmanFilter[] TrackedEncoder; 
+        private KalmanFilter[] TrackedEncoder;
+        private KalmanFilter[] TrackedTendonLength;
 
 
         
@@ -70,6 +71,8 @@ namespace TendrilInterfaceForm
             TipLength = 0;
             LrgMotShaftDiameter = 0;
             SmlMotShaftDiameter = 0;
+            CountsPerRotationSmall = 0;
+            CountsPerRotationLarge = 0;
             CalibrationOffset = new float[9];
             CalibrationScale = new float[9];
 
@@ -100,6 +103,18 @@ namespace TendrilInterfaceForm
             {
                 this.Encoder[i] = Int32.Parse(input[i]);
             }
+
+
+            // Add update to tendon lengths
+            //convert motor counts to lengths for tendril
+            for (int i = 0; i < 3; i++)
+            {
+                base_s[i] = enc[i] / (-(countPerRotB / lengthPerRotB)) + ten_bs;
+                mid_s[i] = enc[i + 3] / (-(countPerRot / lengthPerRot)) + ten_ms; 
+                tip_s[i] = enc[i + 6] / (-(countPerRot / lengthPerRot)) + ten_ts;
+            }
+
+
         }
 
         public void ProcessTendrilInput()

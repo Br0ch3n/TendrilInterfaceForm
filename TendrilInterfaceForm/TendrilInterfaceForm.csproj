@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BajoModel.cs" />
     <Compile Include="JonesModel.cs" />
     <Compile Include="KalmanFilter.cs" />
     <Compile Include="CSVWriter.cs" />

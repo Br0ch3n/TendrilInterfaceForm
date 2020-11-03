@@ -79,14 +79,6 @@ namespace TendrilInterfaceForm
         public void Update(float[] enc)
         {
             
- 
-            //convert motor counts to lengths for tendril
-            for (int i = 0; i < 3; i++)
-            {
-                base_s[i] = enc[i]/(-(countPerRotB / lengthPerRotB)) + ten_bs;
-                mid_s[i] = enc[i + 3] / (-(countPerRot / lengthPerRot)) + ten_ms; // move to singleton
-                tip_s[i] = enc[i + 6] / (-(countPerRot / lengthPerRot)) + ten_ts;
-            }
 
             //Calculate immediate curvature for each section (bryan Jones method)
             k_bmi = 2 * Math.Sqrt(Math.Pow(base_s[0], 2) + Math.Pow(base_s[1], 2) + Math.Pow(base_s[2], 2) - base_s[0] * base_s[1] - base_s[1] * base_s[2] - base_s[0] * base_s[2]) / (db * (base_s[0] + base_s[1] + base_s[2]));
