@@ -38,6 +38,7 @@ namespace TendrilInterfaceForm
         private float[] CalibrationOffset;
         private float SpacerHoleDiameter, TendonDiameter;
         private int CountsPerRotationSmall, CountsPerRotationLarge;
+        private float LengthPerRotationLarge, LengthPerRotationSmall;
 
 
         //Tracking variables
@@ -73,6 +74,8 @@ namespace TendrilInterfaceForm
             SmlMotShaftDiameter = 0;
             CountsPerRotationSmall = 0;
             CountsPerRotationLarge = 0;
+            LengthPerRotationLarge = 0;
+            LengthPerRotationSmall = 0;
             CalibrationOffset = new float[9];
             CalibrationScale = new float[9];
 
@@ -108,10 +111,12 @@ namespace TendrilInterfaceForm
             // Add update to tendon lengths
             //convert motor counts to lengths for tendril
             for (int i = 0; i < 3; i++)
+
+                // How are we storing S, K, Phi?
             {
-                base_s[i] = enc[i] / (-(countPerRotB / lengthPerRotB)) + ten_bs;
-                mid_s[i] = enc[i + 3] / (-(countPerRot / lengthPerRot)) + ten_ms; 
-                tip_s[i] = enc[i + 6] / (-(countPerRot / lengthPerRot)) + ten_ts;
+                base_s[i] = this.Encoder[i] / (-(CountsPerRotationLarge / LengthPerRotationLarge)) + BaseLength;
+                mid_s[i] = this.Encoder[i + 3] / (-(CountsPerRotationLarge / LengthPerRotationSmall)) + MidLength; 
+                tip_s[i] = this.Encoder[i + 6] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + TipLength;
             }
 
 
