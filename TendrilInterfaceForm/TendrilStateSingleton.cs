@@ -127,8 +127,8 @@ namespace TendrilInterfaceForm
                 TendonDiameter = float.Parse(configParams[10]);
                 LrgMotShaftDiameter = float.Parse(configParams[11]);
                 SmlMotShaftDiameter = float.Parse(configParams[12]);
-                CountsPerRotationSmall = Int32.Parse(configParams[13]);
-                CountsPerRotationLarge = Int32.Parse(configParams[14]);
+                CountsPerRotationLarge = Int32.Parse(configParams[13]);
+                CountsPerRotationSmall = Int32.Parse(configParams[14]);
                 LengthPerRotationLarge = float.Parse(configParams[15]);
                 LengthPerRotationSmall = float.Parse(configParams[16]);
                 for(int i = 0; i < CalibrationOffset.Length; i++)
