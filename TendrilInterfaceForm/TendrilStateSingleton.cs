@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TendrilInterfaceForm
 {
@@ -31,14 +33,18 @@ namespace TendrilInterfaceForm
 
         // Tendril physical parameters
         private float BaseLength, MidLength, TipLength;
-        private float LrgMotShaftDiameter, SmlMotShaftDiameter;
         private float BaseMass, MidMass, TipMass;
         private float BaseModulus, MidModulus, TipModulus;
-        private float[] CalibrationScale;
-        private float[] CalibrationOffset;
+
         private float SpacerHoleDiameter, TendonDiameter;
+        private float LrgMotShaftDiameter, SmlMotShaftDiameter;
         private int CountsPerRotationSmall, CountsPerRotationLarge;
         private float LengthPerRotationLarge, LengthPerRotationSmall;
+
+        private float[] CalibrationScale;
+        private float[] CalibrationOffset;
+
+
 
 
         //Tracking variables
@@ -51,6 +57,9 @@ namespace TendrilInterfaceForm
         
 
         /* ============= Methods ===============*/
+
+       
+
 
         private TendrilStateSingleton()
         {
@@ -65,20 +74,12 @@ namespace TendrilInterfaceForm
             LastMotor = 8;
             EncSmlIncrement = 50;
             EncLrgIncrement = 200;
-
-            //RetrieveConfigFile();
-            BaseLength = 0;
-            MidLength = 0;
-            TipLength = 0;
-            LrgMotShaftDiameter = 0;
-            SmlMotShaftDiameter = 0;
-            CountsPerRotationSmall = 0;
-            CountsPerRotationLarge = 0;
-            LengthPerRotationLarge = 0;
-            LengthPerRotationSmall = 0;
+            
+            
             CalibrationOffset = new float[9];
             CalibrationScale = new float[9];
 
+            ReadConfigFile();
         }
 
         public static TendrilStateSingleton getInstance()
@@ -89,6 +90,53 @@ namespace TendrilInterfaceForm
             }
 
             return instance;
+        }
+
+
+        private void ReadConfigFile()
+        {
+            string s;
+            string[] lines, configParams, CalibOffsets, CalibScales;
+            // Displays an OpenFileDialog so the user can select a Cursor.  
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt";
+            openFileDialog1.Title = "Select a tendril configuration file.";
+
+            // Show the Dialog.  
+            // If the user clicked OK in the dialog and  
+            // a .CUR file was selected, open it.  
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                s = File.ReadAllText(openFileDialog1.FileName);
+                lines = s.Split(';');
+                if (lines.Length != 3) Console.WriteLine("Config File not 3 lines.");
+                configParams = lines[0].Split(',');
+                if (configParams.Length != 17) Console.WriteLine("Config File first line not 17 parameters.");
+                CalibOffsets = lines[1].Split(',');
+                CalibScales = lines[2].Split(',');
+                BaseLength = float.Parse(configParams[0]);
+                MidLength = float.Parse(configParams[1]);
+                TipLength = float.Parse(configParams[2]);
+                BaseMass = float.Parse(configParams[3]);
+                MidMass = float.Parse(configParams[4]);
+                TipMass = float.Parse(configParams[5]);
+                BaseModulus = float.Parse(configParams[6]);
+                MidModulus = float.Parse(configParams[7]);
+                TipModulus = float.Parse(configParams[8]);
+                SpacerHoleDiameter = float.Parse(configParams[9]);
+                TendonDiameter = float.Parse(configParams[10]);
+                LrgMotShaftDiameter = float.Parse(configParams[11]);
+                SmlMotShaftDiameter = float.Parse(configParams[12]);
+                CountsPerRotationSmall = Int32.Parse(configParams[13]);
+                CountsPerRotationLarge = Int32.Parse(configParams[14]);
+                LengthPerRotationLarge = float.Parse(configParams[15]);
+                LengthPerRotationSmall = float.Parse(configParams[16]);
+                for(int i = 0; i < CalibrationOffset.Length; i++)
+                {
+                    CalibrationOffset[i] = float.Parse(CalibOffsets[i]);
+                    CalibrationScale[i] = float.Parse(CalibScales[i]);
+                }
+            }
         }
 
         public void UpdateTensions(String[] input)
@@ -114,9 +162,9 @@ namespace TendrilInterfaceForm
 
                 // How are we storing S, K, Phi?
             {
-                base_s[i] = this.Encoder[i] / (-(CountsPerRotationLarge / LengthPerRotationLarge)) + BaseLength;
-                mid_s[i] = this.Encoder[i + 3] / (-(CountsPerRotationLarge / LengthPerRotationSmall)) + MidLength; 
-                tip_s[i] = this.Encoder[i + 6] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + TipLength;
+                //base_s[i] = this.Encoder[i] / (-(CountsPerRotationLarge / LengthPerRotationLarge)) + BaseLength;
+                //mid_s[i] = this.Encoder[i + 3] / (-(CountsPerRotationLarge / LengthPerRotationSmall)) + MidLength; 
+                //tip_s[i] = this.Encoder[i + 6] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + TipLength;
             }
 
 
