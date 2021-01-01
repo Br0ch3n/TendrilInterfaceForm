@@ -48,6 +48,7 @@ namespace TendrilInterfaceForm
 
 
         //Tracking variables
+        private bool Filtering;
         private KalmanFilter[] TrackedSensor;
         private KalmanFilter[] TrackedTension;
         private KalmanFilter[] TrackedEncoder;
@@ -57,9 +58,6 @@ namespace TendrilInterfaceForm
         
 
         /* ============= Methods ===============*/
-
-       
-
 
         private TendrilStateSingleton()
         {
@@ -74,6 +72,7 @@ namespace TendrilInterfaceForm
             LastMotor = 8;
             EncSmlIncrement = 50;
             EncLrgIncrement = 200;
+            filtering = false;
             
             
             CalibrationOffset = new float[9];
@@ -131,6 +130,7 @@ namespace TendrilInterfaceForm
                 CountsPerRotationSmall = Int32.Parse(configParams[14]);
                 LengthPerRotationLarge = float.Parse(configParams[15]);
                 LengthPerRotationSmall = float.Parse(configParams[16]);
+
                 for(int i = 0; i < CalibrationOffset.Length; i++)
                 {
                     CalibrationOffset[i] = float.Parse(CalibOffsets[i]);

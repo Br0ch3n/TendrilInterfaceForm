@@ -657,6 +657,7 @@ namespace TendrilInterfaceForm
 
             TendrilUtils.SetProgressBars(this, tensFeedback);
             TendrilUtils.SetValueLabels(this, tensFeedback);
+
             if (!(evenOut == ""))
             {
                 evenOutput = TendrilUtils.EvenOutSection(evenOut, cntsFeedback, tensFeedback, btSerialPort);
@@ -755,7 +756,7 @@ namespace TendrilInterfaceForm
             simulationThread.SetApartmentState(ApartmentState.STA); // needs to be STA or throws exception
             simulationThread.Start();
             //System.Diagnostics.Process.Start(@"OpenGLTutorial.exe");
-//, @"/k C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\OpenGLTutorial\OpenGLTutorial\bin\Release\");
+            //, @"/k C:\Users\mbwoo\Google Drive\School Files\Research\Tendril\Software\TendrilInterface\OpenGLTutorial\OpenGLTutorial\bin\Release\");
         }
 
 
