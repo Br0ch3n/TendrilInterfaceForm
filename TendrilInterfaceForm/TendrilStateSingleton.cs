@@ -48,7 +48,7 @@ namespace TendrilInterfaceForm
 
 
         //Tracking variables
-        private bool Filtering;
+        private bool FilteringActive;
         private KalmanFilter[] TrackedSensor;
         private KalmanFilter[] TrackedTension;
         private KalmanFilter[] TrackedEncoder;
@@ -72,7 +72,7 @@ namespace TendrilInterfaceForm
             LastMotor = 8;
             EncSmlIncrement = 50;
             EncLrgIncrement = 200;
-            filtering = false;
+            FilteringActive = false;
             
             
             CalibrationOffset = new float[9];
@@ -157,7 +157,7 @@ namespace TendrilInterfaceForm
 
 
             // Add update to tendon lengths
-            //convert motor counts to lengths for tendril
+            // convert motor counts to lengths for tendril
             for (int i = 0; i < 3; i++)
 
                 // How are we storing S, K, Phi?
@@ -266,6 +266,18 @@ namespace TendrilInterfaceForm
             }
 
             return s;
+        }
+
+        // Filtering code
+
+        public void StartFiltering()
+        {
+            FilteringActive = true;
+        }
+
+        public void UpdateFilters()
+        {
+            //Code here for filtering...
         }
     }
 }

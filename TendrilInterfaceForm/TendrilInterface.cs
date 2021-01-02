@@ -652,6 +652,7 @@ namespace TendrilInterfaceForm
 
             TendrilState.UpdateTensions(tensFeedback);
             TendrilState.UpdateEncoders(cntsFeedback);
+            TendrilState.UpdateFilters();
 
             cntsSim = simCurrTxLabel.Text.Split(',');
 
@@ -763,6 +764,7 @@ namespace TendrilInterfaceForm
         private void kalmanFilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             kalmanFilterToolStripMenuItem.Checked = !kalmanFilterToolStripMenuItem.Checked;
+            TendrilState.StartFiltering();
         }
 
         
