@@ -11,10 +11,7 @@ namespace TendrilInterfaceForm
 
         const float dShaft = 0.006f;
         const float dShaftB = 0.0063f;
-        const float lengthPerRot = (float)Math.PI * dShaft;
-        const float lengthPerRotB = (float)Math.PI * dShaftB;
-        const int countPerRot = 720;
-        const int countPerRotB = 5256;
+       
 
         //Average curvatures and phi
         public double k_mm;
