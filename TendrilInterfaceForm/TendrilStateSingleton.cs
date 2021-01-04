@@ -173,13 +173,19 @@ namespace TendrilInterfaceForm
 
             // Add update to tendon lengths
             // convert motor counts to lengths for tendril
-            for (int i = 0; i < 3; i++)
-
-                // How are we storing S, K, Phi? in Jones model preferably?...
+            for (int i = 0; i < 9; i++)
             {
-                //base_s[i] = this.Encoder[i] / (-(CountsPerRotationLarge / LengthPerRotationLarge)) + BaseLength;
-                //mid_s[i] = this.Encoder[i + 3] / (-(CountsPerRotationLarge / LengthPerRotationSmall)) + MidLength; 
-                //tip_s[i] = this.Encoder[i + 6] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + TipLength;
+                if (i < 3)
+                {
+                    TendonLength[i] = this.Encoder[i] / (-(CountsPerRotationLarge / LengthPerRotationLarge)) + BaseLength;
+                } else if (i >= 6)
+                {
+                    TendonLength[i] = this.Encoder[i] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + TipLength;
+                } else
+                {
+                    TendonLength[i] = this.Encoder[i] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + MidLength;
+                }
+                
             }
 
 
@@ -304,7 +310,7 @@ namespace TendrilInterfaceForm
 
                 for (int i = 0; i < 9; i++)
                 {
-                    TrackedSensor[i].Update(SensorReading[i]); //Add actual values here
+                    TrackedSensor[i].Update(SensorReading[i]); 
                     TrackedTension[i].Update(Tension[i]);
                     TrackedEncoder[i].Update(Encoder[i]);
                     TrackedTendonLength[i].Update(TendonLength[i]);
