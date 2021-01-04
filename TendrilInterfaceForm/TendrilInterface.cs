@@ -764,7 +764,7 @@ namespace TendrilInterfaceForm
         private void kalmanFilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             kalmanFilterToolStripMenuItem.Checked = !kalmanFilterToolStripMenuItem.Checked;
-            TendrilState.StartFiltering();
+            if (kalmanFilterToolStripMenuItem.Checked) TendrilState.StartFiltering();
         }
 
         

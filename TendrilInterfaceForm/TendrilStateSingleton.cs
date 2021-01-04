@@ -79,6 +79,21 @@ namespace TendrilInterfaceForm
             CalibrationScale = new float[9];
 
             ReadConfigFile();
+
+            // Tracking system initialization
+            TrackedSensor = new KalmanFilter[9];
+            TrackedTension = new KalmanFilter[9];
+            TrackedEncoder = new KalmanFilter[9];
+            TrackedTendonLength = new KalmanFilter[9];
+
+            for (int ndx = 0; ndx < 9; ndx++)
+            {
+                TrackedSensor[ndx] = new KalmanFilter(0, 0);
+                TrackedTension[ndx] = new KalmanFilter(0, 0);
+                TrackedEncoder[ndx] = new KalmanFilter(0, 0);
+                TrackedTendonLength[ndx] = new KalmanFilter(0, 0);
+            }
+
         }
 
         public static TendrilStateSingleton getInstance()

@@ -37,6 +37,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveOutputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadConfigFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graphTensionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +156,6 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
-            this.loadConfigFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -229,16 +229,23 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveOutputToolStripMenuItem
             // 
             this.saveOutputToolStripMenuItem.Name = "saveOutputToolStripMenuItem";
-            this.saveOutputToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveOutputToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.saveOutputToolStripMenuItem.Text = "Save Output";
             this.saveOutputToolStripMenuItem.Click += new System.EventHandler(this.saveOutputToolStripMenuItem_Click);
+            // 
+            // loadConfigFileToolStripMenuItem
+            // 
+            this.loadConfigFileToolStripMenuItem.Name = "loadConfigFileToolStripMenuItem";
+            this.loadConfigFileToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.loadConfigFileToolStripMenuItem.Text = "Load Config File";
+            this.loadConfigFileToolStripMenuItem.Click += new System.EventHandler(this.loadConfigFileToolStripMenuItem_Click);
             // 
             // manualControlToolStripMenuItem
             // 
@@ -280,8 +287,6 @@
             // 
             // kalmanFilterToolStripMenuItem
             // 
-            this.kalmanFilterToolStripMenuItem.Checked = true;
-            this.kalmanFilterToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.kalmanFilterToolStripMenuItem.Name = "kalmanFilterToolStripMenuItem";
             this.kalmanFilterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kalmanFilterToolStripMenuItem.Text = "Kalman Filter";
@@ -1466,13 +1471,6 @@
             this.labValueMotor8.Size = new System.Drawing.Size(13, 13);
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
-            // 
-            // loadConfigFileToolStripMenuItem
-            // 
-            this.loadConfigFileToolStripMenuItem.Name = "loadConfigFileToolStripMenuItem";
-            this.loadConfigFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadConfigFileToolStripMenuItem.Text = "Load Config File";
-            this.loadConfigFileToolStripMenuItem.Click += new System.EventHandler(this.loadConfigFileToolStripMenuItem_Click);
             // 
             // TendrilInterface
             // 
