@@ -81,17 +81,18 @@ namespace TendrilInterfaceForm
 
 
             //Calculate immediate curvature for each section (bryan Jones method)
-            k_bmi = 2 * Math.Sqrt(Math.Pow(base_s[0], 2) + Math.Pow(base_s[1], 2) + Math.Pow(base_s[2], 2) - base_s[0] * base_s[1] - base_s[1] * base_s[2] - base_s[0] * base_s[2]) / (db * (base_s[0] + base_s[1] + base_s[2]));
-            k_mmi = 2 * Math.Sqrt(Math.Pow(mid_s[0], 2) + Math.Pow(mid_s[1], 2) + Math.Pow(mid_s[2], 2) - mid_s[0] * mid_s[1] - mid_s[1] * mid_s[2] - mid_s[0] * mid_s[2]) / (dm * (mid_s[0] + mid_s[1] + mid_s[2]));
-            k_tmi = 2 * Math.Sqrt(Math.Pow(tip_s[0], 2) + Math.Pow(tip_s[1], 2) + Math.Pow(tip_s[2], 2) - tip_s[0] * tip_s[1] - tip_s[1] * tip_s[2] - tip_s[0] * tip_s[2]) / (dt * (tip_s[0] + tip_s[1] + tip_s[2]));
+            k_bmi = 2 * Math.Sqrt(Math.Pow(tendonlength[0], 2) + Math.Pow(tendonlength[1], 2) + Math.Pow(tendonlength[2], 2) - tendonlength[0] * tendonlength[1] - tendonlength[1] * tendonlength[2] - tendonlength[0] * tendonlength[2]) / (db * (tendonlength[0] + tendonlength[1] + tendonlength[2]));
+            k_mmi = 2 * Math.Sqrt(Math.Pow(tendonlength[3], 2) + Math.Pow(tendonlength[4], 2) + Math.Pow(tendonlength[5], 2) - tendonlength[3] * tendonlength[4] - tendonlength[4] * tendonlength[5] - tendonlength[3] * tendonlength[5]) / (dm * (tendonlength[3] + tendonlength[4] + tendonlength[5]));
+            k_tmi = 2 * Math.Sqrt(Math.Pow(tendonlength[6], 2) + Math.Pow(tendonlength[7], 2) + Math.Pow(tendonlength[8], 2) - tendonlength[6] * tendonlength[7] - tendonlength[7] * tendonlength[8] - tendonlength[6] * tendonlength[8]) / (dt * (tendonlength[6] + tendonlength[7] + tendonlength[8]));
 
-            k_mmi = k_mmi * 0.1f;
+            
+            k_mmi = k_mmi * 0.1f; // need to verify that these are necessary
             k_tmi = k_tmi * 0.2f;
 
             //Calculate direction for each section
-            phi_bm = Math.Atan2(Math.Sqrt(3) * (base_s[2] + base_s[1] - 2 * base_s[0]), (3 * (base_s[1] - base_s[2]))); //[deg]
-            phi_mm = Math.Atan2(Math.Sqrt(3) * (mid_s[2] + mid_s[1] - 2 * mid_s[0]), (3 * (mid_s[1] - mid_s[2])));      //[deg]
-            phi_tm = Math.Atan2(Math.Sqrt(3) * (tip_s[2] + tip_s[1] - 2 * tip_s[0]), (3 * (tip_s[1] - tip_s[2])));      //[deg]
+            phi_bm = Math.Atan2(Math.Sqrt(3) * (tendonlength[2] + tendonlength[1] - 2 * tendonlength[0]), (3 * (tendonlength[1] - tendonlength[2])));      //[deg]
+            phi_mm = Math.Atan2(Math.Sqrt(3) * (tendonlength[5] + tendonlength[4] - 2 * tendonlength[3]), (3 * (tendonlength[4] - tendonlength[5])));      //[deg]
+            phi_tm = Math.Atan2(Math.Sqrt(3) * (tendonlength[8] + tendonlength[7] - 2 * tendonlength[6]), (3 * (tendonlength[7] - tendonlength[8])));      //[deg]
 
             //Add curvature to running average
             k_bmArray.AddValue((float)k_bmi);

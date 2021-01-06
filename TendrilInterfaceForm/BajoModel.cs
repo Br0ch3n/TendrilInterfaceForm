@@ -18,14 +18,14 @@ namespace TendrilInterfaceForm
 
         public BajoModel()
         {
-
+            ContactThreshold = 10;
+            //Jacobian = TendrilUtils
         }
 
-        // kinematics - Jacobian
+        public void ContactDetection()
+        {
 
-
-        // Statics
-
+        }
 
 
 
