@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenGL;
 
 namespace TendrilInterfaceForm
 {
-    class JonesModel
+    public class JonesModel
     {
 
         const float dShaft = 0.006f;
@@ -73,9 +74,11 @@ namespace TendrilInterfaceForm
 
         }
 
-        public void Update(float[] enc)
+        public void Update(float[] tendonlength)
         {
-            
+            // switch code to using tendon length variable...
+
+
 
             //Calculate immediate curvature for each section (bryan Jones method)
             k_bmi = 2 * Math.Sqrt(Math.Pow(base_s[0], 2) + Math.Pow(base_s[1], 2) + Math.Pow(base_s[2], 2) - base_s[0] * base_s[1] - base_s[1] * base_s[2] - base_s[0] * base_s[2]) / (db * (base_s[0] + base_s[1] + base_s[2]));
@@ -117,22 +120,33 @@ namespace TendrilInterfaceForm
 
             Console.WriteLine("K's: " + k_bm.ToString() + ", " + k_mm.ToString() + ", " + k_tm.ToString());
             Console.WriteLine("Phi's: " + phi_bm.ToString() + ", " + phi_mm.ToString() + ", " + phi_tm.ToString());
-            ////determine tendril base section lengths
-            //base_s[0] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) - (db * Math.Sin(phi_bm)));
-            //base_s[1] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) + (db * Math.Sin((Math.PI / 3) + phi_bm)));
-            //base_s[2] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) - (db * Math.Cos((Math.PI / 6) + phi_bm)));
-
-            ////determine tendril mid section lengths
-            //mid_s[0] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Sin((2 * Math.PI / 9) + phi_mm)));
-            //mid_s[1] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) + (dm * Math.Sin((5 * Math.PI / 9) + phi_mm)));
-            //mid_s[2] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Cos((7 * Math.PI / 18) + phi_mm)));
-
-            ////determine tendril tip section lengths
-            //tip_s[0] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Sin((4 * Math.PI / 9) + phi_tm)));
-            //tip_s[1] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) + (dt * Math.Sin((7 * Math.PI / 9) + phi_tm)));
-            //tip_s[2] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Cos((11 * Math.PI / 18) + phi_tm)));
+            
         }
 
+
+        public double[] CalculateTendonLengths()
+        {
+            double[] lengths;
+            lengths = new double[9];
+
+            ////determine tendril base section lengths
+            lengths[0] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) - (db * Math.Sin(phi_bm)));
+            lengths[1] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) + (db * Math.Sin((Math.PI / 3) + phi_bm)));
+            lengths[2] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) - (db * Math.Cos((Math.PI / 6) + phi_bm)));
+
+            ////determine tendril mid section lengths
+            lengths[3] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Sin((2 * Math.PI / 9) + phi_mm)));
+            lengths[4] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) + (dm * Math.Sin((5 * Math.PI / 9) + phi_mm)));
+            lengths[5] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Cos((7 * Math.PI / 18) + phi_mm)));
+
+            //determine tendril tip section lengths
+            lengths[6] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Sin((4 * Math.PI / 9) + phi_tm)));
+            lengths[7] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) + (dt * Math.Sin((7 * Math.PI / 9) + phi_tm)));
+            lengths[8] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Cos((11 * Math.PI / 18) + phi_tm)));
+
+            return lengths;
+
+        }
 
     }
 }
