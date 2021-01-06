@@ -55,7 +55,7 @@ namespace TendrilInterfaceForm
         RunningAverage k_tmArray;
         RunningAverage[] motors;
 
-        public JonesModel()
+        public JonesModel() // add initialization for variables passed from singleton like section lengths, etc.
         {
             kb_max = Math.PI / ten_bs;
             km_max = (2 * Math.PI) / ten_ms;
@@ -148,6 +148,8 @@ namespace TendrilInterfaceForm
             return lengths;
 
         }
+
+        // add accessors for the s, k, and phi variables as they should be stored here.
 
     }
 }
