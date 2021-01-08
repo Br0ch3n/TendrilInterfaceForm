@@ -18,13 +18,12 @@ namespace TendrilInterfaceForm
 
         public BajoModel()
         {
-            ContactThreshold = 10;
-            //Jacobian = TendrilUtils
+            ContactThreshold = 1;
         }
 
         public void ContactDetection()
         {
-
+            // 
         }
 
 

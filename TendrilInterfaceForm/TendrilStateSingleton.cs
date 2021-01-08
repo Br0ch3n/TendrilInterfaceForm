@@ -44,15 +44,18 @@ namespace TendrilInterfaceForm
         private float[] CalibrationScale;
         private float[] CalibrationOffset;
 
-
-
-
         //Tracking variables
         private bool FilteringActive;
         private KalmanFilter[] TrackedSensor;
         private KalmanFilter[] TrackedTension;
         private KalmanFilter[] TrackedEncoder;
         private KalmanFilter[] TrackedTendonLength;
+
+        //Modelling variables
+
+        JonesModel jonesModel;
+
+        BajoModel bajoModel;
 
 
         
@@ -94,6 +97,8 @@ namespace TendrilInterfaceForm
                 TrackedTendonLength[ndx] = new KalmanFilter(0, 0);
             }
 
+            jonesModel = new JonesModel();
+            bajoModel = new BajoModel();
         }
 
         public static TendrilStateSingleton getInstance()
@@ -123,7 +128,7 @@ namespace TendrilInterfaceForm
             {
                 s = File.ReadAllText(openFileDialog1.FileName);
                 lines = s.Split(';');
-                if (lines.Length != 3) Console.WriteLine("Config File not 3 lines.");
+                if (lines.Length != 4) Console.WriteLine("Config File not 4 lines.");
                 configParams = lines[0].Split(',');
                 if (configParams.Length != 17) Console.WriteLine("Config File first line not 17 parameters.");
                 CalibOffsets = lines[1].Split(',');
@@ -173,7 +178,7 @@ namespace TendrilInterfaceForm
 
             // Add update to tendon lengths
             // convert motor counts to lengths for tendril
-            for (int i = 0; i < 9; i++)
+            for (int i = FirstMotor; i < LastMotor; i++)
             {
                 if (i < 3)
                 {
@@ -300,7 +305,7 @@ namespace TendrilInterfaceForm
         {
             if (FilteringActive)
             {
-                for (int i = 0; i < 9; i++)
+                for (int i = FirstMotor; i <= LastMotor; i++)
                 {
                     TrackedSensor[i].Predict();
                     TrackedTension[i].Predict();
@@ -308,7 +313,7 @@ namespace TendrilInterfaceForm
                     TrackedTendonLength[i].Predict();
                 }
 
-                for (int i = 0; i < 9; i++)
+                for (int i = FirstMotor; i <= LastMotor; i++)
                 {
                     TrackedSensor[i].Update(SensorReading[i]); 
                     TrackedTension[i].Update(Tension[i]);
