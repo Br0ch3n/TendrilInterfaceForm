@@ -84,17 +84,17 @@ namespace TendrilInterfaceForm
             ReadConfigFile();
 
             // Tracking system initialization
-            TrackedSensor = new KalmanFilter[9];
-            TrackedTension = new KalmanFilter[9];
-            TrackedEncoder = new KalmanFilter[9];
-            TrackedTendonLength = new KalmanFilter[9];
+            TrackedSensor = new KalmanFilter[LastMotor + 1];
+            TrackedTension = new KalmanFilter[LastMotor + 1];
+            TrackedEncoder = new KalmanFilter[LastMotor + 1];
+            TrackedTendonLength = new KalmanFilter[LastMotor + 1];
 
-            for (int ndx = 0; ndx < 9; ndx++)
+            for (int ndx = FirstMotor; ndx <= LastMotor; ndx++)
             {
-                TrackedSensor[ndx] = new KalmanFilter(0, 0);
-                TrackedTension[ndx] = new KalmanFilter(0, 0);
-                TrackedEncoder[ndx] = new KalmanFilter(0, 0);
-                TrackedTendonLength[ndx] = new KalmanFilter(0, 0);
+                TrackedSensor[ndx] = new KalmanFilter(.009f, 1.0f);
+                TrackedTension[ndx] = new KalmanFilter(.009f, 1.0f);
+                TrackedEncoder[ndx] = new KalmanFilter(.009f, 1.0f);
+                TrackedTendonLength[ndx] = new KalmanFilter(.009f, 1.0f);
             }
 
             jonesModel = new JonesModel();
@@ -175,10 +175,8 @@ namespace TendrilInterfaceForm
                 this.Encoder[i] = Int32.Parse(input[i]);
             }
 
-
-            // Add update to tendon lengths
             // convert motor counts to lengths for tendril
-            for (int i = FirstMotor; i < LastMotor; i++)
+            for (int i = FirstMotor; i <= LastMotor; i++)
             {
                 if (i < 3)
                 {
@@ -190,10 +188,7 @@ namespace TendrilInterfaceForm
                 {
                     TendonLength[i] = this.Encoder[i] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + MidLength;
                 }
-                
             }
-
-
         }
 
         public void ProcessTendrilInput()

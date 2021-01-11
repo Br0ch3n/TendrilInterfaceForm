@@ -12,7 +12,7 @@ namespace TendrilInterfaceForm
 
         const float dShaft = 0.006f;
         const float dShaftB = 0.0063f;
-       
+
 
         //Average curvatures and phi
         public double k_mm;
@@ -74,10 +74,8 @@ namespace TendrilInterfaceForm
 
         }
 
-        public void Update(float[] tendonlength)
+        public void Update(float[] tendonlength, int firstMotor, int LastMotor)
         {
-            // switch code to using tendon length variable...
-
 
 
             //Calculate immediate curvature for each section (bryan Jones method)
@@ -125,7 +123,7 @@ namespace TendrilInterfaceForm
         }
 
 
-        public double[] CalculateTendonLengths()
+        public double[] CalculateTendonLengths(int firstMotor, int lastMotor)
         {
             double[] lengths;
             lengths = new double[9];
@@ -150,6 +148,8 @@ namespace TendrilInterfaceForm
         }
 
         // add accessors for the s, k, and phi variables as they should be stored here.
+
+
 
     }
 }
