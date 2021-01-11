@@ -33,7 +33,7 @@ namespace TendrilInterfaceForm
 
         // Tendril physical parameters
         private float BaseLength, MidLength, TipLength;
-        private float BaseMass, MidMass, TipMass;
+        private float BaseMass, MidMass, TipMass; //13g = base mass
         private float BaseModulus, MidModulus, TipModulus;
 
         private float SpacerHoleDiameter, TendonDiameter;

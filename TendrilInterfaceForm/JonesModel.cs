@@ -11,7 +11,7 @@ namespace TendrilInterfaceForm
     {
 
         const float dShaft = 0.006f;
-        const float dShaftB = 0.0063f;
+        const float dShaftB = 0.0063f;// 6.34 mm 0: 7.34 mm, 1: 7.06 mm, 2: 7.58 mm
 
 
         //Average curvatures and phi
@@ -32,11 +32,11 @@ namespace TendrilInterfaceForm
         const double dt = 0.003;    //radius of tip
 
         //lengths of tendril sections [m]
-        const double ten_bs = 0.917;
+        const double ten_bs = 0.917; // measured: 931 mm = 0.931 m
         const double ten_ms = 0.225;
         const double ten_ts = 0.2;
 
-        const int nb = 12;
+        const int nb = 12; // measured: 12
         const int nm = 4;
         const int nt = 7;
 
