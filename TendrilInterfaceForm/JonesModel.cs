@@ -11,7 +11,7 @@ namespace TendrilInterfaceForm
     {
 
         const float dShaft = 0.006f;
-        const float dShaftB = 0.0063f;// 6.34 mm 0: 7.34 mm, 1: 7.06 mm, 2: 7.58 mm
+        const float dShaftB = 0.00634f;//Diameter:: shaft: 6.34 mm 0: 7.34 mm, 1: 7.06 mm, 2: 7.58 mm <- spooled tendon diameters
 
 
         //Average curvatures and phi
