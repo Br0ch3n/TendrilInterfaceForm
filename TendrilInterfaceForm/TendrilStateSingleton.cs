@@ -33,7 +33,7 @@ namespace TendrilInterfaceForm
 
         // Tendril physical parameters
         private float BaseLength, MidLength, TipLength;
-        private float BaseMass, MidMass, TipMass; //13g = base mass
+        private float BaseMass, MidMass, TipMass; // 13g = base mass
         private float BaseModulus, MidModulus, TipModulus;
 
         private float SpacerHoleDiameter, TendonDiameter;
@@ -72,7 +72,7 @@ namespace TendrilInterfaceForm
             EncoderTarget = new int[9];
             TendonLength = new float[9];
             FirstMotor = 0;
-            LastMotor = 8;
+            LastMotor = 2; // Normally 8, because 9 motors
             EncSmlIncrement = 50;
             EncLrgIncrement = 200;
             FilteringActive = false;
