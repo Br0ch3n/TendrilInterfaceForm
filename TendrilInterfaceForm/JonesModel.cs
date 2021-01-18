@@ -15,21 +15,21 @@ namespace TendrilInterfaceForm
 
 
         //Average curvatures and phi
-        public double k_mm;
-        public double k_bm;
-        public double k_tm;
-        public double phi_bm;
-        public double phi_mm;
-        public double phi_tm;
+        public double[] k_avg;
+        //public double k_bm;
+        //public double k_tm;
+        public double[] phi_avg;
+        //public double phi_mm;
+        //public double phi_tm;
 
         //Intermediate curvatures
-        double k_mmi;
-        double k_bmi;
-        double k_tmi;
+        double[] k_avg_i;
+        //double k_bmi;
+        //double k_tmi;
 
-        const double db = 0.006;    //radius of base
-        const double dm = 0.003;    //radius of mid
-        const double dt = 0.003;    //radius of tip
+        //const double db = 0.006;    //radius of base
+        //const double dm = 0.003;    //radius of mid
+        //const double dt = 0.003;    //radius of tip
 
         //lengths of tendril sections [m]
         const double ten_bs = 0.917; // measured: 931 mm = 0.931 m
