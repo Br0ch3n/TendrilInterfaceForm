@@ -132,17 +132,8 @@ namespace TendrilInterfaceForm
             return cnts;
 
         }
-        public static Matrix4 CreateMatrixJones(double s, double k, double phi)
-        {
-            Matrix4 Transform = new Matrix4(
-                    new Vector4((float)Math.Cos(phi), (float)(-Math.Sin(phi) * Math.Cos(s * k)), (float)(Math.Sin(phi) * Math.Sin(s * k)), (float)((1 / k) * (Math.Sin(phi) * (1 - Math.Cos(s * k)))) ),
-                    new Vector4((float)Math.Sin(phi), (float)(Math.Cos(phi) * Math.Cos(s * k)), (float)(-Math.Cos(phi) * Math.Sin(s * k)), (float)(-(1 / k) * (Math.Cos(phi) * (1 - Math.Cos(s * k))))),
-                    new Vector4(0, (float)Math.Sin(s * k), (float)Math.Cos(s * k), (float)((1 / k) * Math.Sin(s * k))),
-                    new Vector4( 0, 0, 0, 1)
-                );
-            //Console.WriteLine(Transform.ToString());
-            return Transform;
-        }
+
+        
 
     }
 }

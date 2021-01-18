@@ -13,12 +13,18 @@ namespace TendrilInterfaceForm
 
         private float ContactThreshold;
         private Matrix4 Jacobian;
+        private Matrix4 TensonLoads;
+
+
+        private TendrilStateSingleton TendrilState;
 
         // initialization
 
         public BajoModel()
         {
             ContactThreshold = 1;
+
+            TendrilState = TendrilStateSingleton.getInstance();
         }
 
         public void ContactDetection()
