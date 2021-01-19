@@ -14,6 +14,9 @@ namespace TendrilInterfaceForm
         private float ContactThreshold;
         private Matrix4 Jacobian;
         private Matrix4 TensonLoads;
+        private float Theta;
+        private float YoungsModulus;
+        private float MomentInertia;
 
 
         private TendrilStateSingleton TendrilState;
@@ -27,9 +30,22 @@ namespace TendrilInterfaceForm
             TendrilState = TendrilStateSingleton.getInstance();
         }
 
-        public void ContactDetection()
+        public void ContactDetection(float s, float k, float phi, float r, float m, Matrix3 transform)
         {
             // 
+                
+            Theta = s * k;
+
+            for (int i = 0; i < 3; i++)
+            {
+                
+            }
+
+        }
+
+        private void SetTensionLoads()
+        {
+
         }
 
 
