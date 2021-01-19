@@ -41,9 +41,9 @@ namespace TendrilInterfaceForm
         const int nt = 7;
 
         //Maximum Curvatures
-        double kb_max;
-        double km_max;
-        double kt_max;
+        double[] k_max;
+        //double km_max;
+        //double kt_max;
 
         //length array for tendrils
         double[] base_s = new double[3];
@@ -59,9 +59,12 @@ namespace TendrilInterfaceForm
 
         public JonesModel()
         {
-            kb_max = Math.PI / ten_bs;
-            km_max = (2 * Math.PI) / ten_ms;
-            kt_max = Math.PI / (2 * ten_ts);
+            TendrilState = TendrilStateSingleton.getInstance();
+
+            k_max = new double[3] { Math.PI / ten_bs, (2 * Math.PI) / ten_ms, Math.PI / (2 * ten_ts) };
+            
+            //km_max = (2 * Math.PI) / ten_ms;
+            //kt_max = Math.PI / (2 * ten_ts);
             k_bmArray = new RunningAverage(25);
             k_mmArray = new RunningAverage(25);
             k_tmArray = new RunningAverage(25);
@@ -72,44 +75,49 @@ namespace TendrilInterfaceForm
                 motors[ndx] = new RunningAverage(25);
                 motors[ndx].Clear();
             }
-
-            TendrilState = TendrilStateSingleton.getInstance();
         }
 
-        public void Update(float[] tendonlength, int lastMotor)
+        public void Update(float[] tendonlength, int section)
         {
+            int sectionalOffset = 0;
+
+            if (section == TendrilUtils.MID_SECTION) sectionalOffset = 3;
+            else if (section == TendrilUtils.TIP_SECTION) sectionalOffset = 6;
 
 
             //Calculate immediate curvature for each section (bryan Jones method)
-            k_bmi = 2 * Math.Sqrt(Math.Pow(tendonlength[0], 2) + Math.Pow(tendonlength[1], 2) + Math.Pow(tendonlength[2], 2) - tendonlength[0] * tendonlength[1] - tendonlength[1] * tendonlength[2] - tendonlength[0] * tendonlength[2]) / (db * (tendonlength[0] + tendonlength[1] + tendonlength[2]));
-            
-            if (lastMotor > 2) k_mmi = 2 * Math.Sqrt(Math.Pow(tendonlength[3], 2) + Math.Pow(tendonlength[4], 2) + Math.Pow(tendonlength[5], 2) - tendonlength[3] * tendonlength[4] - tendonlength[4] * tendonlength[5] - tendonlength[3] * tendonlength[5]) / (dm * (tendonlength[3] + tendonlength[4] + tendonlength[5]));
-            
-            if (lastMotor > 5) k_tmi = 2 * Math.Sqrt(Math.Pow(tendonlength[6], 2) + Math.Pow(tendonlength[7], 2) + Math.Pow(tendonlength[8], 2) - tendonlength[6] * tendonlength[7] - tendonlength[7] * tendonlength[8] - tendonlength[6] * tendonlength[8]) / (dt * (tendonlength[6] + tendonlength[7] + tendonlength[8]));
+            k_avg_i[section] = 2 * Math.Sqrt(Math.Pow(tendonlength[0 + sectionalOffset], 2) + Math.Pow(tendonlength[1 + sectionalOffset], 2) + Math.Pow(tendonlength[2 + sectionalOffset], 2)
+                                - tendonlength[0 + sectionalOffset] * tendonlength[1 + sectionalOffset] - tendonlength[1 + sectionalOffset] * tendonlength[2 + sectionalOffset] - tendonlength[0 + sectionalOffset]
+                                * tendonlength[2 + sectionalOffset]) / (db * (tendonlength[0 + sectionalOffset] + tendonlength[1 + sectionalOffset] + tendonlength[2 + sectionalOffset]));
 
 
-            if (lastMotor > 2) k_mmi = k_mmi * 0.1f; // need to verify that these are necessary
-            if (lastMotor > 5) k_tmi = k_tmi * 0.2f;
+            //if (lastMotor > 2) k_mmi = 2 * Math.Sqrt(Math.Pow(tendonlength[3], 2) + Math.Pow(tendonlength[4], 2) + Math.Pow(tendonlength[5], 2) - tendonlength[3] * tendonlength[4] - tendonlength[4] * tendonlength[5] - tendonlength[3] * tendonlength[5]) / (dm * (tendonlength[3] + tendonlength[4] + tendonlength[5]));
+            
+            //if (lastMotor > 5) k_tmi = 2 * Math.Sqrt(Math.Pow(tendonlength[6], 2) + Math.Pow(tendonlength[7], 2) + Math.Pow(tendonlength[8], 2) - tendonlength[6] * tendonlength[7] - tendonlength[7] * tendonlength[8] - tendonlength[6] * tendonlength[8]) / (dt * (tendonlength[6] + tendonlength[7] + tendonlength[8]));
+
+
+            //if (lastMotor > 2) k_mmi = k_mmi * 0.1f; // need to verify that these are necessary
+            //if (lastMotor > 5) k_tmi = k_tmi * 0.2f;
 
             //Calculate direction for each section
-            phi_bm = Math.Atan2(Math.Sqrt(3) * (tendonlength[2] + tendonlength[1] - 2 * tendonlength[0]), (3 * (tendonlength[1] - tendonlength[2])));      //[deg]
-            if (lastMotor > 2) phi_mm = Math.Atan2(Math.Sqrt(3) * (tendonlength[5] + tendonlength[4] - 2 * tendonlength[3]), (3 * (tendonlength[4] - tendonlength[5])));      //[deg]
-            if (lastMotor > 5) phi_tm = Math.Atan2(Math.Sqrt(3) * (tendonlength[8] + tendonlength[7] - 2 * tendonlength[6]), (3 * (tendonlength[7] - tendonlength[8])));      //[deg]
+            phi_avg[section] = Math.Atan2(Math.Sqrt(3)
+                                * (tendonlength[2 + sectionalOffset] + tendonlength[1 + sectionalOffset] - 2 * tendonlength[0 + sectionalOffset]), 
+                                (3 * (tendonlength[1 + sectionalOffset] - tendonlength[2 + sectionalOffset])));      //[deg]
+            //if (lastMotor > 2) phi_mm = Math.Atan2(Math.Sqrt(3) * (tendonlength[5] + tendonlength[4] - 2 * tendonlength[3]), (3 * (tendonlength[4] - tendonlength[5])));      //[deg]
+            //if (lastMotor > 5) phi_tm = Math.Atan2(Math.Sqrt(3) * (tendonlength[8] + tendonlength[7] - 2 * tendonlength[6]), (3 * (tendonlength[7] - tendonlength[8])));      //[deg]
 
             //Add curvature to running average
-            k_bmArray.AddValue((float)k_bmi);
-            if (lastMotor > 2) k_mmArray.AddValue((float)k_mmi);
-            if (lastMotor > 5) k_tmArray.AddValue((float)k_tmi);
+            k_bmArray.AddValue((float)k_avg_i[section]);
 
             //obtain running average
-            k_bm = k_bmArray.avgF;
-            if (lastMotor > 2) k_mm = k_mmArray.avgF;
-            if (lastMotor > 5) k_tm = k_tmArray.avgF;
+            k_avg[section] = k_bmArray.avgF;
+            //if (lastMotor > 2) k_mm = k_mmArray.avgF;
+            //if (lastMotor > 5) k_tm = k_tmArray.avgF;
 
             //address curvature threshold and nan values for direction
-            if (k_bm < 0.4 || k_bm == Double.NaN) { phi_bm = 0; }
-            if (lastMotor > 2 && k_mm < 0.4 || k_mm == Double.NaN) { phi_mm = 0; }
-            if (lastMotor > 5 && k_tm < 0.4 || k_tm == Double.NaN) { phi_tm = 0; }
+            if (k_avg[section] < 0.4 || k_avg[section] == Double.NaN) { phi_avg[section] = 0; }
+            //if (lastMotor > 2 && k_mm < 0.4 || k_mm == Double.NaN) { phi_mm = 0; }
+            //if (lastMotor > 5 && k_tm < 0.4 || k_tm == Double.NaN) { phi_tm = 0; }
 
             //assign minimum curvature for nan case
             if (k_bm ==  Double.NaN) { k_bm = 0.01; }
@@ -127,7 +135,7 @@ namespace TendrilInterfaceForm
         }
 
 
-        public double[] CalculateTendonLengths(int lastMotor)
+        public double[] CalculateTendonLengths(int section)
         {
             double[] lengths;
             lengths = new double[9];

@@ -36,6 +36,19 @@ namespace TendrilInterfaceForm
         private float BaseMass, MidMass, TipMass; // 13g = base mass
         private float BaseModulus, MidModulus, TipModulus;
 
+        //const double db = 0.006;    //radius of base
+        //const double dm = 0.003;    //radius of mid
+        //const double dt = 0.003;    //radius of tip
+
+        //lengths of tendril sections [m]
+        const double ten_bs = 0.917; // measured: 931 mm = 0.931 m
+        const double ten_ms = 0.225;
+        const double ten_ts = 0.2;
+
+        const int nb = 12; // measured: 12
+        const int nm = 4;
+        const int nt = 7;
+
         private float SpacerHoleDiameter, TendonDiameter;
         private float LrgMotShaftDiameter, SmlMotShaftDiameter;
         private int CountsPerRotationSmall, CountsPerRotationLarge;
