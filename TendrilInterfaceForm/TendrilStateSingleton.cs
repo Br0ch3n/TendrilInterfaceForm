@@ -49,6 +49,9 @@ namespace TendrilInterfaceForm
         const int nm = 4;
         const int nt = 7;
 
+        private int[] SpacerCount;
+        private float[] SpacerRadius;
+
         private float SpacerHoleDiameter, TendonDiameter;
         private float LrgMotShaftDiameter, SmlMotShaftDiameter;
         private int CountsPerRotationSmall, CountsPerRotationLarge;
@@ -143,7 +146,7 @@ namespace TendrilInterfaceForm
                 lines = s.Split(';');
                 if (lines.Length != 4) Console.WriteLine("Config File not 4 lines.");
                 configParams = lines[0].Split(',');
-                if (configParams.Length != 17) Console.WriteLine("Config File first line not 17 parameters.");
+                if (configParams.Length != 23) Console.WriteLine("Config File first line not 23 parameters.");
                 CalibOffsets = lines[1].Split(',');
                 CalibScales = lines[2].Split(',');
                 BaseLength = float.Parse(configParams[0]);
@@ -163,8 +166,14 @@ namespace TendrilInterfaceForm
                 CountsPerRotationSmall = Int32.Parse(configParams[14]);
                 LengthPerRotationLarge = float.Parse(configParams[15]);
                 LengthPerRotationSmall = float.Parse(configParams[16]);
+                SpacerRadius[0] = float.Parse(configParams[17]);
+                SpacerRadius[1] = float.Parse(configParams[18]);
+                SpacerRadius[2] = float.Parse(configParams[19]);
+                SpacerCount[0] = Int32.Parse(configParams[20]);
+                SpacerCount[1] = Int32.Parse(configParams[21]);
+                SpacerCount[2] = Int32.Parse(configParams[22]);
 
-                for(int i = 0; i < CalibrationOffset.Length; i++)
+                for (int i = 0; i < CalibrationOffset.Length; i++)
                 {
                     CalibrationOffset[i] = float.Parse(CalibOffsets[i]);
                     CalibrationScale[i] = float.Parse(CalibScales[i]);
@@ -300,6 +309,16 @@ namespace TendrilInterfaceForm
             }
 
             return s;
+        }
+
+        public float GetSpacerRadius(int section)
+        {
+            return SpacerRadius[section];
+        }
+
+        public int GetSpacerCount(int section)
+        {
+            return SpacerCount[section];
         }
 
         // Filtering code

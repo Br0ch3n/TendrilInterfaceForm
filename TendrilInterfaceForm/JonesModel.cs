@@ -32,13 +32,13 @@ namespace TendrilInterfaceForm
         //const double dt = 0.003;    //radius of tip
 
         //lengths of tendril sections [m]
-        const double ten_bs = 0.917; // measured: 931 mm = 0.931 m
-        const double ten_ms = 0.225;
-        const double ten_ts = 0.2;
+        //const double ten_bs = 0.917; // measured: 931 mm = 0.931 m
+        //const double ten_ms = 0.225;
+        //const double ten_ts = 0.2;
 
-        const int nb = 12; // measured: 12
-        const int nm = 4;
-        const int nt = 7;
+        //const int nb = 12; // measured: 12
+        //const int nm = 4;
+        //const int nt = 7;
 
         //Maximum Curvatures
         double[] k_max;
@@ -61,7 +61,9 @@ namespace TendrilInterfaceForm
         {
             TendrilState = TendrilStateSingleton.getInstance();
 
-            k_max = new double[3] { Math.PI / ten_bs, (2 * Math.PI) / ten_ms, Math.PI / (2 * ten_ts) };
+            k_max = new double[3] { Math.PI / TendrilState.GetSectionLength(TendrilUtils.BASE_SECTION), 
+                                    (2 * Math.PI) / TendrilState.GetSectionLength(TendrilUtils.MID_SECTION), 
+                                    Math.PI / (2 * TendrilState.GetSectionLength(TendrilUtils.TIP_SECTION)) };
             
             //km_max = (2 * Math.PI) / ten_ms;
             //kt_max = Math.PI / (2 * ten_ts);
@@ -88,7 +90,7 @@ namespace TendrilInterfaceForm
             //Calculate immediate curvature for each section (bryan Jones method)
             k_avg_i[section] = 2 * Math.Sqrt(Math.Pow(tendonlength[0 + sectionalOffset], 2) + Math.Pow(tendonlength[1 + sectionalOffset], 2) + Math.Pow(tendonlength[2 + sectionalOffset], 2)
                                 - tendonlength[0 + sectionalOffset] * tendonlength[1 + sectionalOffset] - tendonlength[1 + sectionalOffset] * tendonlength[2 + sectionalOffset] - tendonlength[0 + sectionalOffset]
-                                * tendonlength[2 + sectionalOffset]) / (db * (tendonlength[0 + sectionalOffset] + tendonlength[1 + sectionalOffset] + tendonlength[2 + sectionalOffset]));
+                                * tendonlength[2 + sectionalOffset]) / (TendrilState.GetSpacerRadius(section) * (tendonlength[0 + sectionalOffset] + tendonlength[1 + sectionalOffset] + tendonlength[2 + sectionalOffset]));
 
 
             //if (lastMotor > 2) k_mmi = 2 * Math.Sqrt(Math.Pow(tendonlength[3], 2) + Math.Pow(tendonlength[4], 2) + Math.Pow(tendonlength[5], 2) - tendonlength[3] * tendonlength[4] - tendonlength[4] * tendonlength[5] - tendonlength[3] * tendonlength[5]) / (dm * (tendonlength[3] + tendonlength[4] + tendonlength[5]));
@@ -100,8 +102,7 @@ namespace TendrilInterfaceForm
             //if (lastMotor > 5) k_tmi = k_tmi * 0.2f;
 
             //Calculate direction for each section
-            phi_avg[section] = Math.Atan2(Math.Sqrt(3)
-                                * (tendonlength[2 + sectionalOffset] + tendonlength[1 + sectionalOffset] - 2 * tendonlength[0 + sectionalOffset]), 
+            phi_avg[section] = Math.Atan2(Math.Sqrt(3) * (tendonlength[2 + sectionalOffset] + tendonlength[1 + sectionalOffset] - 2 * tendonlength[0 + sectionalOffset]), 
                                 (3 * (tendonlength[1 + sectionalOffset] - tendonlength[2 + sectionalOffset])));      //[deg]
             //if (lastMotor > 2) phi_mm = Math.Atan2(Math.Sqrt(3) * (tendonlength[5] + tendonlength[4] - 2 * tendonlength[3]), (3 * (tendonlength[4] - tendonlength[5])));      //[deg]
             //if (lastMotor > 5) phi_tm = Math.Atan2(Math.Sqrt(3) * (tendonlength[8] + tendonlength[7] - 2 * tendonlength[6]), (3 * (tendonlength[7] - tendonlength[8])));      //[deg]
@@ -120,46 +121,55 @@ namespace TendrilInterfaceForm
             //if (lastMotor > 5 && k_tm < 0.4 || k_tm == Double.NaN) { phi_tm = 0; }
 
             //assign minimum curvature for nan case
-            if (k_bm ==  Double.NaN) { k_bm = 0.01; }
-            if (lastMotor > 2 && k_mm == Double.NaN) { k_mm = 0.01; }
-            if (lastMotor > 5 && k_tm == Double.NaN) { k_tm = 0.01; }
+            if (k_avg[section] ==  Double.NaN) { k_avg[section] = 0.01; }
+            //if (lastMotor > 2 && k_mm == Double.NaN) { k_mm = 0.01; }
+            //if (lastMotor > 5 && k_tm == Double.NaN) { k_tm = 0.01; }
 
             //assess maximum curvature threshold
-            if (k_bm > kb_max) { k_bm = kb_max; }
-            if (lastMotor > 2 && k_mm > km_max) { k_mm = km_max; }
-            if (lastMotor > 5 && k_tm > kt_max) { k_tm = kt_max; }
+            if (k_avg[section] > k_max[section]) { k_avg[section] = k_max[section]; }
+            //if (lastMotor > 2 && k_mm > km_max) { k_mm = km_max; }
+            //if (lastMotor > 5 && k_tm > kt_max) { k_tm = kt_max; }
 
-            Console.WriteLine("K's: " + k_bm.ToString() + ", " + k_mm.ToString() + ", " + k_tm.ToString());
-            Console.WriteLine("Phi's: " + phi_bm.ToString() + ", " + phi_mm.ToString() + ", " + phi_tm.ToString());
+            Console.WriteLine("K: " + k_avg[section].ToString() + ", Phi: " + phi_avg[section].ToString());
+            //Console.WriteLine("Phi's: " + phi_bm.ToString() + ", " + phi_mm.ToString() + ", " + phi_tm.ToString());
             
         }
 
 
         public double[] CalculateTendonLengths(int section)
         {
+            int sectionalOffset = 0;
+
+            if (section == TendrilUtils.MID_SECTION) sectionalOffset = 3;
+            else if (section == TendrilUtils.TIP_SECTION) sectionalOffset = 6;
             double[] lengths;
+            float s = TendrilState.GetSectionLength(section);
+            float r = TendrilState.GetSpacerRadius(section);
+            int n = TendrilState.GetSpacerCount(section);
+
+            
             lengths = new double[9];
 
-            ////determine tendril base section lengths
-            lengths[0] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) - (db * Math.Sin(phi_bm)));
-            lengths[1] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) + (db * Math.Sin((Math.PI / 3) + phi_bm)));
-            lengths[2] = 2 * nb * Math.Sin(ten_bs * k_bm / (2 * nb)) * ((1 / k_bm) - (db * Math.Cos((Math.PI / 6) + phi_bm)));
+            //determine tendril base section lengths
+            lengths[0] = 2 * n * Math.Sin(s * k_avg[section] / (2 * n)) * ((1 / k_avg[section]) - (r * Math.Sin(phi_avg[section])));
+            lengths[1] = 2 * n * Math.Sin(s * k_avg[section] / (2 * n)) * ((1 / k_avg[section]) + (r * Math.Sin((Math.PI / 3) + phi_avg[section])));
+            lengths[2] = 2 * n * Math.Sin(s * k_avg[section] / (2 * n)) * ((1 / k_avg[section]) - (r * Math.Cos((Math.PI / 6) + phi_avg[section])));
 
             ////determine tendril mid section lengths
-            if (lastMotor > 2)
-            {
-                lengths[3] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Sin((2 * Math.PI / 9) + phi_mm)));
-                lengths[4] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) + (dm * Math.Sin((5 * Math.PI / 9) + phi_mm)));
-                lengths[5] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Cos((7 * Math.PI / 18) + phi_mm)));
-            }
+            //if (lastMotor > 2)
+            //{
+            //    lengths[3] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Sin((2 * Math.PI / 9) + phi_mm)));
+            //    lengths[4] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) + (dm * Math.Sin((5 * Math.PI / 9) + phi_mm)));
+            //    lengths[5] = 2 * nm * Math.Sin(ten_ms * k_mm / (2 * nm)) * ((1 / k_mm) - (dm * Math.Cos((7 * Math.PI / 18) + phi_mm)));
+            //}
 
-            //determine tendril tip section lengths
-            if (lastMotor > 5)
-            {
-                lengths[6] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Sin((4 * Math.PI / 9) + phi_tm)));
-                lengths[7] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) + (dt * Math.Sin((7 * Math.PI / 9) + phi_tm)));
-                lengths[8] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Cos((11 * Math.PI / 18) + phi_tm)));
-            }
+            ////determine tendril tip section lengths
+            //if (lastMotor > 5)
+            //{
+            //    lengths[6] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Sin((4 * Math.PI / 9) + phi_tm)));
+            //    lengths[7] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) + (dt * Math.Sin((7 * Math.PI / 9) + phi_tm)));
+            //    lengths[8] = 2 * nt * Math.Sin(ten_ts * k_tm / (2 * nt)) * ((1 / k_tm) - (dt * Math.Cos((11 * Math.PI / 18) + phi_tm)));
+            //}
                 
 
             return lengths;
@@ -169,18 +179,14 @@ namespace TendrilInterfaceForm
         // add accessors for the s, k, and phi variables as they should be stored here.
         public double getCurvature(int section)
         {
-            if (section == TendrilUtils.BASE_SECTION) return k_bm;
-            else if (section == TendrilUtils.MID_SECTION) return k_mm;
-            else return k_tm;
+            return k_avg[section];
         }
 
 
 
         public double getPhi(int section)
         {
-            if (section == TendrilUtils.BASE_SECTION) return phi_bm;
-            else if (section == TendrilUtils.MID_SECTION) return phi_mm;
-            else return phi_tm;
+            return phi_avg[section];
         }
 
 
@@ -196,12 +202,15 @@ namespace TendrilInterfaceForm
             return Transform;
         }
 
-        public static Matrix3 CreateSingleSectionJacobian(double s, double k, double phi)
+        public Matrix3 CreateSingleSectionJacobian(int section)
         {
+            float s = TendrilState.GetSectionLength(section);
+            float r = TendrilState.GetSpacerRadius(section);
+
             Matrix3 Transform = new Matrix3(
-                    new Vector3(0, (float)(-s * db * Math.Cos(phi)), (float)(s * db * Math.Sin(phi))),
-                    new Vector3(0, (float)(Math.Cos(phi) * Math.Cos(s * k)), (float)(-Math.Cos(phi) * Math.Sin(s * k))),
-                    new Vector3(0, (float)Math.Sin(s * k), (float)Math.Cos(s * k))
+                    new Vector3(0, (float)(-s * r * Math.Cos(phi_avg[section])), (float)(s * r * Math.Sin(phi_avg[section]))),
+                    new Vector3(0, (float)(Math.Cos(phi_avg[section]) * Math.Cos(s * k_avg[section])), (float)(-Math.Cos(phi_avg[section]) * Math.Sin(s * k_avg[section]))),
+                    new Vector3(0, (float)Math.Sin(s * k_avg[section]), (float)Math.Cos(s * k_avg[section]))
                     );
             //Console.WriteLine(Transform.ToString());
             return Transform;
