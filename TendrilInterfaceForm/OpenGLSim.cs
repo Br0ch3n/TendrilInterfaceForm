@@ -62,7 +62,7 @@ namespace TendrilInterfaceForm
                 { 2, 0, 2355, 0, -2, -1, -3, 212, 253}
             };
             JModel = new JonesModel();
-            JModel.Update(new float[] { 2, 0, 3503, 0, -2, -1, -2, -2, -2 });
+            //JModel.Update(new float[] { 2, 0, 3503, 0, -2, -1, -2, -2, -2 });
 
             baseEnd = new Vector3(0, baseCylCnt * segHeight, 0);
             midEnd = new Vector3(0, (baseCylCnt + midCylCnt) * segHeight, 0);
@@ -217,7 +217,7 @@ namespace TendrilInterfaceForm
                         float[] cnts = new float[9]; 
                         for (int ndx = 0; ndx < 9; ndx++) cnts[ndx] = testFile[testNdx,ndx];
                         testNdx++;
-                        JModel.Update(cnts);
+                        //JModel.Update(cnts);
                         break;
                     case 2:
                         xDist = x - mouseLast[button].X;
@@ -282,66 +282,66 @@ namespace TendrilInterfaceForm
 
             //JModel.Update(EncoderCounts);
 
-            byAngle = (float)JModel.phi_bm;
-            myAngle = (float)JModel.phi_mm;
-            tyAngle = (float)JModel.phi_tm; // (float)Math.PI / 2;
+            //byAngle = (float)JModel.phi_bm;
+            //myAngle = (float)JModel.phi_mm;
+            //tyAngle = (float)JModel.phi_tm; // (float)Math.PI / 2;
 
             for (int ndx = 0; ndx < baseCylCnt; ndx++)
             {
-                bxAngle = (float)JModel.k_bm * segHeight / baseCylCnt * ndx;
-                bTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(bxAngle/2), (ndx) * segHeight * (float)Math.Sin(bxAngle/2));
-                bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
-                bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
-                program["model_matrix"].SetValue(bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
+                //bxAngle = (float)JModel.k_bm * segHeight / baseCylCnt * ndx;
+                //bTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(bxAngle/2), (ndx) * segHeight * (float)Math.Sin(bxAngle/2));
+                //bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
+                //bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
+                //program["model_matrix"].SetValue(bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
 
-                Gl.BindBuffer(baseSection[ndx].vertices);
-                Gl.VertexAttribPointer(vertexPositionindex, baseSection[ndx].vertices.Size, baseSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
-                Gl.BindBufferToShaderAttribute(baseSection[ndx].vertColors, program, "vertexColor");
-                Gl.BindBuffer(baseSection[ndx].vertElements);
-                Gl.DrawElements(BeginMode.Points, baseSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
+                //Gl.BindBuffer(baseSection[ndx].vertices);
+                //Gl.VertexAttribPointer(vertexPositionindex, baseSection[ndx].vertices.Size, baseSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
+                //Gl.BindBufferToShaderAttribute(baseSection[ndx].vertColors, program, "vertexColor");
+                //Gl.BindBuffer(baseSection[ndx].vertElements);
+                //Gl.DrawElements(BeginMode.Points, baseSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
             }
 
-            bxAngle = (float)JModel.k_bm * segHeight;
-            bTrans = new Vector3(0, baseCylCnt * segHeight * (float)Math.Cos(bxAngle / 2), baseCylCnt * segHeight * (float)Math.Sin(bxAngle / 2));
-            bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
-            bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
+            //bxAngle = (float)JModel.k_bm * segHeight;
+            //bTrans = new Vector3(0, baseCylCnt * segHeight * (float)Math.Cos(bxAngle / 2), baseCylCnt * segHeight * (float)Math.Sin(bxAngle / 2));
+            //bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
+            //bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
 
-            for (int ndx = 0; ndx < midCylCnt; ndx++)
-            {
-                mxAngle = (float)JModel.k_mm * segHeight / midCylCnt * ndx;
-                mTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(mxAngle/2), (ndx) * segHeight * (float)Math.Sin(mxAngle / 2));
-                mH = Matrix4.CreateRotationX(mxAngle) * Matrix4.CreateTranslation(mTrans);
-                mH = Matrix4.CreateRotationY(-myAngle) * mH * Matrix4.CreateRotationY(myAngle);
+            //for (int ndx = 0; ndx < midCylCnt; ndx++)
+            //{
+            //    //mxAngle = (float)JModel.k_mm * segHeight / midCylCnt * ndx;
+            //    mTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(mxAngle/2), (ndx) * segHeight * (float)Math.Sin(mxAngle / 2));
+            //    mH = Matrix4.CreateRotationX(mxAngle) * Matrix4.CreateTranslation(mTrans);
+            //    mH = Matrix4.CreateRotationY(-myAngle) * mH * Matrix4.CreateRotationY(myAngle);
 
-                program["model_matrix"].SetValue(mH * bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
+            //    program["model_matrix"].SetValue(mH * bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
 
-                Gl.BindBuffer(midSection[ndx].vertices);
-                Gl.VertexAttribPointer(vertexPositionindex, midSection[ndx].vertices.Size, midSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
-                Gl.BindBufferToShaderAttribute(midSection[ndx].vertColors, program, "vertexColor");
-                Gl.BindBuffer(midSection[ndx].vertElements);
-                Gl.DrawElements(BeginMode.Points, midSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
-            }
+            //    Gl.BindBuffer(midSection[ndx].vertices);
+            //    Gl.VertexAttribPointer(vertexPositionindex, midSection[ndx].vertices.Size, midSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
+            //    Gl.BindBufferToShaderAttribute(midSection[ndx].vertColors, program, "vertexColor");
+            //    Gl.BindBuffer(midSection[ndx].vertElements);
+            //    Gl.DrawElements(BeginMode.Points, midSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
+            //}
 
-            mxAngle = (float)JModel.k_mm * segHeight;
-            mTrans = new Vector3(0, midCylCnt * segHeight * (float)Math.Cos(mxAngle / 2), midCylCnt * segHeight * (float)Math.Sin(mxAngle / 2));
-            mH = Matrix4.CreateRotationX(mxAngle) * Matrix4.CreateTranslation(mTrans);
-            mH = Matrix4.CreateRotationY(-myAngle) * mH * Matrix4.CreateRotationY(myAngle);
+            //mxAngle = (float)JModel.k_mm * segHeight;
+            //mTrans = new Vector3(0, midCylCnt * segHeight * (float)Math.Cos(mxAngle / 2), midCylCnt * segHeight * (float)Math.Sin(mxAngle / 2));
+            //mH = Matrix4.CreateRotationX(mxAngle) * Matrix4.CreateTranslation(mTrans);
+            //mH = Matrix4.CreateRotationY(-myAngle) * mH * Matrix4.CreateRotationY(myAngle);
 
-            for (int ndx = 0; ndx < tipCylCnt; ndx++)
-            {
+            //for (int ndx = 0; ndx < tipCylCnt; ndx++)
+            //{
                 
-                txAngle = (float)JModel.k_tm * segHeight / tipCylCnt * ndx; // -(float)Math.PI / 8 / tipCylCnt * ndx;
-                tTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(txAngle / 2), (ndx) * segHeight * (float)Math.Sin(txAngle / 2));
-                tH = Matrix4.CreateRotationX(txAngle) * Matrix4.CreateTranslation(tTrans);
-                tH = Matrix4.CreateRotationY(-tyAngle) * tH * Matrix4.CreateRotationY(tyAngle);
-                program["model_matrix"].SetValue(tH * mH * bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
+            //    //txAngle = (float)JModel.k_tm * segHeight / tipCylCnt * ndx; // -(float)Math.PI / 8 / tipCylCnt * ndx;
+            //    tTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(txAngle / 2), (ndx) * segHeight * (float)Math.Sin(txAngle / 2));
+            //    tH = Matrix4.CreateRotationX(txAngle) * Matrix4.CreateTranslation(tTrans);
+            //    tH = Matrix4.CreateRotationY(-tyAngle) * tH * Matrix4.CreateRotationY(tyAngle);
+            //    program["model_matrix"].SetValue(tH * mH * bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
 
-                Gl.BindBuffer(tipSection[ndx].vertices);
-                Gl.VertexAttribPointer(vertexPositionindex, tipSection[ndx].vertices.Size, tipSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
-                Gl.BindBufferToShaderAttribute(tipSection[ndx].vertColors, program, "vertexColor");
-                Gl.BindBuffer(tipSection[ndx].vertElements);
-                Gl.DrawElements(BeginMode.Points, tipSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
-            }
+            //    Gl.BindBuffer(tipSection[ndx].vertices);
+            //    Gl.VertexAttribPointer(vertexPositionindex, tipSection[ndx].vertices.Size, tipSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
+            //    Gl.BindBufferToShaderAttribute(tipSection[ndx].vertColors, program, "vertexColor");
+            //    Gl.BindBuffer(tipSection[ndx].vertElements);
+            //    Gl.DrawElements(BeginMode.Points, tipSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
+            //}
         }
 
 

@@ -92,12 +92,17 @@ namespace TendrilInterfaceForm
             EncSmlIncrement = 50;
             EncLrgIncrement = 200;
             FilteringActive = false;
-            
+
+            SpacerCount = new int[3];
+            SpacerRadius = new float[3];
+
             
             CalibrationOffset = new float[9];
             CalibrationScale = new float[9];
 
             ReadConfigFile();
+
+            LengthPerRotationLarge = (float)Math.PI * LrgMotShaftDiameter;
 
             // Tracking system initialization
             TrackedSensor = new KalmanFilter[LastMotor + 1];
@@ -146,7 +151,7 @@ namespace TendrilInterfaceForm
                 lines = s.Split(';');
                 if (lines.Length != 4) Console.WriteLine("Config File not 4 lines.");
                 configParams = lines[0].Split(',');
-                if (configParams.Length != 23) Console.WriteLine("Config File first line not 23 parameters.");
+                if (configParams.Length != 21) Console.WriteLine("Config File first line not 21 parameters.");
                 CalibOffsets = lines[1].Split(',');
                 CalibScales = lines[2].Split(',');
                 BaseLength = float.Parse(configParams[0]);
@@ -164,14 +169,12 @@ namespace TendrilInterfaceForm
                 SmlMotShaftDiameter = float.Parse(configParams[12]);
                 CountsPerRotationLarge = Int32.Parse(configParams[13]);
                 CountsPerRotationSmall = Int32.Parse(configParams[14]);
-                LengthPerRotationLarge = float.Parse(configParams[15]);
-                LengthPerRotationSmall = float.Parse(configParams[16]);
-                SpacerRadius[0] = float.Parse(configParams[17]);
-                SpacerRadius[1] = float.Parse(configParams[18]);
-                SpacerRadius[2] = float.Parse(configParams[19]);
-                SpacerCount[0] = Int32.Parse(configParams[20]);
-                SpacerCount[1] = Int32.Parse(configParams[21]);
-                SpacerCount[2] = Int32.Parse(configParams[22]);
+                SpacerRadius[0] = float.Parse(configParams[15]);
+                SpacerRadius[1] = float.Parse(configParams[16]);
+                SpacerRadius[2] = float.Parse(configParams[17]);
+                SpacerCount[0] = Int32.Parse(configParams[18]);
+                SpacerCount[1] = Int32.Parse(configParams[19]);
+                SpacerCount[2] = Int32.Parse(configParams[20]);
 
                 for (int i = 0; i < CalibrationOffset.Length; i++)
                 {
@@ -179,6 +182,7 @@ namespace TendrilInterfaceForm
                     CalibrationScale[i] = float.Parse(CalibScales[i]);
                 }
             }
+            else Console.WriteLine("Dialog Box Not OK?");
         }
 
         public void UpdateTensions(String[] input)
@@ -348,6 +352,11 @@ namespace TendrilInterfaceForm
                     TrackedTendonLength[i].Update(TendonLength[i]);
                 }
             }
+        }
+
+        public void UpdateModels()
+        {
+            jonesModel.Update(TendonLength, TendrilUtils.BASE_SECTION);
         }
     }
 }
