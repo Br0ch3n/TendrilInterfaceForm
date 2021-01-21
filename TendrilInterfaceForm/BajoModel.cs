@@ -19,7 +19,7 @@ namespace TendrilInterfaceForm
         private float MomentInertia;
 
 
-        private TendrilStateSingleton tendrilState;
+        //private TendrilStateSingleton tendrilState;
 
         // initialization
 

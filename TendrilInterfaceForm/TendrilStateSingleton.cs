@@ -13,8 +13,8 @@ namespace TendrilInterfaceForm
     {
         /* ============= Members ===============*/
         // Architecture members
-        private static TendrilStateSingleton instance = new TendrilStateSingleton();
-        private static object _lock = new object();
+        private static volatile TendrilStateSingleton instance = null;
+        private static readonly object _lock = new object();
 
         // Tendril variables
         private int[] SensorReading;
@@ -74,6 +74,8 @@ namespace TendrilInterfaceForm
             //}
             get
             {
+                if (instance != null) return instance;
+
                 lock (_lock)
                 {
                     if (instance == null)
@@ -82,6 +84,8 @@ namespace TendrilInterfaceForm
                         instance = new TendrilStateSingleton();
                     }
                 }
+
+                if (instance == null) throw new Exception("WTF it is still sending null");
                 return instance;
             }
 
