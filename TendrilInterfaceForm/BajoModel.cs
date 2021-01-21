@@ -19,7 +19,7 @@ namespace TendrilInterfaceForm
         private float MomentInertia;
 
 
-        private TendrilStateSingleton TendrilState;
+        private TendrilStateSingleton tendrilState;
 
         // initialization
 
@@ -27,13 +27,13 @@ namespace TendrilInterfaceForm
         {
             ContactThreshold = 1;
 
-            TendrilState = TendrilStateSingleton.getInstance();
+            
         }
 
         public void ContactDetection(float s, float k, float phi, float r, float m, Matrix3 transform)
         {
-            // 
-                
+           TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
+
             Theta = s * k;
 
             for (int i = 0; i < 3; i++)

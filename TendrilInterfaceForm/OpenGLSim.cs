@@ -9,10 +9,12 @@ namespace TendrilInterfaceForm
     class OpenGLSim
     {
         private static int width, height;
-        public JonesModel JModel;
+        //public JonesModel JModel;
         int[,] testFile;
         int testNdx;
         float[] EncoderCounts;
+
+        //private TendrilStateSingleton tendrilState;
 
 
         private static ShaderProgram program;
@@ -50,23 +52,15 @@ namespace TendrilInterfaceForm
             yOffset = -15;
 
             //EncoderCounts = new float[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
 
-            testNdx = 1;
-            testFile = new int[,]
-            {
-                { 2, 0, 3503, 0, -2, -1, -2, -2, -2 },
-                { 0, 3000, 0, 0, 800, 0, 0, 0, 800},
-                { 0, 3000, 0, 800, 0, 0, 0, 0, 800},
-                { 2, 0, 3503, 0, 199, 199, 300, -3, 599},
-                { 2, 0, 3503, 0, 199, 199, -3, 600, 599},
-                { 2, 0, 2355, 0, -2, -1, -3, 212, 253}
-            };
-            JModel = new JonesModel();
-            //JModel.Update(new float[] { 2, 0, 3503, 0, -2, -1, -2, -2, -2 });
+            
+            //JModel = new JonesModel();
+            //JModel.Update(new float[] { 2, 0, 3503, 0, -2, -1, -2, -2, -2 }, TendrilUtils.BASE_SECTION);
 
             baseEnd = new Vector3(0, baseCylCnt * segHeight, 0);
-            midEnd = new Vector3(0, (baseCylCnt + midCylCnt) * segHeight, 0);
-            tipEnd = new Vector3(0, (baseCylCnt + midCylCnt + tipCylCnt) * segHeight, 0);
+            //midEnd = new Vector3(0, (baseCylCnt + midCylCnt) * segHeight, 0);
+            //tipEnd = new Vector3(0, (baseCylCnt + midCylCnt + tipCylCnt) * segHeight, 0);
 
             mouseLast = new Point[5] { new Point(0,0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0) };
 
@@ -96,8 +90,8 @@ namespace TendrilInterfaceForm
             program["projection_matrix"].SetValue(Matrix4.CreatePerspectiveFieldOfView(0.45f, (float)width / height, 0.1f, 1000f));
 
             baseSection = CreateCylinders(baseCylCnt, 0, segRadius, new Vector3(0, 0, 1));
-            midSection = CreateCylinders(midCylCnt, baseCylCnt, segRadius, new Vector3(0, 1, 0));
-            tipSection = CreateCylinders(tipCylCnt, baseCylCnt + midCylCnt, segRadius, new Vector3(1, 0, 0));
+            //midSection = CreateCylinders(midCylCnt, baseCylCnt, segRadius, new Vector3(0, 1, 0));
+            //tipSection = CreateCylinders(tipCylCnt, baseCylCnt + midCylCnt, segRadius, new Vector3(1, 0, 0));
 
             floor = new VBO<Vector3>(new Vector3[] 
             {
@@ -275,6 +269,7 @@ namespace TendrilInterfaceForm
 
         private void DrawCylinders(uint vertexPositionindex)
         {
+            TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
             float byAngle, myAngle, tyAngle;
             float bxAngle, mxAngle, txAngle;
             Vector3 bTrans, mTrans, tTrans;
@@ -282,34 +277,34 @@ namespace TendrilInterfaceForm
 
             //JModel.Update(EncoderCounts);
 
-            //byAngle = (float)JModel.phi_bm;
+            byAngle = tendrilState.GetCurveAngle(TendrilUtils.BASE_SECTION);
             //myAngle = (float)JModel.phi_mm;
             //tyAngle = (float)JModel.phi_tm; // (float)Math.PI / 2;
 
             for (int ndx = 0; ndx < baseCylCnt; ndx++)
             {
-                //bxAngle = (float)JModel.k_bm * segHeight / baseCylCnt * ndx;
-                //bTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(bxAngle/2), (ndx) * segHeight * (float)Math.Sin(bxAngle/2));
-                //bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
-                //bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
-                //program["model_matrix"].SetValue(bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
+                bxAngle = tendrilState.GetCurvature(TendrilUtils.BASE_SECTION) * segHeight / baseCylCnt * ndx;
+                bTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(bxAngle / 2), (ndx) * segHeight * (float)Math.Sin(bxAngle / 2));
+                bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
+                bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
+                program["model_matrix"].SetValue(bH * Matrix4.CreateTranslation(new Vector3(0, yOffset, 0)));
 
-                //Gl.BindBuffer(baseSection[ndx].vertices);
-                //Gl.VertexAttribPointer(vertexPositionindex, baseSection[ndx].vertices.Size, baseSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
-                //Gl.BindBufferToShaderAttribute(baseSection[ndx].vertColors, program, "vertexColor");
-                //Gl.BindBuffer(baseSection[ndx].vertElements);
-                //Gl.DrawElements(BeginMode.Points, baseSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
+                Gl.BindBuffer(baseSection[ndx].vertices);
+                Gl.VertexAttribPointer(vertexPositionindex, baseSection[ndx].vertices.Size, baseSection[ndx].vertices.PointerType, true, 12, IntPtr.Zero);
+                Gl.BindBufferToShaderAttribute(baseSection[ndx].vertColors, program, "vertexColor");
+                Gl.BindBuffer(baseSection[ndx].vertElements);
+                Gl.DrawElements(BeginMode.Points, baseSection[ndx].vertElements.Count, DrawElementsType.UnsignedInt, IntPtr.Zero);
             }
 
-            //bxAngle = (float)JModel.k_bm * segHeight;
-            //bTrans = new Vector3(0, baseCylCnt * segHeight * (float)Math.Cos(bxAngle / 2), baseCylCnt * segHeight * (float)Math.Sin(bxAngle / 2));
-            //bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
-            //bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
+            bxAngle = tendrilState.GetCurvature(TendrilUtils.BASE_SECTION) * segHeight;
+            bTrans = new Vector3(0, baseCylCnt * segHeight * (float)Math.Cos(bxAngle / 2), baseCylCnt * segHeight * (float)Math.Sin(bxAngle / 2));
+            bH = Matrix4.CreateRotationX(bxAngle) * Matrix4.CreateTranslation(bTrans);
+            bH = Matrix4.CreateRotationY(-byAngle) * bH * Matrix4.CreateRotationY(byAngle);
 
             //for (int ndx = 0; ndx < midCylCnt; ndx++)
             //{
             //    //mxAngle = (float)JModel.k_mm * segHeight / midCylCnt * ndx;
-            //    mTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(mxAngle/2), (ndx) * segHeight * (float)Math.Sin(mxAngle / 2));
+            //    mTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(mxAngle / 2), (ndx) * segHeight * (float)Math.Sin(mxAngle / 2));
             //    mH = Matrix4.CreateRotationX(mxAngle) * Matrix4.CreateTranslation(mTrans);
             //    mH = Matrix4.CreateRotationY(-myAngle) * mH * Matrix4.CreateRotationY(myAngle);
 
@@ -329,7 +324,7 @@ namespace TendrilInterfaceForm
 
             //for (int ndx = 0; ndx < tipCylCnt; ndx++)
             //{
-                
+
             //    //txAngle = (float)JModel.k_tm * segHeight / tipCylCnt * ndx; // -(float)Math.PI / 8 / tipCylCnt * ndx;
             //    tTrans = new Vector3(0, (ndx) * segHeight * (float)Math.Cos(txAngle / 2), (ndx) * segHeight * (float)Math.Sin(txAngle / 2));
             //    tH = Matrix4.CreateRotationX(txAngle) * Matrix4.CreateTranslation(tTrans);

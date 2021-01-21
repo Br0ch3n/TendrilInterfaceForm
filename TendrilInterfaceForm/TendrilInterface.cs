@@ -66,7 +66,7 @@ namespace TendrilInterfaceForm
             time.Interval = 10000;
             time.Elapsed += OnTimeElapsed;
             flgTimer = false;
-            TendrilState = TendrilStateSingleton.getInstance();
+            TendrilState = TendrilStateSingleton.Instance;
 
             for (int ndx = 0; ndx < 9; ndx++)
             {
@@ -87,7 +87,7 @@ namespace TendrilInterfaceForm
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                // Code here
+                TendrilState.ReadConfigFile();
             }
         }
 

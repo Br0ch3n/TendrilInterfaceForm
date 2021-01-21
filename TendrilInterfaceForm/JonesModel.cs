@@ -55,16 +55,19 @@ namespace TendrilInterfaceForm
         RunningAverage k_tmArray;
         RunningAverage[] motors;
 
-        private TendrilStateSingleton TendrilState;
+        //private TendrilStateSingleton tendrilState;
 
         public JonesModel()
         {
-            TendrilState = TendrilStateSingleton.getInstance();
+            TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
 
-            k_max = new double[3] { Math.PI / TendrilState.GetSectionLength(TendrilUtils.BASE_SECTION), 
-                                    (2 * Math.PI) / TendrilState.GetSectionLength(TendrilUtils.MID_SECTION), 
-                                    Math.PI / (2 * TendrilState.GetSectionLength(TendrilUtils.TIP_SECTION)) };
-            
+            k_max = new double[3] { Math.PI / tendrilState.GetSectionLength(TendrilUtils.BASE_SECTION), 
+                                    (2 * Math.PI) /tendrilState.GetSectionLength(TendrilUtils.MID_SECTION), 
+                                    Math.PI / (2 * tendrilState.GetSectionLength(TendrilUtils.TIP_SECTION)) };
+
+            k_avg_i = new double[3];
+
+
             //km_max = (2 * Math.PI) / ten_ms;
             //kt_max = Math.PI / (2 * ten_ts);
             k_bmArray = new RunningAverage(25);
@@ -83,6 +86,8 @@ namespace TendrilInterfaceForm
         {
             int sectionalOffset = 0;
 
+            TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
+
             if (section == TendrilUtils.MID_SECTION) sectionalOffset = 3;
             else if (section == TendrilUtils.TIP_SECTION) sectionalOffset = 6;
 
@@ -90,7 +95,7 @@ namespace TendrilInterfaceForm
             //Calculate immediate curvature for each section (bryan Jones method)
             k_avg_i[section] = 2 * Math.Sqrt(Math.Pow(tendonlength[0 + sectionalOffset], 2) + Math.Pow(tendonlength[1 + sectionalOffset], 2) + Math.Pow(tendonlength[2 + sectionalOffset], 2)
                                 - tendonlength[0 + sectionalOffset] * tendonlength[1 + sectionalOffset] - tendonlength[1 + sectionalOffset] * tendonlength[2 + sectionalOffset] - tendonlength[0 + sectionalOffset]
-                                * tendonlength[2 + sectionalOffset]) / (TendrilState.GetSpacerRadius(section) * (tendonlength[0 + sectionalOffset] + tendonlength[1 + sectionalOffset] + tendonlength[2 + sectionalOffset]));
+                                * tendonlength[2 + sectionalOffset]) / (tendrilState.GetSpacerRadius(section) * (tendonlength[0 + sectionalOffset] + tendonlength[1 + sectionalOffset] + tendonlength[2 + sectionalOffset]));
 
 
             //if (lastMotor > 2) k_mmi = 2 * Math.Sqrt(Math.Pow(tendonlength[3], 2) + Math.Pow(tendonlength[4], 2) + Math.Pow(tendonlength[5], 2) - tendonlength[3] * tendonlength[4] - tendonlength[4] * tendonlength[5] - tendonlength[3] * tendonlength[5]) / (dm * (tendonlength[3] + tendonlength[4] + tendonlength[5]));
@@ -138,6 +143,7 @@ namespace TendrilInterfaceForm
 
         public double[] CalculateTendonLengths(int section)
         {
+            TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
             int sectionalOffset = 0;
 
             if (section == TendrilUtils.MID_SECTION) sectionalOffset = 3;
@@ -204,8 +210,9 @@ namespace TendrilInterfaceForm
 
         public Matrix3 CreateSingleSectionJacobian(int section)
         {
-            float s = TendrilState.GetSectionLength(section);
-            float r = TendrilState.GetSpacerRadius(section);
+            TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
+            float s = tendrilState.GetSectionLength(section);
+            float r = tendrilState.GetSpacerRadius(section);
 
             Matrix3 Transform = new Matrix3(
                     new Vector3(0, (float)(-s * r * Math.Cos(phi_avg[section])), (float)(s * r * Math.Sin(phi_avg[section]))),

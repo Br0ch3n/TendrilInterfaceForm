@@ -13,7 +13,8 @@ namespace TendrilInterfaceForm
     {
         /* ============= Members ===============*/
         // Architecture members
-        private static TendrilStateSingleton instance = null;
+        private static TendrilStateSingleton instance = new TendrilStateSingleton();
+        private static object _lock = new object();
 
         // Tendril variables
         private int[] SensorReading;
@@ -35,19 +36,6 @@ namespace TendrilInterfaceForm
         private float BaseLength, MidLength, TipLength;
         private float BaseMass, MidMass, TipMass; // 13g = base mass
         private float BaseModulus, MidModulus, TipModulus;
-
-        //const double db = 0.006;    //radius of base
-        //const double dm = 0.003;    //radius of mid
-        //const double dt = 0.003;    //radius of tip
-
-        //lengths of tendril sections [m]
-        const double ten_bs = 0.917; // measured: 931 mm = 0.931 m
-        const double ten_ms = 0.225;
-        const double ten_ts = 0.2;
-
-        const int nb = 12; // measured: 12
-        const int nm = 4;
-        const int nt = 7;
 
         private int[] SpacerCount;
         private float[] SpacerRadius;
@@ -74,10 +62,35 @@ namespace TendrilInterfaceForm
         BajoModel bajoModel;
 
 
-        
+
 
         /* ============= Methods ===============*/
 
+        public static TendrilStateSingleton Instance
+        {
+            //lock (_lock)
+            //{
+                
+            //}
+            get
+            {
+                lock (_lock)
+                {
+                    if (instance == null)
+                    {
+                        Console.WriteLine("Instance is null...");
+                        instance = new TendrilStateSingleton();
+                    }
+                }
+                return instance;
+            }
+
+        }
+
+        //static TendrilStateSingleton()
+        //{
+
+        //}
         private TendrilStateSingleton()
         {
             // setup and initialization
@@ -88,7 +101,7 @@ namespace TendrilInterfaceForm
             EncoderTarget = new int[9];
             TendonLength = new float[9];
             FirstMotor = 0;
-            LastMotor = 2; // Normally 8, because 9 motors
+            LastMotor = 8; // Normally 8, because 9 motors
             EncSmlIncrement = 50;
             EncLrgIncrement = 200;
             FilteringActive = false;
@@ -99,16 +112,16 @@ namespace TendrilInterfaceForm
             
             CalibrationOffset = new float[9];
             CalibrationScale = new float[9];
-
-            ReadConfigFile();
+            
+            //ReadConfigFile();
 
             LengthPerRotationLarge = (float)Math.PI * LrgMotShaftDiameter;
 
             // Tracking system initialization
-            TrackedSensor = new KalmanFilter[LastMotor + 1];
-            TrackedTension = new KalmanFilter[LastMotor + 1];
-            TrackedEncoder = new KalmanFilter[LastMotor + 1];
-            TrackedTendonLength = new KalmanFilter[LastMotor + 1];
+            TrackedSensor = new KalmanFilter[9];
+            TrackedTension = new KalmanFilter[9];
+            TrackedEncoder = new KalmanFilter[9];
+            TrackedTendonLength = new KalmanFilter[9];
 
             for (int ndx = FirstMotor; ndx <= LastMotor; ndx++)
             {
@@ -122,18 +135,10 @@ namespace TendrilInterfaceForm
             bajoModel = new BajoModel();
         }
 
-        public static TendrilStateSingleton getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new TendrilStateSingleton();
-            }
-
-            return instance;
-        }
+        
 
 
-        private void ReadConfigFile()
+        public void ReadConfigFile()
         {
             string s;
             string[] lines, configParams, CalibOffsets, CalibScales;
@@ -145,7 +150,7 @@ namespace TendrilInterfaceForm
             // Show the Dialog.  
             // If the user clicked OK in the dialog and  
             // a .CUR file was selected, open it.  
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 s = File.ReadAllText(openFileDialog1.FileName);
                 lines = s.Split(';');
@@ -357,6 +362,16 @@ namespace TendrilInterfaceForm
         public void UpdateModels()
         {
             jonesModel.Update(TendonLength, TendrilUtils.BASE_SECTION);
+        }
+
+        public float GetCurvature(int section)
+        {
+            return (float)jonesModel.getCurvature(section);
+        }
+
+        public float GetCurveAngle(int section)
+        {
+            return (float)jonesModel.getPhi(section);
         }
     }
 }
