@@ -16,39 +16,15 @@ namespace TendrilInterfaceForm
 
         //Average curvatures and phi
         public double[] k_avg;
-        //public double k_bm;
-        //public double k_tm;
         public double[] phi_avg;
-        //public double phi_mm;
-        //public double phi_tm;
 
         //Intermediate curvatures
         double[] k_avg_i;
-        //double k_bmi;
-        //double k_tmi;
 
-        //const double db = 0.006;    //radius of base
-        //const double dm = 0.003;    //radius of mid
-        //const double dt = 0.003;    //radius of tip
-
-        //lengths of tendril sections [m]
-        //const double ten_bs = 0.917; // measured: 931 mm = 0.931 m
-        //const double ten_ms = 0.225;
-        //const double ten_ts = 0.2;
-
-        //const int nb = 12; // measured: 12
-        //const int nm = 4;
-        //const int nt = 7;
+       
 
         //Maximum Curvatures
         double[] k_max;
-        //double km_max;
-        //double kt_max;
-
-        //length array for tendrils
-        double[] base_s = new double[3];
-        double[] mid_s = new double[3];
-        double[] tip_s = new double[3];
 
         RunningAverage k_bmArray;
         RunningAverage k_mmArray;
