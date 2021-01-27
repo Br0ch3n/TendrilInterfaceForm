@@ -694,7 +694,7 @@ namespace TendrilInterfaceForm
 
             TendrilState.UpdateTensions(tensFeedback);
             TendrilState.UpdateEncoders(cntsFeedback);
-            TendrilState.UpdateFilters();
+            //TendrilState.UpdateFilters();
             TendrilState.UpdateModels();
 
             cntsSim = simCurrTxLabel.Text.Split(',');

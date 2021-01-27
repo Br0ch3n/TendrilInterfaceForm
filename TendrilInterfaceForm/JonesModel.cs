@@ -42,6 +42,8 @@ namespace TendrilInterfaceForm
                                     Math.PI / (2 * tendrilState.GetSectionLength(TendrilUtils.TIP_SECTION)) };
 
             k_avg_i = new double[3];
+            k_avg = new double[3];
+            phi_avg = new double[3];
 
 
             //km_max = (2 * Math.PI) / ten_ms;
@@ -96,7 +98,7 @@ namespace TendrilInterfaceForm
             //assess maximum curvature threshold
             if (k_avg[section] > k_max[section]) { k_avg[section] = k_max[section]; }
 
-            Console.WriteLine("K: " + k_avg[section].ToString() + ", Phi: " + phi_avg[section].ToString());
+            //Console.WriteLine("K: " + k_avg[section].ToString() + ", Phi: " + phi_avg[section].ToString());
             //Console.WriteLine("Phi's: " + phi_bm.ToString() + ", " + phi_mm.ToString() + ", " + phi_tm.ToString());
             
         }

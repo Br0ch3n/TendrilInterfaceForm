@@ -49,7 +49,7 @@ namespace TendrilInterfaceForm
                 Console.WriteLine("CONTACT! Theta = " + Theta.ToString());
             } else
             {
-                Console.WriteLine("No contact here..." + Theta.ToString());
+                //Console.WriteLine("No contact here..." + Theta.ToString());
             }
         }
 
