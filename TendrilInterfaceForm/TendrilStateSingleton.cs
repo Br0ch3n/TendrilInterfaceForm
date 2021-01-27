@@ -219,7 +219,7 @@ namespace TendrilInterfaceForm
                 lines = s.Split(';');
                 if (lines.Length != 4) Console.WriteLine("Config File not 4 lines.");
                 configParams = lines[0].Split(',');
-                if (configParams.Length != 21) Console.WriteLine("Config File first line not 21 parameters.");
+                if (configParams.Length != 22) Console.WriteLine("Config File first line not 22 parameters.");
                 CalibOffsets = lines[1].Split(',');
                 CalibScales = lines[2].Split(',');
                 BaseLength = float.Parse(configParams[0]);
