@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -36,7 +37,7 @@ namespace TendrilInterfaceForm
         private KalmanFilter[] KFTensions;
         private System.Timers.Timer time;
         private Color prevColor;
-        //private TendrilStateSingleton TendrilState;
+        private TendrilStateSingleton TendrilState;
 
         public TendrilInterface()
         {
@@ -66,7 +67,7 @@ namespace TendrilInterfaceForm
             time.Interval = 10000;
             time.Elapsed += OnTimeElapsed;
             flgTimer = false;
-            //TendrilState = TendrilStateSingleton.Instance;
+            TendrilState = TendrilStateSingleton.Instance;
 
             for (int ndx = 0; ndx < 9; ndx++)
             {
@@ -81,14 +82,15 @@ namespace TendrilInterfaceForm
 
         private void loadConfigFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
+            //tendrilState = TendrilStateSingleton.Instance;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "CSV files (*.csv)|*.csv|txt files (*.txt)|*.txt";
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt";
             openFileDialog1.Title = "Select a Tendril Configuration File";
-
+            
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                TendrilState.ReadConfigFile();
+                Console.WriteLine(openFileDialog1.FileName);
+                TendrilStateSingleton.Instance.ReadConfigFile(File.ReadAllText(openFileDialog1.FileName));
             }
         }
 
@@ -674,7 +676,7 @@ namespace TendrilInterfaceForm
 
         private void NewData(object sender, EventArgs e)
         {
-            TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
+            //TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
             // Sanitizing inputs
             String[] lines = rxString.Split('\t');
             if (lines.Length != 2) return;
@@ -772,6 +774,11 @@ namespace TendrilInterfaceForm
             {
                 encValues[ndx] = float.Parse(cnts[ndx]);
             }
+        }
+
+        private void initializeModelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TendrilState.InitializeModels();
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)

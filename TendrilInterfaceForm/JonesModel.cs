@@ -118,6 +118,7 @@ namespace TendrilInterfaceForm
             lengths = new double[9];
 
             //determine tendril base section lengths
+            // will only work on base section (need to add sectionalOffset)
             lengths[0] = 2 * n * Math.Sin(s * k_avg[section] / (2 * n)) * ((1 / k_avg[section]) - (r * Math.Sin(phi_avg[section])));
             lengths[1] = 2 * n * Math.Sin(s * k_avg[section] / (2 * n)) * ((1 / k_avg[section]) + (r * Math.Sin((Math.PI / 3) + phi_avg[section])));
             lengths[2] = 2 * n * Math.Sin(s * k_avg[section] / (2 * n)) * ((1 / k_avg[section]) - (r * Math.Cos((Math.PI / 6) + phi_avg[section])));

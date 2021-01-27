@@ -156,6 +156,8 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
+            this.modelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initializeModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -208,7 +210,8 @@
             this.toolStripMenuItem1,
             this.manualControlToolStripMenuItem,
             this.displayToolStripMenuItem,
-            this.trackingToolStripMenuItem});
+            this.trackingToolStripMenuItem,
+            this.modelsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -288,7 +291,7 @@
             // kalmanFilterToolStripMenuItem
             // 
             this.kalmanFilterToolStripMenuItem.Name = "kalmanFilterToolStripMenuItem";
-            this.kalmanFilterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kalmanFilterToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.kalmanFilterToolStripMenuItem.Text = "Kalman Filter";
             this.kalmanFilterToolStripMenuItem.Click += new System.EventHandler(this.kalmanFilterToolStripMenuItem_Click);
             // 
@@ -1472,6 +1475,21 @@
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
             // 
+            // modelsToolStripMenuItem
+            // 
+            this.modelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initializeModelsToolStripMenuItem});
+            this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
+            this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.modelsToolStripMenuItem.Text = "Models";
+            // 
+            // initializeModelsToolStripMenuItem
+            // 
+            this.initializeModelsToolStripMenuItem.Name = "initializeModelsToolStripMenuItem";
+            this.initializeModelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.initializeModelsToolStripMenuItem.Text = "Initialize Models";
+            this.initializeModelsToolStripMenuItem.Click += new System.EventHandler(this.initializeModelsToolStripMenuItem_Click);
+            // 
             // TendrilInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1673,6 +1691,8 @@
         private System.Windows.Forms.CheckBox cbCSVWriterSendAll;
         private System.Windows.Forms.Button btnCSVWriterSend;
         private System.Windows.Forms.ToolStripMenuItem loadConfigFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem initializeModelsToolStripMenuItem;
     }
 }
 
