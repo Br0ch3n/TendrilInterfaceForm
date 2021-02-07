@@ -11,9 +11,11 @@ namespace TendrilInterfaceForm
     {
         // List of variables
 
-        private float ContactThreshold;
+        private float ContactThreshold { get; set; }
         private Matrix3 Jacobian;
         private Vector3 TensionLoads;
+        private DateTime timeLast, timeCurrent;
+        private TimeSpan timeElapsed;
 
 
         //private TendrilStateSingleton tendrilState;
@@ -25,6 +27,10 @@ namespace TendrilInterfaceForm
             ContactThreshold = 10;
             TensionLoads = new Vector3();
             Jacobian = new Matrix3();
+            timeLast = new DateTime();
+            timeCurrent = new DateTime();
+            timeElapsed = new TimeSpan();
+            timeLast = DateTime.Now;
             
         }
 
@@ -32,10 +38,17 @@ namespace TendrilInterfaceForm
         {
             TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
 
+            timeCurrent = DateTime.Now;
+
+            timeElapsed = timeCurrent.Subtract(timeLast);
+
+            timeLast = timeCurrent;
+
             CalculateTensionLoads(section);
 
             float[] dTension = tendrilState.GetDeltaTension();
-            Vector3 Tao = new Vector3(dTension[0], dTension[1], dTension[2]);
+
+            Vector3 Tao = new Vector3(dTension[0] / (float)timeElapsed.TotalSeconds, dTension[1] / (float)timeElapsed.TotalSeconds, dTension[2] / (float)timeElapsed.TotalSeconds);
             
             Jacobian = J.Transpose();
 
@@ -46,6 +59,8 @@ namespace TendrilInterfaceForm
 
             if (Theta > ContactThreshold)
             {
+                Console.WriteLine("Delta Tension: " + dTension.ToString());
+                Console.WriteLine("Tao: " + Tao.ToString());
                 Console.WriteLine("CONTACT! Theta = " + Theta.ToString());
             } else
             {
@@ -64,14 +79,29 @@ namespace TendrilInterfaceForm
 
             float I = tendrilState.GetSectionMomentInertia(section);
 
-            
 
             float E = tendrilState.GetSectionStiffness(section);
 
+
+            float F1 = (float) (m * 9.8 * ((float)Math.Cos(Theta) - 0.5 - (float)Math.Cos(2 * Theta) / 2)) / (3 * (float)Math.Pow(Theta, 2));
+            float F2 = (E * I * Theta / L);
+            float F3 = (float)((m * 9.8 * L) / Math.Pow(Theta, 2));
+            float F4 = ((((float)Math.Cos(2 * Theta) - 2 * (float)Math.Cos(Theta) + 1) / Theta) + ((float)Math.Sin(2 * Theta) - (float)Math.Sin(Theta)));
+
+
+            //for i = 1:1:3
+            
+            //    Falpha = (2 * cos(phi + (i - 1) * 2 * pi / 3)) / (3 * r)
+            
+            //    F(i) = F1 - Falpha * (F2 + (F3 * F4));
+            //end
+            
+
+
             for (int i = 0; i < 3; i++)
             {
-                TensionLoads[i] = (float)((m * 9.8f * (Math.Cos(Theta) - 0.5f - Math.Cos(2 * Theta) / 2)) / (3 * Math.Pow(Theta, 2)) - ((2 * Math.Cos(i * 2 * Math.PI / 3)) / (3 * L))
-                                  * (E * I * Theta / L) + (((m * 9.8f * L) / Math.Pow(Theta, 2)) * ((Math.Cos(2 * Theta) - 2 * Math.Cos(Theta) + 1) / Theta) + (Math.Sin(2 * Theta) - Math.Sin(Theta))));
+                float Falpha = (2 * (float)Math.Cos(tendrilState.GetCurveAngle(section) + (i - 1) * 2 * Math.PI / 3)) / (3 * tendrilState.GetSpacerRadius(section));
+                TensionLoads[i] = F1 - Falpha * (F2 + (F3 * F4));
             }
         }
 

@@ -163,9 +163,9 @@ namespace TendrilInterfaceForm
             float r = tendrilState.GetSpacerRadius(section);
 
             Matrix3 Transform = new Matrix3(
-                    new Vector3(0, (float)(-s * r * Math.Cos(phi_avg[section])), (float)(s * r * Math.Sin(phi_avg[section]))),
-                    new Vector3(0, (float)(Math.Cos(phi_avg[section]) * Math.Cos(s * k_avg[section])), (float)(-Math.Cos(phi_avg[section]) * Math.Sin(s * k_avg[section]))),
-                    new Vector3(0, (float)Math.Sin(s * k_avg[section]), (float)Math.Cos(s * k_avg[section]))
+                    new Vector3(0, (float)(-s * r * Math.Cos(phi_avg[section])), (float)(s * r * k_avg[section] * Math.Sin(phi_avg[section]))),
+                    new Vector3(0, (float)(-s * r * Math.Cos(phi_avg[section] + (2 * Math.PI / 3))), (float)(s * r * k_avg[section] * Math.Sin(phi_avg[section] + (2 * Math.PI / 3)))),
+                    new Vector3(0, (float)(-s * r * Math.Cos(phi_avg[section] + (4 * Math.PI / 3))), (float)(s * r * k_avg[section] * Math.Sin(phi_avg[section] + (4 * Math.PI / 3))))
                     );
             //Console.WriteLine(Transform.ToString());
             return Transform;
