@@ -38,6 +38,7 @@ namespace TendrilInterfaceForm
         private System.Timers.Timer time;
         private Color prevColor;
         private TendrilStateSingleton TendrilState;
+        private bool ModelsInitialized;
 
         public TendrilInterface()
         {
@@ -68,6 +69,7 @@ namespace TendrilInterfaceForm
             time.Elapsed += OnTimeElapsed;
             flgTimer = false;
             TendrilState = TendrilStateSingleton.Instance;
+            ModelsInitialized = false;
 
             for (int ndx = 0; ndx < 9; ndx++)
             {
@@ -677,6 +679,12 @@ namespace TendrilInterfaceForm
                 //tenStatusLabel.Text = lines[0];
                 tensFeedback = lines[0].Split(',');
 
+                if(!ModelsInitialized)
+                {
+                    TendrilState.InitializeModels();
+                    ModelsInitialized = true;
+                }
+
                 if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
 
 
@@ -794,6 +802,11 @@ namespace TendrilInterfaceForm
         private void initializeModelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TendrilState.InitializeModels();
+        }
+
+        private void printBajoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TendrilState.
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)

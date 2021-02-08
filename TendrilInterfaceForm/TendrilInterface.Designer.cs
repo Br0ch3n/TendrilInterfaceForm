@@ -44,6 +44,8 @@
             this.simulationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kalmanFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initializeModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simTxtLabel = new System.Windows.Forms.Label();
             this.simCurrTxLabel = new System.Windows.Forms.Label();
             this.connectLabel = new System.Windows.Forms.Label();
@@ -156,8 +158,7 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
-            this.modelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.initializeModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBajoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -294,6 +295,22 @@
             this.kalmanFilterToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.kalmanFilterToolStripMenuItem.Text = "Kalman Filter";
             this.kalmanFilterToolStripMenuItem.Click += new System.EventHandler(this.kalmanFilterToolStripMenuItem_Click);
+            // 
+            // modelsToolStripMenuItem
+            // 
+            this.modelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initializeModelsToolStripMenuItem,
+            this.printBajoToolStripMenuItem});
+            this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
+            this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.modelsToolStripMenuItem.Text = "Models";
+            // 
+            // initializeModelsToolStripMenuItem
+            // 
+            this.initializeModelsToolStripMenuItem.Name = "initializeModelsToolStripMenuItem";
+            this.initializeModelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.initializeModelsToolStripMenuItem.Text = "Initialize Models";
+            this.initializeModelsToolStripMenuItem.Click += new System.EventHandler(this.initializeModelsToolStripMenuItem_Click);
             // 
             // simTxtLabel
             // 
@@ -1475,20 +1492,12 @@
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
             // 
-            // modelsToolStripMenuItem
+            // printBajoToolStripMenuItem
             // 
-            this.modelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializeModelsToolStripMenuItem});
-            this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
-            this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.modelsToolStripMenuItem.Text = "Models";
-            // 
-            // initializeModelsToolStripMenuItem
-            // 
-            this.initializeModelsToolStripMenuItem.Name = "initializeModelsToolStripMenuItem";
-            this.initializeModelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.initializeModelsToolStripMenuItem.Text = "Initialize Models";
-            this.initializeModelsToolStripMenuItem.Click += new System.EventHandler(this.initializeModelsToolStripMenuItem_Click);
+            this.printBajoToolStripMenuItem.Name = "printBajoToolStripMenuItem";
+            this.printBajoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printBajoToolStripMenuItem.Text = "Print Bajo";
+            this.printBajoToolStripMenuItem.Click += new System.EventHandler(this.printBajoToolStripMenuItem_Click);
             // 
             // TendrilInterface
             // 
@@ -1693,6 +1702,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadConfigFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initializeModelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printBajoToolStripMenuItem;
     }
 }
 

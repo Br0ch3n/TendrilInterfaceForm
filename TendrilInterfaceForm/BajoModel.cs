@@ -16,6 +16,7 @@ namespace TendrilInterfaceForm
         private Vector3 TensionLoads;
         private DateTime timeLast, timeCurrent;
         private TimeSpan timeElapsed;
+        private bool PrintEnabled;
 
 
         //private TendrilStateSingleton tendrilState;
@@ -31,6 +32,7 @@ namespace TendrilInterfaceForm
             timeCurrent = new DateTime();
             timeElapsed = new TimeSpan();
             timeLast = DateTime.Now;
+            PrintEnabled = false;
             
         }
 
@@ -57,14 +59,15 @@ namespace TendrilInterfaceForm
 
             double Theta = Math.Sqrt(Math.Pow(result.X,2) + Math.Pow(result.Y, 2) + Math.Pow(result.Z, 2));
 
-            if (Theta > ContactThreshold)
+            if (PrintEnabled)
             {
-                Console.WriteLine("Delta Tension: " + dTension.ToString());
-                Console.WriteLine("Tao: " + Tao.ToString());
-                Console.WriteLine("CONTACT! Theta = " + Theta.ToString());
-            } else
-            {
-                //Console.WriteLine("No contact here..." + Theta.ToString());
+                Console.WriteLine("K: " + tendrilState.GetCurvature(section).ToString() + ", Phi : " + tendrilState.GetCurveAngle(section).ToString());
+                Console.WriteLine("Delta Tension: " + dTension[0].ToString() + ", " + dTension[1].ToString() + ", " + dTension[2].ToString());
+                Console.WriteLine("Tao: " + Tao[0].ToString() + ", " + Tao[1].ToString() + ", " + Tao[2].ToString());
+                Console.WriteLine("Result: " + result[0].ToString() + ", " + result[1].ToString() + ", " + result[2].ToString());
+                if (Theta > ContactThreshold) Console.WriteLine("CONTACT! Theta = " + Theta.ToString());
+                else Console.WriteLine("No contact... Theta = " + Theta.ToString());
+                PrintEnabled = false;
             }
         }
 
@@ -72,10 +75,10 @@ namespace TendrilInterfaceForm
         {
             TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
 
-            float m = tendrilState.GetSectionMass(section);
-            float L = tendrilState.GetSectionLength(section);
+            float m = tendrilState.GetSectionMass(section) / 1000;
+            float L = tendrilState.GetSectionLength(section) / 1000;
 
-            float Theta = tendrilState.GetSectionLength(section) * tendrilState.GetCurvature(section);
+            float Theta = L * tendrilState.GetCurvature(section);
 
             float I = tendrilState.GetSectionMomentInertia(section);
 
@@ -105,7 +108,10 @@ namespace TendrilInterfaceForm
             }
         }
 
-
+        public void PrintBajoOuput()
+        {
+            if (!PrintEnabled) PrintEnabled = true;
+        }
 
     }
 }

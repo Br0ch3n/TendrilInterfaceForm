@@ -455,5 +455,10 @@ namespace TendrilInterfaceForm
         {
             return (float)jonesModel.getPhi(section);
         }
+
+        public void PrintBajoModelData()
+        {
+            bajoModel.PrintBajoOuput();
+        }
     }
 }
