@@ -666,7 +666,21 @@ namespace TendrilInterfaceForm
             {
                 flgProcessing = true;
                 rxString = btSerialPort.ReadLine();
-                this.Invoke(new EventHandler(NewData));
+                //this.Invoke(new EventHandler(NewData));
+                String[] lines = rxString.Split('\t');
+                if (lines.Length != 2) return;
+                
+
+                //cntStatusLabel.Text = lines[1];
+                cntsFeedback = lines[1].Split(',');
+                ParseCounts(cntsFeedback);
+                //tenStatusLabel.Text = lines[0];
+                tensFeedback = lines[0].Split(',');
+
+                if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
+
+
+                Invoke(new EventHandler(NewData));
             }
         }
 
@@ -678,11 +692,12 @@ namespace TendrilInterfaceForm
         {
             //TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
             // Sanitizing inputs
-            String[] lines = rxString.Split('\t');
-            if (lines.Length != 2) return;
             String[] evenOutput;
             String tempString;
             bool targetMet = true;
+            String[] lines = rxString.Split('\t');
+            //if (lines.Length != 2) return;
+
 
             cntStatusLabel.Text = lines[1];
             cntsFeedback = lines[1].Split(',');
@@ -690,7 +705,7 @@ namespace TendrilInterfaceForm
             tenStatusLabel.Text = lines[0];
             tensFeedback = lines[0].Split(',');
 
-            if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
+            //if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
 
             TendrilState.UpdateTensions(tensFeedback);
             TendrilState.UpdateEncoders(cntsFeedback);
