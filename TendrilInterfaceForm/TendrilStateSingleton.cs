@@ -19,6 +19,7 @@ namespace TendrilInterfaceForm
         // Tendril variables
         private int[] SensorReading;
         private float[] Tension;
+        private float[] oldTension;
         private float[] DeltaTension;
 
         private int[] Encoder;
@@ -101,6 +102,7 @@ namespace TendrilInterfaceForm
             SensorReading = new int[9];
             Tension = new float[9];
             DeltaTension = new float[9];
+            oldTension = new float[9];
             Encoder = new int[9];
             EncoderTarget = new int[9];
             TendonLength = new float[9];
@@ -166,12 +168,12 @@ namespace TendrilInterfaceForm
             if (configParams.Length != 22) Console.WriteLine("Config File first line not 22 parameters.");
             CalibOffsets = lines[1].Split(',');
             CalibScales = lines[2].Split(',');
-            BaseLength = float.Parse(configParams[0]);
-            MidLength = float.Parse(configParams[1]);
-            TipLength = float.Parse(configParams[2]);
-            BaseMass = float.Parse(configParams[3]);
-            MidMass = float.Parse(configParams[4]);
-            TipMass = float.Parse(configParams[5]);
+            BaseLength = float.Parse(configParams[0]) / 1000;
+            MidLength = float.Parse(configParams[1]) / 1000;
+            TipLength = float.Parse(configParams[2]) / 1000;
+            BaseMass = float.Parse(configParams[3]) / 1000;
+            MidMass = float.Parse(configParams[4]) / 1000;
+            TipMass = float.Parse(configParams[5]) / 1000;
             BaseModulus = float.Parse(configParams[6]);
             MidModulus = float.Parse(configParams[7]);
             TipModulus = float.Parse(configParams[8]);
@@ -222,12 +224,12 @@ namespace TendrilInterfaceForm
                 if (configParams.Length != 22) Console.WriteLine("Config File first line not 22 parameters.");
                 CalibOffsets = lines[1].Split(',');
                 CalibScales = lines[2].Split(',');
-                BaseLength = float.Parse(configParams[0]);
-                MidLength = float.Parse(configParams[1]);
-                TipLength = float.Parse(configParams[2]);
-                BaseMass = float.Parse(configParams[3]);
-                MidMass = float.Parse(configParams[4]);
-                TipMass = float.Parse(configParams[5]);
+                BaseLength = float.Parse(configParams[0]) / 1000;
+                MidLength = float.Parse(configParams[1]) / 1000;
+                TipLength = float.Parse(configParams[2]) / 1000;
+                BaseMass = float.Parse(configParams[3]) / 1000;
+                MidMass = float.Parse(configParams[4]) / 1000;
+                TipMass = float.Parse(configParams[5]) / 1000;
                 BaseModulus = float.Parse(configParams[6]);
                 MidModulus = float.Parse(configParams[7]);
                 TipModulus = float.Parse(configParams[8]);
@@ -288,11 +290,11 @@ namespace TendrilInterfaceForm
 
         public void ProcessTendrilInput()
         {
-            float[] oldTension = new float[9];
+           
             oldTension = Tension;
             for (int i = FirstMotor; i <= LastMotor; i++)
             {
-                this.Tension[i] = CalibrationScale[i] * SensorReading[i] + CalibrationOffset[i];
+                this.Tension[i] = CalibrationScale[i] * (float)SensorReading[i] + CalibrationOffset[i];
                 DeltaTension[i] = Tension[i] - oldTension[i];
             }
         }

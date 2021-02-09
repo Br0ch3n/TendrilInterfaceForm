@@ -806,7 +806,7 @@ namespace TendrilInterfaceForm
 
         private void printBajoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TendrilState.
+            TendrilState.PrintBajoModelData();
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)

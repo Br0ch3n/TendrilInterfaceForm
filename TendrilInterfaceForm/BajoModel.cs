@@ -75,8 +75,8 @@ namespace TendrilInterfaceForm
         {
             TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
 
-            float m = tendrilState.GetSectionMass(section) / 1000;
-            float L = tendrilState.GetSectionLength(section) / 1000;
+            float m = tendrilState.GetSectionMass(section);
+            float L = tendrilState.GetSectionLength(section);
 
             float Theta = L * tendrilState.GetCurvature(section);
 
