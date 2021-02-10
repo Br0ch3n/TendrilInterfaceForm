@@ -39,6 +39,8 @@ namespace TendrilInterfaceForm
         public void ContactDetection(int section, Matrix3 J)
         {
             TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
+            float[] dTension = new float[9];
+            float dT = new float();
 
             timeCurrent = DateTime.Now;
 
@@ -48,9 +50,12 @@ namespace TendrilInterfaceForm
 
             CalculateTensionLoads(section);
 
-            float[] dTension = tendrilState.GetDeltaTension();
+            //dTension = tendrilState.GetDeltaTension();
+            dTension = tendrilState.GetTensionsFloats();
+            //dT = (float)timeElapsed.TotalSeconds;
+            dT = 1;
 
-            Vector3 Tao = new Vector3(dTension[0] / (float)timeElapsed.TotalSeconds, dTension[1] / (float)timeElapsed.TotalSeconds, dTension[2] / (float)timeElapsed.TotalSeconds);
+            Vector3 Tao = new Vector3(dTension[0] / dT, dTension[1] / dT, dTension[2] / dT);
             
             Jacobian = J.Transpose();
 
@@ -63,6 +68,7 @@ namespace TendrilInterfaceForm
             {
                 Console.WriteLine("K: " + tendrilState.GetCurvature(section).ToString() + ", Phi : " + tendrilState.GetCurveAngle(section).ToString());
                 Console.WriteLine("Delta Tension: " + dTension[0].ToString() + ", " + dTension[1].ToString() + ", " + dTension[2].ToString());
+                Console.WriteLine("Time Interval: " + timeElapsed.TotalSeconds.ToString() + " seconds");
                 Console.WriteLine("Tao: " + Tao[0].ToString() + ", " + Tao[1].ToString() + ", " + Tao[2].ToString());
                 Console.WriteLine("Result: " + result[0].ToString() + ", " + result[1].ToString() + ", " + result[2].ToString());
                 if (Theta > ContactThreshold) Console.WriteLine("CONTACT! Theta = " + Theta.ToString());

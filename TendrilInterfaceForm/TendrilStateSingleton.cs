@@ -294,7 +294,7 @@ namespace TendrilInterfaceForm
             oldTension = Tension;
             for (int i = FirstMotor; i <= LastMotor; i++)
             {
-                this.Tension[i] = CalibrationScale[i] * (float)SensorReading[i] + CalibrationOffset[i];
+                this.Tension[i] = (float)((CalibrationScale[i] * (float)SensorReading[i]) + CalibrationOffset[i]);
                 DeltaTension[i] = Tension[i] - oldTension[i];
             }
         }
@@ -391,6 +391,11 @@ namespace TendrilInterfaceForm
             return s;
         }
 
+        public float[] GetTensionsFloats()
+        {
+            return Tension;
+        }
+
         public String[] GetEncoders()
         {
             String[] s = new String[9];
@@ -460,6 +465,19 @@ namespace TendrilInterfaceForm
 
         public void PrintBajoModelData()
         {
+            Console.Write("Tension Values: ");
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                Console.Write(Tension[i] + ", ");
+            }
+            Console.WriteLine(" ");
+
+            Console.Write("Old Tension Values: ");
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                Console.Write(oldTension[i] + ", ");
+            }
+            Console.WriteLine(" ");
             bajoModel.PrintBajoOuput();
         }
     }
