@@ -80,8 +80,8 @@ namespace TendrilInterfaceForm
             //if (lastMotor > 5) k_tmi = k_tmi * 0.2f;
 
             //Calculate direction for each section
-            phi_avg[section] = Math.Atan2(Math.Sqrt(3) * (tendonlength[2 + sectionalOffset] + tendonlength[1 + sectionalOffset] - 2 * tendonlength[0 + sectionalOffset]), 
-                                (3 * (tendonlength[1 + sectionalOffset] - tendonlength[2 + sectionalOffset])));      //[deg]
+            phi_avg[section] = Math.Atan2((3 * (tendonlength[1 + sectionalOffset] - tendonlength[2 + sectionalOffset])), 
+                               Math.Sqrt(3) * (tendonlength[2 + sectionalOffset] + tendonlength[1 + sectionalOffset] - 2 * tendonlength[0 + sectionalOffset]));      //[deg]
 
             //Add curvature to running average
             k_bmArray.AddValue((float)k_avg_i[section]);

@@ -53,9 +53,9 @@ namespace TendrilInterfaceForm
             //dTension = tendrilState.GetDeltaTension();
             dTension = tendrilState.GetTensionsFloats();
             //dT = (float)timeElapsed.TotalSeconds;
-            dT = 1;
+            dT = 0.0098f;
 
-            Vector3 Tao = new Vector3(dTension[0] / dT, dTension[1] / dT, dTension[2] / dT);
+            Vector3 Tao = new Vector3(dTension[0] * dT, dTension[1] * dT, dTension[2] * dT);
             
             Jacobian = J.Transpose();
 
