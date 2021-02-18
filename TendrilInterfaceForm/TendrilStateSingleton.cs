@@ -166,8 +166,8 @@ namespace TendrilInterfaceForm
             if (lines.Length != 4) Console.WriteLine("Config File not 4 lines.");
             configParams = lines[0].Split(',');
             if (configParams.Length != 22) Console.WriteLine("Config File first line not 22 parameters.");
-            CalibOffsets = lines[1].Split(',');
-            CalibScales = lines[2].Split(',');
+            CalibScales = lines[1].Split(',');
+            CalibOffsets = lines[2].Split(',');
             BaseLength = float.Parse(configParams[0]) / 1000;
             MidLength = float.Parse(configParams[1]) / 1000;
             TipLength = float.Parse(configParams[2]) / 1000;
@@ -222,8 +222,9 @@ namespace TendrilInterfaceForm
                 if (lines.Length != 4) Console.WriteLine("Config File not 4 lines.");
                 configParams = lines[0].Split(',');
                 if (configParams.Length != 22) Console.WriteLine("Config File first line not 22 parameters.");
-                CalibOffsets = lines[1].Split(',');
-                CalibScales = lines[2].Split(',');
+                CalibScales = lines[1].Split(',');
+                CalibOffsets = lines[2].Split(',');
+                
                 BaseLength = float.Parse(configParams[0]) / 1000;
                 MidLength = float.Parse(configParams[1]) / 1000;
                 TipLength = float.Parse(configParams[2]) / 1000;
@@ -294,7 +295,7 @@ namespace TendrilInterfaceForm
             oldTension = Tension;
             for (int i = FirstMotor; i <= LastMotor; i++)
             {
-                this.Tension[i] = (float)((CalibrationScale[i] * (float)SensorReading[i]) + CalibrationOffset[i]);
+                this.Tension[i] = (float)((CalibrationScale[i] * (float)SensorReading[i]) + (float)CalibrationOffset[i]);
                 DeltaTension[i] = Tension[i] - oldTension[i];
             }
         }
@@ -465,19 +466,36 @@ namespace TendrilInterfaceForm
 
         public void PrintBajoModelData()
         {
-            Console.Write("Tension Values: ");
+            
+
+            Console.Write("Sensor Values: ");
             for (int i = FirstMotor; i <= LastMotor; i++)
             {
-                Console.Write(Tension[i] + ", ");
+                Console.Write(SensorReading[i].ToString() + ", ");
             }
             Console.WriteLine(" ");
 
-            Console.Write("Old Tension Values: ");
+            Console.Write("Tension Values: ");
             for (int i = FirstMotor; i <= LastMotor; i++)
             {
-                Console.Write(oldTension[i] + ", ");
+                Console.Write(Tension[i].ToString() + ", ");
             }
             Console.WriteLine(" ");
+
+            Console.Write("Calib Scales: ");
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                Console.Write(CalibrationScale[i].ToString() + ", ");
+            }
+            Console.WriteLine(" ");
+
+            Console.Write("Calib Offsets: ");
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                Console.Write(CalibrationOffset[i].ToString() + ", ");
+            }
+            Console.WriteLine(" ");
+
             bajoModel.PrintBajoOuput();
         }
     }

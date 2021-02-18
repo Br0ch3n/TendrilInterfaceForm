@@ -103,4 +103,9 @@ C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\
 C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.FreeGlut.dll
 C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll
 C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\MathNet.Numerics.xml
-C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojResolveAssemblyReference.cache
+C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\OpenGL.dll.config
+C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.FreeGlut.dll.config
+C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\bin\Debug\Tao.OpenGl.dll.config
+C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csprojAssemblyReference.cache
+C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CoreCompileInputs.cache
+C:\Users\mbwoo\source\repos\TendrilInterfaceForm\TendrilInterfaceForm\obj\Debug\TendrilInterfaceForm.csproj.CopyComplete
