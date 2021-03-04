@@ -59,6 +59,8 @@ namespace TendrilInterfaceForm
             
             Jacobian = J.Transpose();
 
+            Vector3 J_Tao = Jacobian * Tao;
+
             Vector3 result = (Jacobian * Tao - TensionLoads);
            
 
@@ -67,9 +69,9 @@ namespace TendrilInterfaceForm
             if (PrintEnabled)
             {
                 Console.WriteLine("K: " + tendrilState.GetCurvature(section).ToString() + ", Phi : " + tendrilState.GetCurveAngle(section).ToString());
-                Console.WriteLine("Delta Tension: " + dTension[0].ToString() + ", " + dTension[1].ToString() + ", " + dTension[2].ToString());
-                Console.WriteLine("Time Interval: " + timeElapsed.TotalSeconds.ToString() + " seconds");
                 Console.WriteLine("Tao: " + Tao[0].ToString() + ", " + Tao[1].ToString() + ", " + Tao[2].ToString());
+                Console.WriteLine("Jacobian * Tao: " + J_Tao[0].ToString() + ", " + J_Tao[1].ToString() + ", " + J_Tao[2].ToString());
+                Console.WriteLine("F: " + TensionLoads[0].ToString() + ", " + TensionLoads[1].ToString() + ", " + TensionLoads[2].ToString());
                 Console.WriteLine("Result: " + result[0].ToString() + ", " + result[1].ToString() + ", " + result[2].ToString());
                 if (Theta > ContactThreshold) Console.WriteLine("CONTACT! Theta = " + Theta.ToString());
                 else Console.WriteLine("No contact... Theta = " + Theta.ToString());

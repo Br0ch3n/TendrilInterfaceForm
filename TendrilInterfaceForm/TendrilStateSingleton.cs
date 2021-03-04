@@ -190,9 +190,9 @@ namespace TendrilInterfaceForm
             SpacerCount[1] = Int32.Parse(configParams[19]);
             SpacerCount[2] = Int32.Parse(configParams[20]);
             BaseMomentInertia = float.Parse(configParams[21]);
-
-            //Console.WriteLine("Moment of Inertia = " + BaseMomentInertia.ToString());
             
+            //Console.WriteLine("Moment of Inertia = " + BaseMomentInertia.ToString());
+
 
             for (int i = 0; i < CalibrationOffset.Length; i++)
             {
@@ -247,7 +247,7 @@ namespace TendrilInterfaceForm
                 SpacerCount[1] = Int32.Parse(configParams[19]);
                 SpacerCount[2] = Int32.Parse(configParams[20]);
                 BaseMomentInertia = float.Parse(configParams[21]);
-
+                
                 for (int i = 0; i < CalibrationOffset.Length; i++)
                 {
                     CalibrationOffset[i] = float.Parse(CalibOffsets[i]);
@@ -468,33 +468,33 @@ namespace TendrilInterfaceForm
         {
             
 
-            Console.Write("Sensor Values: ");
-            for (int i = FirstMotor; i <= LastMotor; i++)
-            {
-                Console.Write(SensorReading[i].ToString() + ", ");
-            }
-            Console.WriteLine(" ");
+            //Console.Write("Sensor Values: ");
+            //for (int i = FirstMotor; i <= LastMotor; i++)
+            //{
+            //    Console.Write(SensorReading[i].ToString() + ", ");
+            //}
+            //Console.WriteLine(" ");
 
-            Console.Write("Tension Values: ");
-            for (int i = FirstMotor; i <= LastMotor; i++)
-            {
-                Console.Write(Tension[i].ToString() + ", ");
-            }
-            Console.WriteLine(" ");
+            //Console.Write("Tension Values: ");
+            //for (int i = FirstMotor; i <= LastMotor; i++)
+            //{
+            //    Console.Write(Tension[i].ToString() + ", ");
+            //}
+            //Console.WriteLine(" ");
 
-            Console.Write("Calib Scales: ");
-            for (int i = FirstMotor; i <= LastMotor; i++)
-            {
-                Console.Write(CalibrationScale[i].ToString() + ", ");
-            }
-            Console.WriteLine(" ");
+            //Console.Write("Calib Scales: ");
+            //for (int i = FirstMotor; i <= LastMotor; i++)
+            //{
+            //    Console.Write(CalibrationScale[i].ToString() + ", ");
+            //}
+            //Console.WriteLine(" ");
 
-            Console.Write("Calib Offsets: ");
-            for (int i = FirstMotor; i <= LastMotor; i++)
-            {
-                Console.Write(CalibrationOffset[i].ToString() + ", ");
-            }
-            Console.WriteLine(" ");
+            //Console.Write("Calib Offsets: ");
+            //for (int i = FirstMotor; i <= LastMotor; i++)
+            //{
+            //    Console.Write(CalibrationOffset[i].ToString() + ", ");
+            //}
+            //Console.WriteLine(" ");
 
             bajoModel.PrintBajoOuput();
         }
