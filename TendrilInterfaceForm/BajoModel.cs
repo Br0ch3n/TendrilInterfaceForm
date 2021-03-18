@@ -83,6 +83,8 @@ namespace TendrilInterfaceForm
         {
             TendrilStateSingleton tendrilState = TendrilStateSingleton.Instance;
 
+            float Falpha = 0.0f;
+
             float m = tendrilState.GetSectionMass(section);
             float L = tendrilState.GetSectionLength(section);
 
@@ -111,7 +113,7 @@ namespace TendrilInterfaceForm
 
             for (int i = 0; i < 3; i++)
             {
-                float Falpha = (2 * (float)Math.Cos(tendrilState.GetCurveAngle(section) + (i - 1) * 2 * Math.PI / 3)) / (3 * tendrilState.GetSpacerRadius(section));
+                Falpha = (2 * (float)Math.Cos(tendrilState.GetCurveAngle(section) + i * 2 * Math.PI / 3)) / (3 * tendrilState.GetSpacerRadius(section));
                 TensionLoads[i] = F1 - Falpha * (F2 + (F3 * F4));
             }
         }

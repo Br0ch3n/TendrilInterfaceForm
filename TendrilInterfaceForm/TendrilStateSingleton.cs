@@ -168,12 +168,12 @@ namespace TendrilInterfaceForm
             if (configParams.Length != 22) Console.WriteLine("Config File first line not 22 parameters.");
             CalibScales = lines[1].Split(',');
             CalibOffsets = lines[2].Split(',');
-            BaseLength = float.Parse(configParams[0]) / 1000;
-            MidLength = float.Parse(configParams[1]) / 1000;
-            TipLength = float.Parse(configParams[2]) / 1000;
-            BaseMass = float.Parse(configParams[3]) / 1000;
-            MidMass = float.Parse(configParams[4]) / 1000;
-            TipMass = float.Parse(configParams[5]) / 1000;
+            BaseLength = float.Parse(configParams[0]) / 1000f;
+            MidLength = float.Parse(configParams[1]) / 1000f;
+            TipLength = float.Parse(configParams[2]) / 1000f;
+            BaseMass = float.Parse(configParams[3]) / 1000f;
+            MidMass = float.Parse(configParams[4]) / 1000f;
+            TipMass = float.Parse(configParams[5]) / 1000f;
             BaseModulus = float.Parse(configParams[6]);
             MidModulus = float.Parse(configParams[7]);
             TipModulus = float.Parse(configParams[8]);
@@ -225,12 +225,12 @@ namespace TendrilInterfaceForm
                 CalibScales = lines[1].Split(',');
                 CalibOffsets = lines[2].Split(',');
                 
-                BaseLength = float.Parse(configParams[0]) / 1000;
-                MidLength = float.Parse(configParams[1]) / 1000;
-                TipLength = float.Parse(configParams[2]) / 1000;
-                BaseMass = float.Parse(configParams[3]) / 1000;
-                MidMass = float.Parse(configParams[4]) / 1000;
-                TipMass = float.Parse(configParams[5]) / 1000;
+                BaseLength = float.Parse(configParams[0]) / 1000f;
+                MidLength = float.Parse(configParams[1]) / 1000f;
+                TipLength = float.Parse(configParams[2]) / 1000f;
+                BaseMass = float.Parse(configParams[3]) / 1000f;
+                MidMass = float.Parse(configParams[4]) / 1000f;
+                TipMass = float.Parse(configParams[5]) / 1000f;
                 BaseModulus = float.Parse(configParams[6]);
                 MidModulus = float.Parse(configParams[7]);
                 TipModulus = float.Parse(configParams[8]);
