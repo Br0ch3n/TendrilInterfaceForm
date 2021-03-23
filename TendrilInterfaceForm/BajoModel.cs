@@ -109,9 +109,17 @@ namespace TendrilInterfaceForm
 
                 for (int i = 0; i < 3; i++)
             {
+                
                 Falpha = (2 * (float)Math.Cos(tendrilState.GetCurveAngle(section) + i * 2 * Math.PI / 3)) / (3 * tendrilState.GetSpacerRadius(section));
+
+                if (PrintEnabled)
+                {
+                    Console.Write("Falpha = " + Falpha.ToString() + ", ");
+                }
+
                 TensionLoads[i] = F1 - Falpha * (F2 + (F3 * F4));
             }
+            if (PrintEnabled) Console.WriteLine();
         }
 
         public void PrintBajoOuput()

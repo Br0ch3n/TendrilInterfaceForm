@@ -553,7 +553,8 @@ namespace TendrilInterfaceForm
                 if (i < MnlTBArray.Length - 1) s += ",";
             }
             btSerialPort.WriteLine("Read," + s);
-            Console.WriteLine(s);
+            //Console.WriteLine(s);
+            //Console.WriteLine(s);
 
             // Update singleton encoder targets
             TendrilState.UpdateEncoderTargets(s);
