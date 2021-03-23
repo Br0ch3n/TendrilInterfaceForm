@@ -101,17 +101,13 @@ namespace TendrilInterfaceForm
             float F3 = (float)((m * 9.8 * L) / Math.Pow(Theta, 2));
             float F4 = ((((float)Math.Cos(2 * Theta) - 2 * (float)Math.Cos(Theta) + 1) / Theta) + ((float)Math.Sin(2 * Theta) - (float)Math.Sin(Theta)));
 
+            if (PrintEnabled)
+            {
+                Console.WriteLine("F1 = " + F1.ToString() + ", F2 = " + F2.ToString());
+                Console.WriteLine("F3 = " + F3.ToString() + ", F4 = " + F4.ToString());
+            }
 
-            //for i = 1:1:3
-            
-            //    Falpha = (2 * cos(phi + (i - 1) * 2 * pi / 3)) / (3 * r)
-            
-            //    F(i) = F1 - Falpha * (F2 + (F3 * F4));
-            //end
-            
-
-
-            for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 3; i++)
             {
                 Falpha = (2 * (float)Math.Cos(tendrilState.GetCurveAngle(section) + i * 2 * Math.PI / 3)) / (3 * tendrilState.GetSpacerRadius(section));
                 TensionLoads[i] = F1 - Falpha * (F2 + (F3 * F4));
