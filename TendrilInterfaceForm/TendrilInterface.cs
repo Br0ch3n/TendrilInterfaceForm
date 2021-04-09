@@ -810,6 +810,11 @@ namespace TendrilInterfaceForm
             TendrilState.PrintBajoModelData();
         }
 
+        private void printBajoOutputToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TendrilState.PrintBajoModelData();
+        }
+
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)
         {
             flgTimer = true;

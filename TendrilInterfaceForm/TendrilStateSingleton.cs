@@ -466,36 +466,6 @@ namespace TendrilInterfaceForm
 
         public void PrintBajoModelData()
         {
-            
-
-            //Console.Write("Sensor Values: ");
-            //for (int i = FirstMotor; i <= LastMotor; i++)
-            //{
-            //    Console.Write(SensorReading[i].ToString() + ", ");
-            //}
-            //Console.WriteLine(" ");
-
-            //Console.Write("Tension Values: ");
-            //for (int i = FirstMotor; i <= LastMotor; i++)
-            //{
-            //    Console.Write(Tension[i].ToString() + ", ");
-            //}
-            //Console.WriteLine(" ");
-
-            //Console.Write("Calib Scales: ");
-            //for (int i = FirstMotor; i <= LastMotor; i++)
-            //{
-            //    Console.Write(CalibrationScale[i].ToString() + ", ");
-            //}
-            //Console.WriteLine(" ");
-
-            //Console.Write("Calib Offsets: ");
-            //for (int i = FirstMotor; i <= LastMotor; i++)
-            //{
-            //    Console.Write(CalibrationOffset[i].ToString() + ", ");
-            //}
-            //Console.WriteLine(" ");
-
             bajoModel.PrintBajoOuput();
         }
     }

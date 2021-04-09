@@ -158,7 +158,7 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
-            this.printBajoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBajoOutputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -212,7 +212,8 @@
             this.manualControlToolStripMenuItem,
             this.displayToolStripMenuItem,
             this.trackingToolStripMenuItem,
-            this.modelsToolStripMenuItem});
+            this.modelsToolStripMenuItem,
+            this.printBajoOutputToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -299,8 +300,7 @@
             // modelsToolStripMenuItem
             // 
             this.modelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializeModelsToolStripMenuItem,
-            this.printBajoToolStripMenuItem});
+            this.initializeModelsToolStripMenuItem});
             this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
             this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.modelsToolStripMenuItem.Text = "Models";
@@ -1492,12 +1492,12 @@
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
             // 
-            // printBajoToolStripMenuItem
+            // printBajoOutputToolStripMenuItem
             // 
-            this.printBajoToolStripMenuItem.Name = "printBajoToolStripMenuItem";
-            this.printBajoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.printBajoToolStripMenuItem.Text = "Print Bajo";
-            this.printBajoToolStripMenuItem.Click += new System.EventHandler(this.printBajoToolStripMenuItem_Click);
+            this.printBajoOutputToolStripMenuItem.Name = "printBajoOutputToolStripMenuItem";
+            this.printBajoOutputToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.printBajoOutputToolStripMenuItem.Text = "Print Bajo Output";
+            this.printBajoOutputToolStripMenuItem.Click += new System.EventHandler(this.printBajoOutputToolStripMenuItem_Click);
             // 
             // TendrilInterface
             // 
@@ -1702,7 +1702,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadConfigFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initializeModelsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printBajoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printBajoOutputToolStripMenuItem;
     }
 }
 

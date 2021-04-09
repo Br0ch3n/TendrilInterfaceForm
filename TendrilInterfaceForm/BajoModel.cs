@@ -16,7 +16,9 @@ namespace TendrilInterfaceForm
         private Vector3 TensionLoads;
         private DateTime timeLast, timeCurrent;
         private TimeSpan timeElapsed;
+        private float deltaOutput, OutputLast, Output;
         private bool PrintEnabled;
+        private Vector3 Result;
 
 
         //private TendrilStateSingleton tendrilState;
@@ -33,7 +35,11 @@ namespace TendrilInterfaceForm
             timeElapsed = new TimeSpan();
             timeLast = DateTime.Now;
             PrintEnabled = false;
-            
+            Output = new float();
+            OutputLast = new float();
+            deltaOutput = new float();
+            Result = new Vector3();
+
         }
 
         public void ContactDetection(int section, Matrix3 J)
@@ -59,22 +65,25 @@ namespace TendrilInterfaceForm
             
             Jacobian = J.Transpose();
 
-            Vector3 J_Tao = Jacobian * Tao;
+            Result = (Tao - TensionLoads);
 
-            Vector3 result = (Jacobian * Tao - TensionLoads);
-           
+            Vector3 J_Tao_F = Jacobian * Result;
 
-            double Theta = Math.Sqrt(Math.Pow(result.X,2) + Math.Pow(result.Y, 2) + Math.Pow(result.Z, 2));
+            OutputLast = Output;
+            Output = (float)Math.Sqrt(Math.Pow(Result.X,2) + Math.Pow(Result.Y, 2) + Math.Pow(Result.Z, 2));
+            deltaOutput = Output - deltaOutput;
 
             if (PrintEnabled)
             {
                 Console.WriteLine("K: " + tendrilState.GetCurvature(section).ToString() + ", Phi : " + tendrilState.GetCurveAngle(section).ToString());
+                Console.WriteLine("Encoders: " + tendrilState.GetEncoders()[0].ToString() + ", " + tendrilState.GetEncoders()[1].ToString() + ", " + tendrilState.GetEncoders()[2].ToString());
                 Console.WriteLine("Tao: " + Tao[0].ToString() + ", " + Tao[1].ToString() + ", " + Tao[2].ToString());
-                Console.WriteLine("Jacobian * Tao: " + J_Tao[0].ToString() + ", " + J_Tao[1].ToString() + ", " + J_Tao[2].ToString());
                 Console.WriteLine("F: " + TensionLoads[0].ToString() + ", " + TensionLoads[1].ToString() + ", " + TensionLoads[2].ToString());
-                Console.WriteLine("Result: " + result[0].ToString() + ", " + result[1].ToString() + ", " + result[2].ToString());
-                if (Theta > ContactThreshold) Console.WriteLine("CONTACT! Theta = " + Theta.ToString());
-                else Console.WriteLine("No contact... Theta = " + Theta.ToString());
+                Console.WriteLine("Tao-F: " + Result[0].ToString() + ", " + Result[1].ToString() + ", " + Result[2].ToString());
+                Console.WriteLine("Jacobian * (Tao-F): " + J_Tao_F[0].ToString() + ", " + J_Tao_F[1].ToString() + ", " + J_Tao_F[2].ToString());
+                Console.WriteLine("Delta Output: " + deltaOutput.ToString());
+                if (Output > ContactThreshold) Console.WriteLine("CONTACT! Theta = " + Output.ToString());
+                else Console.WriteLine("No contact... Theta = " + Output.ToString());
                 PrintEnabled = false;
             }
         }
@@ -103,8 +112,8 @@ namespace TendrilInterfaceForm
 
             if (PrintEnabled)
             {
-                Console.WriteLine("F1 = " + F1.ToString() + ", F2 = " + F2.ToString());
-                Console.WriteLine("F3 = " + F3.ToString() + ", F4 = " + F4.ToString());
+                //Console.WriteLine("F1 = " + F1.ToString() + ", F2 = " + F2.ToString());
+                //Console.WriteLine("F3 = " + F3.ToString() + ", F4 = " + F4.ToString());
             }
 
                 for (int i = 0; i < 3; i++)
