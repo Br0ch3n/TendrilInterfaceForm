@@ -384,9 +384,9 @@ namespace TendrilInterfaceForm
         {
             String[] s = new String[9];
 
-            for (int i = FirstMotor; i < LastMotor; i++)
+            for (int i = FirstMotor; i <= LastMotor; i++)
             {
-                s[i] = Tension[i].ToString();
+                s[i] = (Tension[i] *0.0098f).ToString();
             }
 
             return s;
@@ -401,7 +401,7 @@ namespace TendrilInterfaceForm
         {
             String[] s = new String[9];
 
-            for (int i = FirstMotor; i < LastMotor; i++)
+            for (int i = FirstMotor; i <= LastMotor; i++)
             {
                 s[i] = Encoder[i].ToString();
             }

@@ -41,16 +41,16 @@ namespace TendrilInterfaceForm
 
             for (int i = 0; i < cnts.Length; i++)
             {
-                if (i == cnts.Length - 1)
-                {
-                    s += cnts[i].Remove(cnts[i].LastIndexOf('\r'), 1);
-                    s += ",";
-                }
-                else
-                {
+                //if (i == cnts.Length - 1)
+                //{
+                //    s += cnts[i].Remove(cnts[i].LastIndexOf('\r'), 1);
+                //    s += ",";
+                //}
+                //else
+                //{
                     s += cnts[i];
                     s += ",";
-                }
+                //}
             }
             for (int i = 0; i < tens.Length; i++)
             {
