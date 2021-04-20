@@ -226,12 +226,13 @@ namespace TendrilInterfaceForm
             else flgWriteAll = false;
         }
 
-        private void btnCSVWriterSend_Click(object sender, EventArgs e)
+        private void btnCSVWriterSend_Click(object sender, EventArgs e)//// HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! for printing
         {
             if (outputFile != null)
             {
                 TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
-                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions()));
+                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), touchToolStripMenuItem.Checked));
+                
             }
         }
 
@@ -704,6 +705,7 @@ namespace TendrilInterfaceForm
             String[] evenOutput;
             String tempString;
             bool targetMet = true;
+            bool Touch = touchToolStripMenuItem.Checked;
             String[] lines = rxString.Split('\t');
             //if (lines.Length != 2) return;
 
@@ -786,7 +788,8 @@ namespace TendrilInterfaceForm
             }
             if (flgWriting && flgWriteAll)
             {
-                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(),TendrilState.GetTensions()));
+                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), touchToolStripMenuItem.Checked));
+                
             }
             flgProcessing = false;
 
@@ -813,6 +816,11 @@ namespace TendrilInterfaceForm
         private void printBajoOutputToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TendrilState.PrintBajoModelData();
+        }
+
+        private void touchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            touchToolStripMenuItem.Checked = !touchToolStripMenuItem.Checked;
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)

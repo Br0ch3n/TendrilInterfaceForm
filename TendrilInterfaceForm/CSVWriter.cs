@@ -35,7 +35,7 @@ namespace TendrilInterfaceForm
             strmActive = false;
         }
 
-        public String CSV_PrepareLog(string[] cnts, string[] tens)
+        public String CSV_PrepareLog(string[] cnts, string[] tens, bool touch)
         {
             String s = TendrilUtils.GetTimesstamp(DateTime.Now) + ",";
 
