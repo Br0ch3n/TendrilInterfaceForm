@@ -215,7 +215,7 @@ namespace TendrilInterfaceForm
                 if (outputFile != null) outputFile.CloseCSV();
                 outputFile = new CSVWriter(saveFileDialog1.OpenFile());
                 //lblCSVWriter.Text = "File opened, Begin?...";
-                String s = "Timestamp,E0,E1,E2,E3,E4,E5,E6,E7,E8,T0,T1,T2,T3,T4,T5,T6,T7,T8";
+                String s = "Timestamp,E0,E1,E2,E3,E4,E5,E6,E7,E8,T0,T1,T2,T3,T4,T5,T6,T7,T8,Touch";
                 outputFile.CSV_WriteLine(s);
             }
         }
