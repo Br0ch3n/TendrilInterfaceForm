@@ -48,8 +48,8 @@ namespace TendrilInterfaceForm
                 //}
                 //else
                 //{
-                    s += cnts[i];
-                    s += ",";
+                s += cnts[i];
+                s += ",";
                 //}
             }
             for (int i = 0; i < tens.Length; i++)
@@ -57,6 +57,9 @@ namespace TendrilInterfaceForm
                 s += tens[i];
                 if (i < tens.Length - 1) s += ",";
             }
+
+            s += touch.ToString();
+
             return s;
         }
 

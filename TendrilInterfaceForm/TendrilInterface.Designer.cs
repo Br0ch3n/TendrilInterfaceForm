@@ -159,7 +159,7 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
-            this.touchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbCSVWriterTouch = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -301,8 +301,7 @@
             // modelsToolStripMenuItem
             // 
             this.modelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializeModelsToolStripMenuItem,
-            this.touchToolStripMenuItem});
+            this.initializeModelsToolStripMenuItem});
             this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
             this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.modelsToolStripMenuItem.Text = "Models";
@@ -1356,6 +1355,7 @@
             // 
             // pnlCSVWriter
             // 
+            this.pnlCSVWriter.Controls.Add(this.cbCSVWriterTouch);
             this.pnlCSVWriter.Controls.Add(this.cbCSVWriterSendAll);
             this.pnlCSVWriter.Controls.Add(this.btnCSVWriterSend);
             this.pnlCSVWriter.Controls.Add(this.btnCSVWriterEnd);
@@ -1364,7 +1364,7 @@
             this.pnlCSVWriter.Location = new System.Drawing.Point(14, 338);
             this.pnlCSVWriter.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCSVWriter.Name = "pnlCSVWriter";
-            this.pnlCSVWriter.Size = new System.Drawing.Size(463, 46);
+            this.pnlCSVWriter.Size = new System.Drawing.Size(463, 34);
             this.pnlCSVWriter.TabIndex = 41;
             // 
             // cbCSVWriterSendAll
@@ -1501,12 +1501,16 @@
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
             // 
-            // touchToolStripMenuItem
+            // cbCSVWriterTouch
             // 
-            this.touchToolStripMenuItem.Name = "touchToolStripMenuItem";
-            this.touchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.touchToolStripMenuItem.Text = "Touch";
-            this.touchToolStripMenuItem.Click += new System.EventHandler(this.touchToolStripMenuItem_Click);
+            this.cbCSVWriterTouch.AutoSize = true;
+            this.cbCSVWriterTouch.Location = new System.Drawing.Point(146, 6);
+            this.cbCSVWriterTouch.Name = "cbCSVWriterTouch";
+            this.cbCSVWriterTouch.Size = new System.Drawing.Size(57, 17);
+            this.cbCSVWriterTouch.TabIndex = 5;
+            this.cbCSVWriterTouch.Text = "Touch";
+            this.cbCSVWriterTouch.UseVisualStyleBackColor = true;
+            this.cbCSVWriterTouch.CheckedChanged += new System.EventHandler(this.cbCSVWriterTouch_CheckedChanged);
             // 
             // TendrilInterface
             // 
@@ -1712,7 +1716,7 @@
         private System.Windows.Forms.ToolStripMenuItem modelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initializeModelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printBajoOutputToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem touchToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbCSVWriterTouch;
     }
 }
 

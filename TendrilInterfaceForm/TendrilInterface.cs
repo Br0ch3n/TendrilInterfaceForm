@@ -231,7 +231,7 @@ namespace TendrilInterfaceForm
             if (outputFile != null)
             {
                 TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
-                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), touchToolStripMenuItem.Checked));
+                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
                 
             }
         }
@@ -705,7 +705,7 @@ namespace TendrilInterfaceForm
             String[] evenOutput;
             String tempString;
             bool targetMet = true;
-            bool Touch = touchToolStripMenuItem.Checked;
+            bool Touch = cbCSVWriterTouch.Checked;
             String[] lines = rxString.Split('\t');
             //if (lines.Length != 2) return;
 
@@ -788,7 +788,7 @@ namespace TendrilInterfaceForm
             }
             if (flgWriting && flgWriteAll)
             {
-                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), touchToolStripMenuItem.Checked));
+                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
                 
             }
             flgProcessing = false;
@@ -818,9 +818,9 @@ namespace TendrilInterfaceForm
             TendrilState.PrintBajoModelData();
         }
 
-        private void touchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cbCSVWriterTouch_CheckedChanged(object sender, EventArgs e)
         {
-            touchToolStripMenuItem.Checked = !touchToolStripMenuItem.Checked;
+            cbCSVWriterTouch.Checked = !cbCSVWriterTouch.Checked;
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)
