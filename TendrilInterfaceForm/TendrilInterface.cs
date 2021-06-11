@@ -265,7 +265,10 @@ namespace TendrilInterfaceForm
             btnCSVWriterEnd.Enabled = false;
         }
 
-        
+        private void cbCSVWriterTouch_CheckedChanged(object sender, EventArgs e)
+        {
+            //cbCSVWriterTouch.Checked = !cbCSVWriterTouch.Checked;
+        }
 
         //////////////////////////////////////////////////////////////////////
         ////////////////////       Manual Control Code      //////////////////
@@ -288,7 +291,6 @@ namespace TendrilInterfaceForm
                 pnlMnlControl.Enabled = false;
                 pnlMnlControl.Visible = false;
             }
-                
         }
 
         private void btnMnlMot0_MM_Click(object sender, EventArgs e)
@@ -816,11 +818,6 @@ namespace TendrilInterfaceForm
         private void printBajoOutputToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TendrilState.PrintBajoModelData();
-        }
-
-        private void cbCSVWriterTouch_CheckedChanged(object sender, EventArgs e)
-        {
-            cbCSVWriterTouch.Checked = !cbCSVWriterTouch.Checked;
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)

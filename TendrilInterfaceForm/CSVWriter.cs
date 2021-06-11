@@ -48,14 +48,12 @@ namespace TendrilInterfaceForm
                 //}
                 //else
                 //{
-                s += cnts[i];
-                s += ",";
+                s += cnts[i] + ',';
                 //}
             }
             for (int i = 0; i < tens.Length; i++)
             {
-                s += tens[i];
-                if (i < tens.Length - 1) s += ",";
+                s += tens[i] + ",";
             }
 
             s += touch.ToString();

@@ -85,7 +85,7 @@ namespace TendrilInterfaceForm
                     }
                 }
 
-                if (instance == null) throw new Exception("WTF it is still sending null");
+                if (instance == null) throw new Exception("Instance is NULL");
                 return instance;
             }
 
