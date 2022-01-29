@@ -25,7 +25,10 @@ namespace TendrilInterfaceForm
         private int[] Encoder;
         private int[] EncoderTarget;
 
-        private float[] TendonLength;
+        private int[] StringEncoderValue;
+        private float[] StringEncoderLength;
+
+        private float[] CalcTendonLength;
 
         private int FirstMotor;
         private int LastMotor;
@@ -105,7 +108,9 @@ namespace TendrilInterfaceForm
             oldTension = new float[9];
             Encoder = new int[9];
             EncoderTarget = new int[9];
-            TendonLength = new float[9];
+            StringEncoderValue = new int[9];
+            StringEncoderLength = new float[9];
+            CalcTendonLength = new float[9];
             FirstMotor = 0;
             LastMotor = 8; // Normally 8, because 9 motors
             EncSmlIncrement = 50;
@@ -278,15 +283,20 @@ namespace TendrilInterfaceForm
             {
                 if (i < 3)
                 {
-                    TendonLength[i] = this.Encoder[i] / (-(CountsPerRotationLarge / LengthPerRotationLarge)) + BaseLength;
+                    CalcTendonLength[i] = this.Encoder[i] / (-(CountsPerRotationLarge / LengthPerRotationLarge)) + BaseLength;
                 } else if (i >= 6)
                 {
-                    TendonLength[i] = this.Encoder[i] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + TipLength;
+                    CalcTendonLength[i] = this.Encoder[i] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + TipLength;
                 } else
                 {
-                    TendonLength[i] = this.Encoder[i] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + MidLength;
+                    CalcTendonLength[i] = this.Encoder[i] / (-(CountsPerRotationSmall / LengthPerRotationSmall)) + MidLength;
                 }
             }
+        }
+
+        public void UpdateStringEncoders(String[] input)
+        {
+
         }
 
         public void ProcessTendrilInput()
@@ -443,14 +453,14 @@ namespace TendrilInterfaceForm
                     TrackedSensor[i].Update(SensorReading[i]); 
                     TrackedTension[i].Update(Tension[i]);
                     TrackedEncoder[i].Update(Encoder[i]);
-                    TrackedTendonLength[i].Update(TendonLength[i]);
+                    TrackedTendonLength[i].Update(CalcTendonLength[i]);
                 }
             }
         }
 
         public void UpdateModels()
         {
-            jonesModel.Update(TendonLength, TendrilUtils.BASE_SECTION);
+            jonesModel.Update(CalcTendonLength, TendrilUtils.BASE_SECTION);
             bajoModel.ContactDetection(TendrilUtils.BASE_SECTION, jonesModel.CreateSingleSectionJacobian(TendrilUtils.BASE_SECTION));
         }
 

@@ -23,6 +23,7 @@ namespace TendrilInterfaceForm
         private String rxString;
         private String[] cntsFeedback;
         private String[] tensFeedback;
+        private String[] strEncFeedback;
         private String[] cntsSim;
         private int runAvgSize;
         private TextBox[] MnlTBArray;
@@ -674,7 +675,8 @@ namespace TendrilInterfaceForm
                 rxString = btSerialPort.ReadLine();
                 //this.Invoke(new EventHandler(NewData));
                 String[] lines = rxString.Split('\t');
-                if (lines.Length != 2) return;
+                if (!singleSectionModeToolStripMenuItem.Checked && lines.Length != 2) return;
+                else if (singleSectionModeToolStripMenuItem.Checked && lines.Length != 3) return; 
                 
 
                 //cntStatusLabel.Text = lines[1];
@@ -683,13 +685,16 @@ namespace TendrilInterfaceForm
                 //tenStatusLabel.Text = lines[0];
                 tensFeedback = lines[0].Split(',');
 
+                if(singleSectionModeToolStripMenuItem.Checked) strEncFeedback = lines[2].Split(',');
+
                 if(!ModelsInitialized)
                 {
                     TendrilState.InitializeModels();
                     ModelsInitialized = true;
                 }
 
-                if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
+                if (!singleSectionModeToolStripMenuItem.Checked && (tensFeedback.Length != 9 || cntsFeedback.Length != 9)) return;
+                else if (singleSectionModeToolStripMenuItem.Checked && (tensFeedback.Length != 9 || cntsFeedback.Length != 9 || strEncFeedback.Length != 9)) return;
 
 
                 Invoke(new EventHandler(NewData));
@@ -722,6 +727,7 @@ namespace TendrilInterfaceForm
 
             TendrilState.UpdateTensions(tensFeedback);
             TendrilState.UpdateEncoders(cntsFeedback);
+
             //TendrilState.UpdateFilters();
             TendrilState.UpdateModels();
 
@@ -818,6 +824,11 @@ namespace TendrilInterfaceForm
         private void printBajoOutputToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TendrilState.PrintBajoModelData();
+        }
+
+        private void singleSectionModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)

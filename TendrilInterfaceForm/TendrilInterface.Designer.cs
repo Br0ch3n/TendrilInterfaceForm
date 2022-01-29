@@ -145,6 +145,7 @@
             this.btnEvenTension = new System.Windows.Forms.Button();
             this.btnStopEven = new System.Windows.Forms.Button();
             this.pnlCSVWriter = new System.Windows.Forms.Panel();
+            this.cbCSVWriterTouch = new System.Windows.Forms.CheckBox();
             this.cbCSVWriterSendAll = new System.Windows.Forms.CheckBox();
             this.btnCSVWriterSend = new System.Windows.Forms.Button();
             this.btnCSVWriterEnd = new System.Windows.Forms.Button();
@@ -159,7 +160,7 @@
             this.labValueMotor6 = new System.Windows.Forms.Label();
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
-            this.cbCSVWriterTouch = new System.Windows.Forms.CheckBox();
+            this.singleSectionModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -273,13 +274,13 @@
             // graphTensionToolStripMenuItem
             // 
             this.graphTensionToolStripMenuItem.Name = "graphTensionToolStripMenuItem";
-            this.graphTensionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.graphTensionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.graphTensionToolStripMenuItem.Text = "Graph Tension";
             // 
             // simulationToolStripMenuItem
             // 
             this.simulationToolStripMenuItem.Name = "simulationToolStripMenuItem";
-            this.simulationToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.simulationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.simulationToolStripMenuItem.Text = "Simulation";
             this.simulationToolStripMenuItem.Click += new System.EventHandler(this.simulationToolStripMenuItem_Click);
             // 
@@ -294,22 +295,23 @@
             // kalmanFilterToolStripMenuItem
             // 
             this.kalmanFilterToolStripMenuItem.Name = "kalmanFilterToolStripMenuItem";
-            this.kalmanFilterToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.kalmanFilterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kalmanFilterToolStripMenuItem.Text = "Kalman Filter";
             this.kalmanFilterToolStripMenuItem.Click += new System.EventHandler(this.kalmanFilterToolStripMenuItem_Click);
             // 
             // modelsToolStripMenuItem
             // 
             this.modelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializeModelsToolStripMenuItem});
+            this.initializeModelsToolStripMenuItem,
+            this.singleSectionModeToolStripMenuItem});
             this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
-            this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.modelsToolStripMenuItem.Text = "Models";
+            this.modelsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.modelsToolStripMenuItem.Text = "Configuration";
             // 
             // initializeModelsToolStripMenuItem
             // 
             this.initializeModelsToolStripMenuItem.Name = "initializeModelsToolStripMenuItem";
-            this.initializeModelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.initializeModelsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.initializeModelsToolStripMenuItem.Text = "Initialize Models";
             this.initializeModelsToolStripMenuItem.Click += new System.EventHandler(this.initializeModelsToolStripMenuItem_Click);
             // 
@@ -1367,6 +1369,17 @@
             this.pnlCSVWriter.Size = new System.Drawing.Size(463, 34);
             this.pnlCSVWriter.TabIndex = 41;
             // 
+            // cbCSVWriterTouch
+            // 
+            this.cbCSVWriterTouch.AutoSize = true;
+            this.cbCSVWriterTouch.Location = new System.Drawing.Point(146, 6);
+            this.cbCSVWriterTouch.Name = "cbCSVWriterTouch";
+            this.cbCSVWriterTouch.Size = new System.Drawing.Size(57, 17);
+            this.cbCSVWriterTouch.TabIndex = 5;
+            this.cbCSVWriterTouch.Text = "Touch";
+            this.cbCSVWriterTouch.UseVisualStyleBackColor = true;
+            this.cbCSVWriterTouch.CheckedChanged += new System.EventHandler(this.cbCSVWriterTouch_CheckedChanged);
+            // 
             // cbCSVWriterSendAll
             // 
             this.cbCSVWriterSendAll.AutoSize = true;
@@ -1501,16 +1514,13 @@
             this.labValueMotor8.TabIndex = 50;
             this.labValueMotor8.Text = "0";
             // 
-            // cbCSVWriterTouch
+            // singleSectionModeToolStripMenuItem
             // 
-            this.cbCSVWriterTouch.AutoSize = true;
-            this.cbCSVWriterTouch.Location = new System.Drawing.Point(146, 6);
-            this.cbCSVWriterTouch.Name = "cbCSVWriterTouch";
-            this.cbCSVWriterTouch.Size = new System.Drawing.Size(57, 17);
-            this.cbCSVWriterTouch.TabIndex = 5;
-            this.cbCSVWriterTouch.Text = "Touch";
-            this.cbCSVWriterTouch.UseVisualStyleBackColor = true;
-            this.cbCSVWriterTouch.CheckedChanged += new System.EventHandler(this.cbCSVWriterTouch_CheckedChanged);
+            this.singleSectionModeToolStripMenuItem.CheckOnClick = true;
+            this.singleSectionModeToolStripMenuItem.Name = "singleSectionModeToolStripMenuItem";
+            this.singleSectionModeToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.singleSectionModeToolStripMenuItem.Text = "Single Section Mode";
+            this.singleSectionModeToolStripMenuItem.Click += new System.EventHandler(this.singleSectionModeToolStripMenuItem_Click);
             // 
             // TendrilInterface
             // 
@@ -1717,6 +1727,7 @@
         private System.Windows.Forms.ToolStripMenuItem initializeModelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printBajoOutputToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbCSVWriterTouch;
+        private System.Windows.Forms.ToolStripMenuItem singleSectionModeToolStripMenuItem;
     }
 }
 
