@@ -27,6 +27,8 @@ namespace TendrilInterfaceForm
 
         private int[] StringEncoderValue;
         private float[] StringEncoderLength;
+        private float StringEncoderConstant;
+        private float[] DeltaStrEncValues;
 
         private float[] CalcTendonLength;
 
@@ -110,6 +112,8 @@ namespace TendrilInterfaceForm
             EncoderTarget = new int[9];
             StringEncoderValue = new int[9];
             StringEncoderLength = new float[9];
+            StringEncoderConstant = .001f;
+            DeltaStrEncValues = new float[9];
             CalcTendonLength = new float[9];
             FirstMotor = 0;
             LastMotor = 8; // Normally 8, because 9 motors
@@ -296,7 +300,14 @@ namespace TendrilInterfaceForm
 
         public void UpdateStringEncoders(String[] input)
         {
-
+            int[] oldValues = new int[9];
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                oldValues[i] = StringEncoderValue[i];
+                StringEncoderValue[i] = Int32.Parse(input[i]);
+                DeltaStrEncValues[i] = StringEncoderValue[i] - oldValues[i];
+                StringEncoderLength[i] = StringEncoderLength[i] + (float)(DeltaStrEncValues[i]) * StringEncoderConstant;
+            }
         }
 
         public void ProcessTendrilInput()
@@ -419,6 +430,18 @@ namespace TendrilInterfaceForm
             return s;
         }
 
+        public String[] GetStrEncLengths()
+        {
+            String[] s = new String[9];
+
+            for (int i = FirstMotor; i <= LastMotor; i++)
+            {
+                s[i] = StringEncoderLength[i].ToString();
+            }
+
+            return s;
+        }
+
         public float GetSpacerRadius(int section)
         {
             return SpacerRadius[section];
@@ -460,7 +483,7 @@ namespace TendrilInterfaceForm
 
         public void UpdateModels()
         {
-            jonesModel.Update(CalcTendonLength, TendrilUtils.BASE_SECTION);
+            jonesModel.Update(StringEncoderLength, TendrilUtils.BASE_SECTION);
             bajoModel.ContactDetection(TendrilUtils.BASE_SECTION, jonesModel.CreateSingleSectionJacobian(TendrilUtils.BASE_SECTION));
         }
 

@@ -796,8 +796,8 @@ namespace TendrilInterfaceForm
             }
             if (flgWriting && flgWriteAll)
             {
-                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
-                
+                if (singleSectionModeToolStripMenuItem.Checked) outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), TendrilState.GetStrEncLengths(), cbCSVWriterTouch.Checked));
+                else outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
             }
             flgProcessing = false;
 

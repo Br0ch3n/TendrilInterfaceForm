@@ -61,5 +61,26 @@ namespace TendrilInterfaceForm
             return s;
         }
 
+        public String CSV_PrepareLog(string[] cnts, string[] tens, string[] strEncLen, bool touch)
+        {
+            String s = TendrilUtils.GetTimesstamp(DateTime.Now) + ",";
+
+            for (int i = 0; i < cnts.Length; i++)
+            {
+                s += cnts[i] + ',';
+            }
+            for (int i = 0; i < tens.Length; i++)
+            {
+                s += tens[i] + ",";
+            }
+            for (int i = 0; i < tens.Length; i++)
+            {
+                s += strEncLen[i] + ",";
+            }
+            s += touch.ToString();
+
+            return s;
+        }
+
     }
 }
