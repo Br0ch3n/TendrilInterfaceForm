@@ -673,28 +673,6 @@ namespace TendrilInterfaceForm
             {
                 flgProcessing = true;
                 rxString = btSerialPort.ReadLine();
-                //this.Invoke(new EventHandler(NewData));
-                String[] lines = rxString.Split('\t');
-                if (!singleSectionModeToolStripMenuItem.Checked && lines.Length != 2) return;
-                else if (singleSectionModeToolStripMenuItem.Checked && lines.Length != 3) return; 
-                
-
-                //cntStatusLabel.Text = lines[1];
-                cntsFeedback = lines[1].Split(',');
-                ParseCounts(cntsFeedback);
-                //tenStatusLabel.Text = lines[0];
-                tensFeedback = lines[0].Split(',');
-
-                if(singleSectionModeToolStripMenuItem.Checked) strEncFeedback = lines[2].Split(',');
-
-                if(!ModelsInitialized)
-                {
-                    TendrilState.InitializeModels();
-                    ModelsInitialized = true;
-                }
-
-                if (!singleSectionModeToolStripMenuItem.Checked && (tensFeedback.Length != 9 || cntsFeedback.Length != 9)) return;
-                else if (singleSectionModeToolStripMenuItem.Checked && (tensFeedback.Length != 9 || cntsFeedback.Length != 9 || strEncFeedback.Length != 9)) return;
 
 
                 Invoke(new EventHandler(NewData));
@@ -713,9 +691,22 @@ namespace TendrilInterfaceForm
             String tempString;
             bool targetMet = true;
             bool Touch = cbCSVWriterTouch.Checked;
+            //Console.WriteLine(rxString);
             String[] lines = rxString.Split('\t');
-            if (!singleSectionModeToolStripMenuItem.Checked && lines.Length != 2) return;
-            else if (singleSectionModeToolStripMenuItem.Checked && lines.Length != 3) return;
+            //if (!singleSectionModeToolStripMenuItem.Checked && (lines.Length != 2 || lines.Length != 3))
+            //{
+            //    Console.WriteLine("A: Should be writing correctly.. Line length is " + lines.Length.ToString());
+            //    return;
+            //}
+            if (singleSectionModeToolStripMenuItem.Checked && lines.Length != 3)
+            {
+                //Console.WriteLine("B: Should be writing correctly.. Line length is " + lines.Length.ToString());
+                return;
+            }
+            else
+            {
+                //Console.WriteLine("Recieve Success: Lines Length is " + lines.Length.ToString());
+            }
 
             strEncStatusLabel.Text = lines[2];
             strEncFeedback = lines[2].Split(',');
@@ -725,7 +716,16 @@ namespace TendrilInterfaceForm
             tenStatusLabel.Text = lines[0];
             tensFeedback = lines[0].Split(',');
 
-            //if (tensFeedback.Length != 9 || cntsFeedback.Length != 9) return;
+            if (singleSectionModeToolStripMenuItem.Checked) strEncFeedback = lines[2].Split(',');
+
+            if (!ModelsInitialized)
+            {
+                TendrilState.InitializeModels();
+                ModelsInitialized = true;
+            }
+
+            if (!singleSectionModeToolStripMenuItem.Checked && (tensFeedback.Length != 9 || cntsFeedback.Length != 9)) return;
+            else if (singleSectionModeToolStripMenuItem.Checked && (tensFeedback.Length != 9 || cntsFeedback.Length != 9 || strEncFeedback.Length != 9)) return;
 
             TendrilState.UpdateTensions(tensFeedback);
             TendrilState.UpdateEncoders(cntsFeedback);
@@ -735,13 +735,13 @@ namespace TendrilInterfaceForm
 
             cntsSim = simCurrTxLabel.Text.Split(',');
 
-            if(singleSectionModeToolStripMenuItem.Checked)
+            if(!singleSectionModeToolStripMenuItem.Checked)
             {
                 TendrilUtils.SetProgressBars(this, tensFeedback);
                 TendrilUtils.SetValueLabels(this, tensFeedback);
             } else
             {
-                TendrilUtils.SetSingleSectionValueLabels(this, tensFeedback, strEncFeedback);
+                TendrilUtils.SetSingleSectionValueLabels(this, tensFeedback, TendrilState.GetStrEncLengths());
             }
             
 

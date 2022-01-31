@@ -306,7 +306,7 @@ namespace TendrilInterfaceForm
                 oldValues[i] = StringEncoderValue[i];
                 StringEncoderValue[i] = Int32.Parse(input[i]);
                 DeltaStrEncValues[i] = StringEncoderValue[i] - oldValues[i];
-                StringEncoderLength[i] = StringEncoderLength[i] + (float)(DeltaStrEncValues[i]) * StringEncoderConstant;
+                StringEncoderLength[i] = BaseLength + (float)(StringEncoderValue[i]) * StringEncoderConstant;
             }
         }
 
