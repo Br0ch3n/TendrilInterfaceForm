@@ -161,6 +161,8 @@
             this.labValueMotor7 = new System.Windows.Forms.Label();
             this.labValueMotor8 = new System.Windows.Forms.Label();
             this.singleSectionModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.strEncTextLabel = new System.Windows.Forms.Label();
+            this.strEncStatusLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlMnlControl.SuspendLayout();
             this.pnlCSVWriter.SuspendLayout();
@@ -355,7 +357,7 @@
             // cntTxtLabel
             // 
             this.cntTxtLabel.AutoSize = true;
-            this.cntTxtLabel.Location = new System.Drawing.Point(11, 66);
+            this.cntTxtLabel.Location = new System.Drawing.Point(10, 60);
             this.cntTxtLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cntTxtLabel.Name = "cntTxtLabel";
             this.cntTxtLabel.Size = new System.Drawing.Size(73, 13);
@@ -365,7 +367,7 @@
             // tenTxtLabel
             // 
             this.tenTxtLabel.AutoSize = true;
-            this.tenTxtLabel.Location = new System.Drawing.Point(11, 91);
+            this.tenTxtLabel.Location = new System.Drawing.Point(10, 73);
             this.tenTxtLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tenTxtLabel.Name = "tenTxtLabel";
             this.tenTxtLabel.Size = new System.Drawing.Size(83, 13);
@@ -408,7 +410,7 @@
             // cntStatusLabel
             // 
             this.cntStatusLabel.AutoSize = true;
-            this.cntStatusLabel.Location = new System.Drawing.Point(117, 66);
+            this.cntStatusLabel.Location = new System.Drawing.Point(116, 60);
             this.cntStatusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cntStatusLabel.Name = "cntStatusLabel";
             this.cntStatusLabel.Size = new System.Drawing.Size(93, 13);
@@ -418,7 +420,7 @@
             // tenStatusLabel
             // 
             this.tenStatusLabel.AutoSize = true;
-            this.tenStatusLabel.Location = new System.Drawing.Point(117, 91);
+            this.tenStatusLabel.Location = new System.Drawing.Point(116, 73);
             this.tenStatusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tenStatusLabel.Name = "tenStatusLabel";
             this.tenStatusLabel.Size = new System.Drawing.Size(93, 13);
@@ -1522,11 +1524,33 @@
             this.singleSectionModeToolStripMenuItem.Text = "Single Section Mode";
             this.singleSectionModeToolStripMenuItem.Click += new System.EventHandler(this.singleSectionModeToolStripMenuItem_Click);
             // 
+            // strEncTextLabel
+            // 
+            this.strEncTextLabel.AutoSize = true;
+            this.strEncTextLabel.Location = new System.Drawing.Point(11, 86);
+            this.strEncTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.strEncTextLabel.Name = "strEncTextLabel";
+            this.strEncTextLabel.Size = new System.Drawing.Size(98, 13);
+            this.strEncTextLabel.TabIndex = 51;
+            this.strEncTextLabel.Text = "StrEncoder Values:";
+            // 
+            // strEncStatusLabel
+            // 
+            this.strEncStatusLabel.AutoSize = true;
+            this.strEncStatusLabel.Location = new System.Drawing.Point(116, 86);
+            this.strEncStatusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.strEncStatusLabel.Name = "strEncStatusLabel";
+            this.strEncStatusLabel.Size = new System.Drawing.Size(93, 13);
+            this.strEncStatusLabel.TabIndex = 52;
+            this.strEncStatusLabel.Text = "Nothing Received";
+            // 
             // TendrilInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 401);
+            this.Controls.Add(this.strEncStatusLabel);
+            this.Controls.Add(this.strEncTextLabel);
             this.Controls.Add(this.labValueMotor8);
             this.Controls.Add(this.labValueMotor7);
             this.Controls.Add(this.labValueMotor6);
@@ -1728,6 +1752,8 @@
         private System.Windows.Forms.ToolStripMenuItem printBajoOutputToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbCSVWriterTouch;
         private System.Windows.Forms.ToolStripMenuItem singleSectionModeToolStripMenuItem;
+        private System.Windows.Forms.Label strEncTextLabel;
+        private System.Windows.Forms.Label strEncStatusLabel;
     }
 }
 

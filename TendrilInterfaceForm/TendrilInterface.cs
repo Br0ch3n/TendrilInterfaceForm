@@ -714,9 +714,11 @@ namespace TendrilInterfaceForm
             bool targetMet = true;
             bool Touch = cbCSVWriterTouch.Checked;
             String[] lines = rxString.Split('\t');
-            //if (lines.Length != 2) return;
+            if (!singleSectionModeToolStripMenuItem.Checked && lines.Length != 2) return;
+            else if (singleSectionModeToolStripMenuItem.Checked && lines.Length != 3) return;
 
-
+            strEncStatusLabel.Text = lines[2];
+            strEncFeedback = lines[2].Split(',');
             cntStatusLabel.Text = lines[1];
             cntsFeedback = lines[1].Split(',');
             ParseCounts(cntsFeedback);
@@ -727,14 +729,21 @@ namespace TendrilInterfaceForm
 
             TendrilState.UpdateTensions(tensFeedback);
             TendrilState.UpdateEncoders(cntsFeedback);
-
+            TendrilState.UpdateStringEncoders(strEncFeedback);
             //TendrilState.UpdateFilters();
             TendrilState.UpdateModels();
 
             cntsSim = simCurrTxLabel.Text.Split(',');
 
-            TendrilUtils.SetProgressBars(this, tensFeedback);
-            TendrilUtils.SetValueLabels(this, tensFeedback);
+            if(singleSectionModeToolStripMenuItem.Checked)
+            {
+                TendrilUtils.SetProgressBars(this, tensFeedback);
+                TendrilUtils.SetValueLabels(this, tensFeedback);
+            } else
+            {
+                TendrilUtils.SetSingleSectionValueLabels(this, tensFeedback, strEncFeedback);
+            }
+            
 
             if (!(evenOut == ""))
             {
@@ -828,7 +837,21 @@ namespace TendrilInterfaceForm
 
         private void singleSectionModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (singleSectionModeToolStripMenuItem.Checked)
+            {
+                labTenMot3.Text = "Tendon 0 Length:";
+                labTenMot4.Text = "Tendon 1 Length:";
+                labTenMot5.Text = "Tendon 2 Length:";
+                labTenMot6.Text = "";
+                labTenMot7.Text = "";
+                labTenMot8.Text = "";
+                tenProgressBar3.Enabled = false;
+                tenProgressBar4.Enabled = false;
+                tenProgressBar5.Enabled = false;
+                tenProgressBar6.Enabled = false;
+                tenProgressBar7.Enabled = false;
+                tenProgressBar8.Enabled = false;
+            }
         }
 
         private void OnTimeElapsed(Object source, System.Timers.ElapsedEventArgs e)

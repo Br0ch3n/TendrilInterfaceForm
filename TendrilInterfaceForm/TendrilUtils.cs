@@ -49,6 +49,13 @@ namespace TendrilInterfaceForm
             t.labValueMotor6.Text = s[6]; t.labValueMotor7.Text = s[7]; t.labValueMotor8.Text = s[8];
         }
 
+        public static void SetSingleSectionValueLabels(TendrilInterface t, String[] s1, String[] s2)
+        {
+            t.labValueMotor0.Text = s1[0]; t.labValueMotor1.Text = s1[1]; t.labValueMotor2.Text = s1[2];
+            t.labValueMotor3.Text = s2[0]; t.labValueMotor4.Text = s2[1]; t.labValueMotor5.Text = s2[2];
+            t.labValueMotor6.Text = ""; t.labValueMotor7.Text = ""; t.labValueMotor8.Text = "";
+        }
+
         public static String AddText(String s1, String s2)
         {
             int temp = Int32.Parse(s1) + Int32.Parse(s2);
