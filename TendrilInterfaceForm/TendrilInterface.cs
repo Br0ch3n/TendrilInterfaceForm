@@ -201,6 +201,7 @@ namespace TendrilInterfaceForm
         private void saveOutputToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Displays an OpenFileDialog so the user can select a Cursor.  
+            String s;
             Height = Height + pnlCSVWriter.Height;
             pnlCSVWriter.Enabled = true;
             pnlCSVWriter.Visible = true;
@@ -210,13 +211,21 @@ namespace TendrilInterfaceForm
             // Show the Dialog.  
             // If the user clicked OK in the dialog and  
             // a .CUR file was selected, open it.  
+            
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 lblCSVWriter.Text = "Output File: " + saveFileDialog1.FileName.Split('\\').Last();
                 if (outputFile != null) outputFile.CloseCSV();
                 outputFile = new CSVWriter(saveFileDialog1.OpenFile());
                 //lblCSVWriter.Text = "File opened, Begin?...";
-                String s = "Timestamp,E0,E1,E2,E3,E4,E5,E6,E7,E8,T0,T1,T2,T3,T4,T5,T6,T7,T8,Touch";
+                if(singleSectionModeToolStripMenuItem.Checked)
+                {
+                    s = "Timestamp,E0,E1,E2,E3,E4,E5,E6,E7,E8,T0,T1,T2,T3,T4,T5,T6,T7,T8,L0,L1,L2,L3,L4,L5,L6,L7,L8,Touch";
+                } else
+                {
+                    s = "Timestamp,E0,E1,E2,E3,E4,E5,E6,E7,E8,T0,T1,T2,T3,T4,T5,T6,T7,T8,Touch";
+                }
+                
                 outputFile.CSV_WriteLine(s);
             }
         }
@@ -232,7 +241,14 @@ namespace TendrilInterfaceForm
             if (outputFile != null)
             {
                 TendrilStateSingleton TendrilState = TendrilStateSingleton.Instance;
-                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
+                if (!singleSectionModeToolStripMenuItem.Checked)
+                {
+                    outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
+                } else
+                {
+                    outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), TendrilState.GetStrEncLengths(), cbCSVWriterTouch.Checked));
+                }
+                
                 
             }
         }
@@ -805,8 +821,9 @@ namespace TendrilInterfaceForm
             }
             if (flgWriting && flgWriteAll)
             {
-                if (singleSectionModeToolStripMenuItem.Checked) outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), TendrilState.GetStrEncLengths(), cbCSVWriterTouch.Checked));
-                else outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
+                //if (singleSectionModeToolStripMenuItem.Checked) 
+                outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), TendrilState.GetStrEncLengths(), cbCSVWriterTouch.Checked));
+                //else outputFile.CSV_WriteLine(outputFile.CSV_PrepareLog(TendrilState.GetEncoders(), TendrilState.GetTensions(), cbCSVWriterTouch.Checked));
             }
             flgProcessing = false;
 
