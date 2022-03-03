@@ -39,7 +39,7 @@ namespace TendrilInterfaceForm
 
         public static String GetTimesstamp(this DateTime value)
         {
-            return value.ToString("yyyy:MM:dd:HH:mm:ss:fff");
+            return value.ToString("yyyy,MM,dd,HH,mm,ss,fff");
         }
 
         public static void SetValueLabels(TendrilInterface t, String[] s)

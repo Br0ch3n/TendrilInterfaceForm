@@ -37,7 +37,7 @@ namespace TendrilInterfaceForm
 
         public String CSV_PrepareLog(string[] cnts, string[] tens, bool touch)
         {
-            String s = TendrilUtils.GetTimesstamp(DateTime.Now) + ",";
+            String s = "";
 
             for (int i = 0; i < cnts.Length; i++)
             {
@@ -56,31 +56,40 @@ namespace TendrilInterfaceForm
                 s += tens[i] + ",";
             }
 
-            s += touch.ToString();
+            s += touch.ToString() + ",";
+
+
+            s += TendrilUtils.GetTimesstamp(DateTime.Now);
+
 
             return s;
         }
 
         public String CSV_PrepareLog(string[] cnts, string[] tens, string[] strEncLen, bool touch)
         {
-            String s = TendrilUtils.GetTimesstamp(DateTime.Now) + ",";
+            String s = "";
 
-            for (int i = 0; i < cnts.Length; i++)
+            
+            for (int i = 0; i < 3; i++)
             {
                 s += cnts[i] + ',';
             }
-            for (int i = 0; i < tens.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                s += tens[i] + ",";
+                s += tens[i] + ',';
             }
-            for (int i = 0; i < tens.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                s += strEncLen[i] + ",";
+                s += strEncLen[i] + ',';
             }
-            s += touch.ToString();
+            s += touch.ToString() + ',';
+
+            s += TendrilUtils.GetTimesstamp(DateTime.Now);
 
             return s;
         }
+
+
 
     }
 }
